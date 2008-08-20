@@ -1,0 +1,31 @@
+Authentication
+    A roles-based system for users to be created and managed. Users must be able to log in via cookie or session.
+Pages
+    A basic system to manage the pages on the site
+    a simplified markup language or WYSIWYG editor
+    images
+    revisions
+    published/unpublished states.
+Settings
+    Research into various options for configuration files/tables
+    A YAML configuration file or alternate configuration to store key-value pairs for settings
+    Guideline for settings and value types
+Themes
+    Theme directory structure
+    Sample themes, including YAML configuration file, CSS and images
+Posts
+    Wrapper for pages, linked via a contextual post model
+Search
+    Create a search controller
+Forms
+    Contact form
+Other
+    Packaging
+    Routing
+    Server Error Pages
+    Design and construction of an admin panel
+Test-driven development
+    Test Plan created
+    All items have tests created before the items themselves are created
+Quality Metrics
+    Quality analysis and implementation plan created
