@@ -1,0 +1,25 @@
+  [4;36;1mSQL (0.000171)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000101)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000325)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.007915)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.005337)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000302)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.020956)[0m   [0;1mSELECT version FROM `schema_info`[0m
+  [4;35;1mSQL (0.000349)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.000604)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('2')[0m
+  [4;35;1mSQL (0.000238)[0m   [0mDROP TABLE `schema_info`[0m
+  [4;36;1mSQL (0.000312)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000082)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001221)[0m   [0mDROP TABLE `users`[0m
+  [4;36;1mSQL (0.002537)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000590)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000265)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000907)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.001102)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.000353)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (0.000967)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000849)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000329)[0m   [0mSHOW KEYS FROM `users`[0m
