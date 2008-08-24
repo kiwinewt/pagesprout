@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.column :remember_token_expires_at, :datetime
       t.column :activation_code, :string, :limit => 40
       t.column :activated_at, :datetime
+      t.column :password_reset_code, :string, :limit => 40
+      t.column :enabled, :boolean, :default => true      
     end
   end
 
@@ -18,3 +20,5 @@ class CreateUsers < ActiveRecord::Migration
     drop_table "users"
   end
 end
+
+

@@ -1,0 +1,9 @@
+<h2>Roles for <%=h @user.login.capitalize %></h2>
+
+<h3>Roles assigned:</h3>
+<ul><%= render :partial => 'role', :collection => @user.roles %></ul>
+
+<h3>Roles available:</h3>
+<ul><%= render :partial => 'role', :collection => (@roles - @user.roles) %></ul>
+
+<%= link_to 'New Role', new_user_role_path() %> |

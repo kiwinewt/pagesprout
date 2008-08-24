@@ -1,33 +1,68 @@
 class UsersController < ApplicationController
 
+  before_filter :not_logged_in_required, :only => [:new, :create] 
+  before_filter :login_required, :only => [:show, :edit, :update]
+  before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
+  
+  def index
+    @users = User.find(:all)
+  end
+  
+  #This show action only allows users to view their own profile
+  def show
+    @user = current_user
+  end
+    
   # render new.rhtml
   def new
+    @user = User.new
   end
-
+ 
   def create
     cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with 
-    # request forgery protection.
-    # uncomment at your own risk
-    # reset_session
     @user = User.new(params[:user])
-    @user.save
-    if @user.errors.empty?
-      self.current_user = @user
-      redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+    @user.save!
+    #Uncomment to have the user logged in after creating an account - Not Recommended
+    #self.current_user = @user
+  flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
+    redirect_to login_path    
+  rescue ActiveRecord::RecordInvalid
+    flash[:error] = "There was a problem creating your account."
+    render :action => 'new'
+  end
+  
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = User.find(current_user)
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "User updated"
+      redirect_to :action => 'show', :id => current_user
     else
-      render :action => 'new'
+      render :action => 'edit'
     end
   end
-
-  def activate
-    self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
-    if logged_in? && !current_user.active?
-      current_user.activate
-      flash[:notice] = "Signup complete!"
+  
+  def destroy
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, false)
+      flash[:notice] = "User disabled"
+    else
+      flash[:error] = "There was a problem disabling this user."
     end
-    redirect_back_or_default('/')
+    redirect_to :action => 'index'
+  end
+ 
+  def enable
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, true)
+      flash[:notice] = "User enabled"
+    else
+      flash[:error] = "There was a problem enabling this user."
+    end
+      redirect_to :action => 'index'
   end
 
 end

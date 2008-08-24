@@ -1,11 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users
-  map.resource :session
-  
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.login '/login', :controller => 'session', :action => 'new'
-  map.logout '/logout', :controller => 'session', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.activate '/activate/:id', :controller => 'accounts', :action => 'show'
+  map.forgot_password '/forgot_password', :controller => 'password', :action => 'new'
+  map.reset_password '/reset_password/:id', :controller => 'password', :action => 'edit'
+  map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
+  
+  map.resources :roles
+
+  map.resources :users, :member => { :enable => :put } do |users|
+    users.resource :accounts
+    users.resources :roles
+  end
+
+  map.resource :session
+  map.resource :password
+  
+  map.root :controller => 'about'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
