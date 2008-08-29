@@ -6051,3 +6051,1134 @@ bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--253f65c350eb98a2d01fd8
   Parameters: {"action"=>"new", "controller"=>"sessions"}
 Rendering sessions/new
 Completed in 0.00475 (210 reqs/sec) | Rendering: 0.00163 (34%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session/new]
+  [4;36;1mSQL (0.000117)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000071)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000070)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mCREATE DATABASE `project_orc_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 11:54:39) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTIiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--253f65c350eb98a2d01fd8574628388377001471
+  Parameters: {"action"=>"index", "controller"=>"about"}
+  [4;36;1mSQL (0.000197)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering about/index
+Completed in 0.01383 (72 reqs/sec) | Rendering: 0.01078 (77%) | DB: 0.00032 (2%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-08-25 11:54:40) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTIiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--253f65c350eb98a2d01fd8574628388377001471
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00570 (175 reqs/sec) | Rendering: 0.00298 (52%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-08-25 11:54:42) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTIiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--253f65c350eb98a2d01fd8574628388377001471
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"08ea3bd5ef773d2df0165e36c71d6381459edca1", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mMysql::Error: Table 'project_orc_development.users' doesn't exist: SELECT * FROM `users` WHERE (login = 'admin') LIMIT 1[0m
+
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'project_orc_development.users' doesn't exist: SELECT * FROM `users`     WHERE (login = 'admin')  LIMIT 1):
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract_adapter.rb:147:in `log'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/mysql_adapter.rb:299:in `execute'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/mysql_adapter.rb:515:in `select'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:59:in `select_all'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:80:in `cache_sql'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:59:in `select_all'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:582:in `find_by_sql'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1341:in `find_every'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1303:in `find_initial'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:534:in `find'
+    /app/models/user.rb:60:in `authenticate'
+    /app/controllers/sessions_controller.rb:26:in `password_authentication'
+    /app/controllers/sessions_controller.rb:12:in `create'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000117)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000070)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.045267)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.031113)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000264)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000354)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000052)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000053)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002858)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000534)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;35;1mSQL (0.000215)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002431)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000558)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000202)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002851)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.000794)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000095)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000256)[0m   [0;1mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-25 11:55:07', '2008-08-25 11:55:07', 'administrator')[0m
+  [4;35;1mSQL (0.000432)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.001121)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000147)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000499)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `password_reset_code`, `activation_code`, `enabled`, `remember_token`, `login`, `email`) VALUES('610d9be19d4dab39d88d4c94c25338e29547c991', '2008-08-25 11:55:07', NULL, 'e8ba77dfa34287df2f1c0720ce16d9a07286f395', NULL, '2008-08-25 11:55:07', NULL, '61e763d893bfc8151359f8572b5ac5ceb8e120dd', 1, NULL, 'admin', 'joe.bloggs@example.com')[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Mon, 25 Aug 2008 11:55:07 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+  Username: admin
+Visit this url to activate your account:
+  http://example.com/activate/61e763d893bfc8151359f8572b5ac5ceb8e120dd
+  [4;35;1mSQL (0.004281)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.000502)[0m   [0mUPDATE `users` SET `updated_at` = '2008-08-25 11:55:07', `activated_at` = '2008-08-24 23:55:07' WHERE `id` = 1[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Mon, 25 Aug 2008 11:55:07 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  To visit the site, follow the link below:
+  http://example.com/
+  [4;36;1mSQL (0.004104)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (0.000519)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;36;1mUser Load (0.000488)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'admin') LIMIT 1[0m
+  [4;35;1mPermission Columns (0.001489)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Create (0.000387)[0m   [0mINSERT INTO `permissions` (`created_at`, `updated_at`, `role_id`, `user_id`) VALUES('2008-08-25 11:55:08', '2008-08-25 11:55:08', 1, 1)[0m
+  [4;36;1mSQL (0.000558)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.001020)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215211')[0m
+  [4;36;1mSQL (0.000399)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000420)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001299)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.001237)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.000511)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.001138)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.001031)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.000509)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.001909)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.003265)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-08-25 11:55:12) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTIiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--253f65c350eb98a2d01fd8574628388377001471
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"08ea3bd5ef773d2df0165e36c71d6381459edca1", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;35;1mUser Load (0.000826)[0m   [0mSELECT * FROM `users` WHERE (login = 'admin') LIMIT 1[0m
+  [4;36;1mUser Columns (0.001562)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/users/2/roles
+Completed in 0.01359 (73 reqs/sec) | DB: 0.00239 (17%) | 302 Found [http://localhost/session]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-08-25 11:55:12) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTI6DHVzZXJfaWRpBiIKZmxh
+c2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtu
+b3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlG--667c975bed658cb943b0a9560e584f287e11c74c
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"roles"}
+  [4;35;1mUser Columns (0.001097)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000393)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRole Columns (0.000912)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.000481)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.000339)[0m   [0mSELECT * FROM `roles` [0m
+  [4;36;1mUser Load (0.000308)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=2):
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1379:in `find_one'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1362:in `find_from_ids'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:537:in `find'
+    /app/controllers/roles_controller.rb:5:in `index'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /var/lib/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /var/lib/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 11:55:17) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTIiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIhtMb2dn
+ZWQgaW4gc3VjY2Vzc2Z1bGx5BjoKQHVzZWR7BjsIVDoMdXNlcl9pZGkG--f3ea583e19de649060e81cf485949db17b8fa166
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+  [4;35;1mUser Columns (0.001250)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000129)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRole Columns (0.000878)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.000120)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.02420 (41 reqs/sec) | Rendering: 0.01892 (78%) | DB: 0.00591 (24%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2008-08-25 11:55:19) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvIhMvdXNlcnMvMi9yb2xlczoMY3NyZl9pZCIlNDE3
+MTVmNzM5MGRlZTM1NWQwMTY2NzRkZWEyNzRiZTI6DHVzZXJfaWRpBiIKZmxh
+c2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoK
+QHVzZWR7AA==--5f5c37403686b4554c93fe3548c08f66ecb35867
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  [4;35;1mUser Columns (0.001116)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000133)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000140)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mCOMMIT[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/login
+Completed in 0.01138 (87 reqs/sec) | DB: 0.00148 (12%) | 302 Found [http://localhost/logout]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-08-25 11:55:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9nZ2VkIG91dC4GOgpA
+dXNlZHsGOwZG--eee7d6ef7f603780b7a28cb4c9b614213a87b0d5
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00435 (230 reqs/sec) | Rendering: 0.00162 (37%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 11:55:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+YzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIh5Zb3UgaGF2ZSBiZWVuIGxvZ2dlZCBvdXQuBjoKQHVz
+ZWR7BjsHVA==--f0f0a77144cb202c04786cc62170ec82261d636e
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+Completed in 0.00353 (283 reqs/sec) | Rendering: 0.00090 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-08-25 11:55:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+YzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--38acd775b4537c4555ac81a2d3681c08a3d34c5a
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00424 (235 reqs/sec) | Rendering: 0.00151 (35%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-08-25 11:55:28) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+YzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--38acd775b4537c4555ac81a2d3681c08a3d34c5a
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"4c774cdcec8f2f7fe5f7b184dfeba158e1c9e120", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;35;1mUser Load (0.000203)[0m   [0mSELECT * FROM `users` WHERE (login = 'admin') LIMIT 1[0m
+  [4;36;1mUser Columns (0.001634)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/users/1
+Completed in 0.01060 (94 reqs/sec) | DB: 0.00184 (17%) | 302 Found [http://localhost/session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-08-25 11:55:28) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+Yzg6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVs
+bHkGOgpAdXNlZHsGOwhG--f0e441cc685339fe50bace9a0730d2934fe2cb30
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Columns (0.001461)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000391)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering users/show
+Completed in 0.01397 (71 reqs/sec) | Rendering: 0.00447 (32%) | DB: 0.00185 (13%) | 200 OK [http://localhost/users/1]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 11:55:34) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+YzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIhtMb2dnZWQgaW4gc3VjY2Vzc2Z1bGx5BjoKQHVzZWR7
+BjsHVDoMdXNlcl9pZGkG--70b2d359eca5a769da6923c4b658cd2871df464a
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+  [4;35;1mUser Columns (0.001246)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000131)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRole Columns (0.000763)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.000110)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.02280 (43 reqs/sec) | Rendering: 0.01795 (78%) | DB: 0.00225 (9%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-08-25 11:55:36) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+Yzg6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--0def2edf9e0e74add97021d10ce9bef040d4d2c1
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Columns (0.001157)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000122)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRole Columns (0.000786)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.000113)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;35;1mUser Load (0.000368)[0m   [0mSELECT * FROM `users` [0m
+Rendering users/index
+Rendered users/_user (0.00257)
+Completed in 0.02432 (41 reqs/sec) | Rendering: 0.00531 (21%) | DB: 0.00255 (10%) | 200 OK [http://localhost/users]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 12:42:48) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+YzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg==--b1b55dff93bc1fe73d2a545fded7f7deedf7e48e
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+  [4;36;1mUser Columns (0.001197)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000125)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000797)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000120)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.02356 (42 reqs/sec) | Rendering: 0.01861 (78%) | DB: 0.00224 (9%) | 200 OK [http://localhost/]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-25 12:51:48) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlMmE5ZmNkZWQ3NGZhMjRjYjY2YmYzNGU2NjI5MTc5
+Yzg6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--0def2edf9e0e74add97021d10ce9bef040d4d2c1
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+  [4;36;1mUser Columns (0.001109)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000123)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000767)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000117)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.02212 (45 reqs/sec) | Rendering: 0.01739 (78%) | DB: 0.00212 (9%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.000137)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.020082)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000357)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000096)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000273)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.101985)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000723)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.026205)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.015107)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.001166)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001694)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.013294)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001670)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001037)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000142)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.084637)[0m   [0mDROP DATABASE IF EXISTS `project_orc_test`[0m
+  [4;36;1mSQL (0.029499)[0m   [0;1mCREATE DATABASE `project_orc_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000144)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000371)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.234810)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` bigint(11) NOT NULL, `user_id` bigint(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000540)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003363)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000493)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003654)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000533)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003356)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.176775)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.000494)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001606)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.045032)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080824215211')[0m
+  [4;35;1mSQL (0.039780)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080824215159')[0m
+  [4;36;1mSQL (0.000819)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080821013442')[0m
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-27 09:56:46) [GET]
+  Session ID: c1285bc9c6a2924aa1da451492c786a1
+  Parameters: {"action"=>"index", "controller"=>"about"}
+  [4;36;1mSQL (0.000198)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000111)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering about/index
+Completed in 0.02314 (43 reqs/sec) | Rendering: 0.01984 (85%) | DB: 0.00031 (1%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-08-27 09:56:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--9ab188d3d3a8f5637ccaca75f5bfd2fee14be49f
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00520 (192 reqs/sec) | Rendering: 0.00248 (47%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-08-27 09:56:54) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--06748ee362638d6f2a8c983d4981e06977115e49
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"08e299112f3c77e8c32ccc5e90b2c6bbec7caf0a", "action"=>"create", "controller"=>"sessions", "password"=>"admin", "login"=>"admin"}
+  [4;36;1mUser Load (0.000456)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'admin') LIMIT 1[0m
+  [4;35;1mUser Columns (0.009971)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/users/1
+Completed in 0.02286 (43 reqs/sec) | DB: 0.01043 (45%) | 302 Found [http://localhost/session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-08-27 09:56:54) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQ6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVs
+bHkGOgpAdXNlZHsGOwhG--33dff6ab4cdfeffc7f5d35f6da976ed69e626b2a
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (0.001361)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000178)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering users/show
+Completed in 0.02234 (44 reqs/sec) | Rendering: 0.01440 (64%) | DB: 0.00154 (6%) | 200 OK [http://localhost/users/1]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-27 09:57:00) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIhtMb2dnZWQgaW4gc3VjY2Vzc2Z1bGx5BjoKQHVzZWR7
+BjsHVDoMdXNlcl9pZGkG--d8d4c6a84b4439fa55360a692bddc88ddc9095e8
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+  [4;36;1mUser Columns (0.001105)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000156)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.011821)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000119)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.03433 (29 reqs/sec) | Rendering: 0.01854 (54%) | DB: 0.01320 (38%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-08-27 09:57:03) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQ6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--6150a50c6be5904255281dc7c37c9caadfc4dc3e
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.000963)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000127)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000779)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000137)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;36;1mUser Load (0.000148)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering users/index
+Rendered users/_user (0.00262)
+Completed in 0.02674 (37 reqs/sec) | Rendering: 0.00585 (21%) | DB: 0.00215 (8%) | 200 OK [http://localhost/users]
+
+
+Processing RolesController#index (for 127.0.0.1 at 2008-08-27 09:57:04) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg==--fa8659ce0143eb55b260dd2cbe3a7633505b0b21
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"roles"}
+  [4;35;1mUser Columns (0.001104)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000146)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mRole Columns (0.000724)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.000151)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;35;1mRole Load (0.000170)[0m   [0mSELECT * FROM `roles` [0m
+  [4;36;1mUser Load (0.042056)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering roles/index
+  [4;35;1mSQL (0.000387)[0m   [0mSELECT count(*) AS count_all FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE ((`permissions`.user_id = 1)) [0m
+  [4;36;1mRole Load (0.000368)[0m   [0;1mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE ((`permissions`.user_id = 1)) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Rendered roles/_role (0.00249)
+Completed in 0.09636 (10 reqs/sec) | Rendering: 0.03264 (33%) | DB: 0.04511 (46%) | 200 OK [http://localhost/users/1/roles]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-27 10:44:11) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQ6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--6150a50c6be5904255281dc7c37c9caadfc4dc3e
+  Parameters: {"action"=>"index", "controller"=>"about"}
+  [4;36;1mSQL (0.000233)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000149)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering about/index
+  [4;36;1mUser Columns (0.001398)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000142)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000813)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000144)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.03108 (32 reqs/sec) | Rendering: 0.02320 (74%) | DB: 0.00288 (9%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-08-27 10:44:13) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg==--fa8659ce0143eb55b260dd2cbe3a7633505b0b21
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.001144)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000133)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000771)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000135)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;36;1mUser Load (0.000134)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering users/index
+Rendered users/_user (0.00258)
+Completed in 0.02506 (39 reqs/sec) | Rendering: 0.00544 (21%) | DB: 0.00232 (9%) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.000137)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000132)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.043829)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000099)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000454)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.021821)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.002092)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.017031)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.013345)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.001157)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.001179)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.014083)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001838)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000956)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000141)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.315431)[0m   [0mDROP DATABASE IF EXISTS `project_orc_test`[0m
+  [4;36;1mSQL (0.020845)[0m   [0;1mCREATE DATABASE `project_orc_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000147)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000372)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.005207)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` bigint(11) NOT NULL, `user_id` bigint(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000441)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003288)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000444)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003789)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000437)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002877)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.055210)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.000480)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000508)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.000947)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080824215211')[0m
+  [4;35;1mSQL (0.013767)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080824215159')[0m
+  [4;36;1mSQL (0.000745)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080821013442')[0m
+  [4;36;1mSQL (0.000145)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000088)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000312)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000093)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000277)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000695)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000694)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.016409)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.000624)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.000306)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.014635)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000966)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000401)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000095)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000095)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.042989)[0m   [0mDROP DATABASE IF EXISTS `project_orc_test`[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1mCREATE DATABASE `project_orc_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.000125)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000305)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.009185)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` bigint(11) NOT NULL, `user_id` bigint(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000334)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003744)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000473)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003891)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000487)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002687)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.007198)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.000492)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000524)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (0.000809)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080824215211')[0m
+  [4;35;1mSQL (0.000725)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080824215159')[0m
+  [4;36;1mSQL (0.000731)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080821013442')[0m
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-27 14:15:14) [GET]
+  Session ID: c07a72933f1631da59159da402d28e25
+  Parameters: {"action"=>"index", "controller"=>"about"}
+  [4;36;1mSQL (0.000254)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000137)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering about/index
+Completed in 0.00993 (100 reqs/sec) | Rendering: 0.00450 (45%) | DB: 0.00039 (3%) | 200 OK [http://127.0.0.1/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-08-27 14:15:14) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQ6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxh
+c2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--6150a50c6be5904255281dc7c37c9caadfc4dc3e
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.017295)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000173)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000896)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000145)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+  [4;36;1mUser Load (0.000154)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering users/index
+Rendered users/_user (0.00396)
+Completed in 0.07019 (14 reqs/sec) | Rendering: 0.02271 (32%) | DB: 0.01866 (26%) | 200 OK [http://localhost/users]
+
+
+Processing PasswordController#new (for 127.0.0.1 at 2008-08-27 14:18:10) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--9ab188d3d3a8f5637ccaca75f5bfd2fee14be49f
+  Parameters: {"action"=>"new", "controller"=>"password"}
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0.00082 (1218 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://127.0.0.1/forgot_password]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-08-27 14:18:10) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvIhUvZm9yZ290X3Bhc3N3b3JkIgpmbGFzaElDOidB
+Y3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--743a505e7a82f4777c3f5d39b0184bec622a3376
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering sessions/new
+Completed in 0.00579 (172 reqs/sec) | Rendering: 0.00263 (45%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/session/new]
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-27 16:37:22) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvIhUvZm9yZ290X3Bhc3N3b3JkOgxjc3JmX2lkIiVh
+MzE3OTMwMjg2NDkzY2QwZmUxM2M2MTlhMjY2YzUzNiIKZmxhc2hJQzonQWN0
+aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--0f4c9b723faa7b3bf9419ce1835624ba7810857a
+  Parameters: {"action"=>"index", "controller"=>"about"}
+Rendering about/index
+Completed in 0.01846 (54 reqs/sec) | Rendering: 0.00167 (9%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/]
+  [4;36;1mSQL (0.051456)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.021304)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.043424)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000230)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000457)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000204)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000146)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.263024)[0m   [0mDROP TABLE `permissions`[0m
+  [4;36;1mRole Columns (0.110729)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000127)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;36;1mSQL (0.000080)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Destroy (0.012034)[0m   [0m DELETE FROM `roles`
+ WHERE `id` = 1
+[0m
+  [4;36;1mSQL (0.002404)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Columns (0.001102)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000133)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`login` = 'admin') LIMIT 1[0m
+  [4;35;1mSQL (0.000075)[0m   [0mBEGIN[0m
+  [4;36;1mUser Destroy (0.000585)[0m   [0;1m DELETE FROM `users`
+ WHERE `id` = 1
+[0m
+  [4;35;1mSQL (0.010442)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000665)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080824215211'[0m
+  [4;35;1mSQL (0.000433)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000420)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001196)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.001156)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.000676)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.002094)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002251)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000594)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000078)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000138)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000257)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000122)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000061)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000063)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.061337)[0m   [0mDROP TABLE `roles`[0m
+  [4;36;1mSQL (0.000801)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080824215159'[0m
+  [4;35;1mSQL (0.000370)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.007499)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.001069)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000380)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000080)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000136)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000059)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000253)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000123)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;36;1mSQL (0.000060)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.073247)[0m   [0mDROP TABLE `users`[0m
+  [4;36;1mSQL (0.000713)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080821013442'[0m
+  [4;35;1mSQL (0.000279)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.020088)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000080)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000131)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000058)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000052)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;36;1mSQL (0.000058)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000272)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.034049)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000583)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000235)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.024903)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000721)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;35;1mSQL (0.000475)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002357)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mRole Columns (0.001565)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Create (0.000362)[0m   [0mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-28 11:17:30', '2008-08-28 11:17:30', 'administrator')[0m
+  [4;36;1mSQL (0.000448)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Columns (0.001297)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.000395)[0m   [0mINSERT INTO `users` (`salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `password_reset_code`, `activation_code`, `enabled`, `id`, `remember_token`, `login`, `email`) VALUES('efebf86a7c61513dabb74e66ac215abbfc4d56b9', '2008-08-28 11:17:30', NULL, 'e39b7ca756b8a7542fe27e3dcbd5e2b1880630a3', NULL, '2008-08-28 11:17:30', NULL, 'd64fe6f7d238854bf764274588129e4f9324262d', 1, 0, NULL, 'admin', 'joe.bloggs@example.com')[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:17:30 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+  Username: admin
+Visit this url to activate your account:
+  http://example.com/activate/d64fe6f7d238854bf764274588129e4f9324262d
+  [4;36;1mSQL (0.000672)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.000460)[0m   [0;1mUPDATE `users` SET `updated_at` = '2008-08-28 11:17:30', `activated_at` = '2008-08-27 23:17:30' WHERE `id` = 0[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:17:30 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  To visit the site, follow the link below:
+  http://example.com/
+  [4;35;1mSQL (0.000170)[0m   [0mCOMMIT[0m
+  [4;36;1mRole Load (0.000425)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;35;1mUser Load (0.000363)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 0) LIMIT 1[0m
+  [4;36;1mPermission Columns (0.000861)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000120)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Create (0.000000)[0m   [0;1mMysql::Error: Column 'user_id' cannot be null: INSERT INTO `permissions` (`created_at`, `updated_at`, `role_id`, `user_id`) VALUES('2008-08-28 11:17:31', '2008-08-28 11:17:31', 1, NULL)[0m
+  [4;35;1mSQL (0.000095)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000086)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000309)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000147)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000071)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;35;1mSQL (0.000068)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000092)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000134)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000261)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000060)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000063)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.032701)[0m   [0mDROP TABLE `roles`[0m
+  [4;36;1mSQL (0.000664)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080824215159'[0m
+  [4;35;1mSQL (0.000326)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000261)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000732)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.000354)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.001363)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001520)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000451)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000135)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000058)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000119)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000059)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;36;1mSQL (0.000064)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.050636)[0m   [0mDROP TABLE `users`[0m
+  [4;36;1mSQL (0.000699)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080821013442'[0m
+  [4;35;1mSQL (0.000352)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.014132)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000755)[0m   [0;1mdescribe `permissions`[0m
+  [4;35;1mSQL (0.000361)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000128)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000052)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000249)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000672)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000652)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000113)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000140)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000057)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;36;1mSQL (0.000067)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000286)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.067060)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.006195)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000296)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003680)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001134)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;35;1mSQL (0.000276)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000078)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000259)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.033586)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.027519)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000261)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000396)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000068)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.023512)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000581)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;35;1mSQL (0.000249)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002288)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000961)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000300)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.011713)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.000954)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000137)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000344)[0m   [0;1mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-28 11:20:18', '2008-08-28 11:20:18', 'administrator')[0m
+  [4;35;1mSQL (0.000497)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.001285)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000103)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000158)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000086)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (20080824215159)
+  [4;36;1mSQL (0.000081)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'permissions' already exists: CREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000263)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.007886)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.030028)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000276)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000495)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000104)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000077)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000083)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002994)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;35;1mSQL (0.000259)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002361)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000710)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000334)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002673)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.000819)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000132)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000307)[0m   [0;1mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-28 11:21:23', '2008-08-28 11:21:23', 'administrator')[0m
+  [4;35;1mSQL (0.000447)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.001128)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000241)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000722)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `password_reset_code`, `activation_code`, `enabled`, `id`, `remember_token`, `login`, `email`) VALUES('620c2cc4deb186008dd80258d7170e2a9c641aa5', '2008-08-28 11:21:23', NULL, '5db527a23b9f221ea8772b48dcd126fb92b83cf1', NULL, '2008-08-28 11:21:23', NULL, '9294282b76af9583c215d4747ee74fbbb69585cb', 1, 0, NULL, 'admin', 'joe.bloggs@example.com')[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:21:23 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+  Username: admin
+Visit this url to activate your account:
+  http://example.com/activate/9294282b76af9583c215d4747ee74fbbb69585cb
+  [4;35;1mSQL (0.000590)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.000427)[0m   [0mUPDATE `users` SET `updated_at` = '2008-08-28 11:21:23', `activated_at` = '2008-08-27 23:21:23' WHERE `id` = 0[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:21:23 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  To visit the site, follow the link below:
+  http://example.com/
+  [4;36;1mSQL (0.000257)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (0.000592)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000089)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.010363)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.026112)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000309)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000378)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000084)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000073)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002739)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;35;1mSQL (0.000244)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002281)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000661)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000239)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002629)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.000801)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000115)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000269)[0m   [0;1mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-28 11:21:59', '2008-08-28 11:21:59', 'administrator')[0m
+  [4;35;1mSQL (0.000438)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.001742)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000164)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000335)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `password_reset_code`, `activation_code`, `enabled`, `id`, `remember_token`, `login`, `email`) VALUES('acb95c2d3e3308aaeedd847a44d0a10acf31995c', '2008-08-28 11:21:59', NULL, '08aa8d7e47c765a69b9a640be782bf5743d3ff58', NULL, '2008-08-28 11:21:59', NULL, '54f4a9fd6399ad0305fb568a95eb79403a1cd92f', 1, 0, NULL, 'admin', 'joe.bloggs@example.com')[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:21:59 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+  Username: admin
+Visit this url to activate your account:
+  http://example.com/activate/54f4a9fd6399ad0305fb568a95eb79403a1cd92f
+  [4;35;1mSQL (0.008114)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000089)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.000285)[0m   [0mUPDATE `users` SET `updated_at` = '2008-08-28 11:22:00', `activated_at` = '2008-08-27 23:22:00' WHERE `id` = 0[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:22:00 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  To visit the site, follow the link below:
+  http://example.com/
+  [4;36;1mSQL (0.000214)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (0.000559)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;36;1mUser Load (0.000588)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 0) LIMIT 1[0m
+  [4;35;1mPermission Columns (0.001601)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000198)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Create (0.000000)[0m   [0mMysql::Error: Column 'user_id' cannot be null: INSERT INTO `permissions` (`created_at`, `updated_at`, `role_id`, `user_id`) VALUES('2008-08-28 11:22:00', '2008-08-28 11:22:00', 1, NULL)[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000076)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.012455)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.005017)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000266)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000370)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000071)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000057)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080821013442)
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000271)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002819)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `crypted_password` varchar(40) DEFAULT NULL NULL, `salt` varchar(40) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `remember_token` varchar(255) DEFAULT NULL NULL, `remember_token_expires_at` datetime DEFAULT NULL NULL, `activation_code` varchar(40) DEFAULT NULL NULL, `activated_at` datetime DEFAULT NULL NULL, `password_reset_code` varchar(40) DEFAULT NULL NULL, `enabled` tinyint(1) DEFAULT 1 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080821013442')[0m
+Migrating to CreateRoles (20080824215159)
+  [4;35;1mSQL (0.000216)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002401)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rolename` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000621)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215159')[0m
+Migrating to CreatePermissions (20080824215211)
+  [4;36;1mSQL (0.000289)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002848)[0m   [0mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mRole Columns (0.000789)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.000105)[0m   [0mBEGIN[0m
+  [4;36;1mRole Create (0.000257)[0m   [0;1mINSERT INTO `roles` (`created_at`, `updated_at`, `rolename`) VALUES('2008-08-28 11:23:38', '2008-08-28 11:23:38', 'administrator')[0m
+  [4;35;1mSQL (0.000429)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Columns (0.001116)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000177)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000376)[0m   [0;1mINSERT INTO `users` (`salt`, `created_at`, `activated_at`, `crypted_password`, `remember_token_expires_at`, `updated_at`, `password_reset_code`, `activation_code`, `enabled`, `remember_token`, `login`, `email`) VALUES('c0358e288887e9bfe2d25c0c9cfa80112b3aba9d', '2008-08-28 11:23:38', NULL, '3a0ebb09f341b9df4d13dc96ba430ff6afff4002', NULL, '2008-08-28 11:23:38', NULL, '603f50bacd27fb3cd6ac418fce501535f3545fb4', 1, NULL, 'admin', 'joe.bloggs@example.com')[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:23:38 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+  Username: admin
+Visit this url to activate your account:
+  http://example.com/activate/603f50bacd27fb3cd6ac418fce501535f3545fb4
+  [4;35;1mSQL (0.000550)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.000429)[0m   [0mUPDATE `users` SET `updated_at` = '2008-08-28 11:23:38', `activated_at` = '2008-08-27 23:23:38' WHERE `id` = 1[0m
+Sent mail to joe.bloggs@example.com
+
+Date: Thu, 28 Aug 2008 11:23:38 +1200
+From: joe.bloggs@example.com
+To: joe.bloggs@example.com
+Subject: [Example] Your account has been activated!
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+admin, your account has been activated.  To visit the site, follow the link below:
+  http://example.com/
+  [4;36;1mSQL (0.000575)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRole Load (0.000384)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`rolename` = 'administrator') LIMIT 1[0m
+  [4;36;1mUser Load (0.000413)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPermission Columns (0.000908)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Create (0.000308)[0m   [0mINSERT INTO `permissions` (`created_at`, `updated_at`, `role_id`, `user_id`) VALUES('2008-08-28 11:23:38', '2008-08-28 11:23:38', 1, 1)[0m
+  [4;36;1mSQL (0.000622)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000822)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080824215211')[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000252)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000673)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.000645)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.000620)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mSQL (0.000594)[0m   [0;1mdescribe `roles`[0m
+  [4;35;1mSQL (0.000288)[0m   [0mSHOW KEYS FROM `roles`[0m
+  [4;36;1mSQL (0.000970)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000948)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing AboutController#index (for 127.0.0.1 at 2008-08-28 11:24:11) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZTdhMWNlM2RjNjYxYTljOTZjODJmYzI4NWVmZDll
+OWQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg==--fa8659ce0143eb55b260dd2cbe3a7633505b0b21
+  Parameters: {"action"=>"index", "controller"=>"about"}
+  [4;36;1mSQL (0.000219)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000096)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering about/index
+  [4;36;1mUser Columns (0.001232)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000132)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mRole Columns (0.000787)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.000439)[0m   [0mSELECT `roles`.* FROM `roles` INNER JOIN permissions ON roles.id = permissions.role_id WHERE (`roles`.`rolename` = 'administrator') AND ((`permissions`.user_id = 1)) LIMIT 1[0m
+Completed in 0.03889 (25 reqs/sec) | Rendering: 0.03335 (85%) | DB: 0.00291 (7%) | 200 OK [http://localhost/]

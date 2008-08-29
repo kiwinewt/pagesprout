@@ -16,7 +16,7 @@ class CreatePermissions < ActiveRecord::Migration
     user.save(false)
     user.send(:activate!)
     role = Role.find_by_rolename('administrator')
-    user = User.find_by_login('admin')
+    user = User.find_by_id(1)
     permission = Permission.new
     permission.role = role
     permission.user = user

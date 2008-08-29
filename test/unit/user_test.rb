@@ -10,6 +10,22 @@ class UserTest < Test::Unit::TestCase
     end
   end
 
+  def test_should_create_multiple_users
+      user = create_user
+      user = create_user(:login => 'fred', :email => 'fred@example.com')
+      user = create_user(:login => 'bob', :email => 'bob@example.com')
+      user = create_user(:login => 'dave', :email => 'dave@example.com')
+      assert User.count == 6 # 4 users + 2 fixtures
+  end
+
+  def test_should_not_create_identical_users
+    user = create_user
+    assert_no_difference 'User.count' do
+      user = create_user
+      assert user.new_record?, "#{user.errors.full_messages.to_sentence}"
+    end
+  end
+
   def test_should_initialize_activation_code_upon_creation
     user = create_user
     user.reload
@@ -37,9 +53,30 @@ class UserTest < Test::Unit::TestCase
     end
   end
 
+  def test_should_require_secure_password
+    assert_no_difference 'User.count' do
+      u = create_user(:password => 'hi', :password_confirmation => 'hi')
+      assert u.errors.on(:password)
+      u = create_user(:password => 'bob', :password_confirmation => 'bob')
+      assert u.errors.on(:password)
+      u = create_user(:password => 'a', :password_confirmation => 'a')
+      assert u.errors.on(:password)
+      u = create_user(:password => '', :password_confirmation => '')
+      assert u.errors.on(:password)
+      u = create_user(:password => '123', :password_confirmation => '123')
+      assert u.errors.on(:password)
+    end
+    u = create_user(:password => 'helloworld', :password_confirmation => 'helloworld')
+    assert !u.errors.on(:password)
+  end
+
   def test_should_require_email
     assert_no_difference 'User.count' do
       u = create_user(:email => nil)
+      assert u.errors.on(:email)
+      u = create_user(:email => 'hi')
+      assert u.errors.on(:email)
+      u = create_user(:email => 'abc@123')
       assert u.errors.on(:email)
     end
   end
