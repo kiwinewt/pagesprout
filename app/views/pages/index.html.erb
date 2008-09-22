@@ -1,0 +1,51 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Last Updated</th>
+    <th>Actions</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%= link_to h(page.title), page %></td>
+    <td><%= time_ago_in_words(page.updated_at).capitalize %> ago</td>
+    <td>
+      <%= link_to 'Show', page %>
+      <%= link_to 'Edit', edit_page_path(page) %>
+      <%= link_to 'Destroy', page, :method => :delete %>
+      <%= link_to 'Versions', :id => page, :action => :versions %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New page', new_page_path %>
+
+<% unless @deleted_pages.empty? %>
+  
+  <h2>Trash</h2>
+  
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Slug</th>
+    </tr>
+  
+  <% for page in @deleted_pages %>
+    <tr>
+      <td><%=h page.title %></td>
+      <td><%=h page.body %></td>
+      <td><%=h page.slug %></td>
+      <td><%= time_ago_in_words(page.deleted_at).capitalize %> ago</td>
+      <td><%= link_to 'Restore', restore_page_path(page), :method => :put %></td>
+      <td><%= link_to 'Delete Forever', completely_destroy_page_path(page), :method => :delete, :confirm => 'Are you sure?' %></td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <%= link_to 'Empty Trash', completely_destroy_deleted_pages_path, :method => :delete, :confirm => 'Are you sure?' %>
+
+<% end %>

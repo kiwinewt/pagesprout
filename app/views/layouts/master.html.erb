@@ -1,14 +1,38 @@
+<%
+  @pages = []
+  @pages << (link_to('Home', root_path))
+  @pages += Page.all.collect { |p| link_to(h(p.title), p) }
+  if logged_in?
+    @pages << ('Logged in as: ' + link_to(h(current_user.login.capitalize), user_path(current_user)))
+    if current_user.has_role?('administrator')
+      @pages << (link_to('Administer Users', users_path))
+      @pages << (link_to('Administer Pages', pages_path))
+    end
+    @pages << (link_to('Log Out', logout_url))
+  else
+    @pages << (link_to('Log In', new_session_path))
+  end   
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Roles: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <title><%= @page_title || SITE_NAME %></title>
+  <%= stylesheet_link_tag 'master' %>
+  <%= javascript_include_tag 'fckeditor/fckeditor' %>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
-
+  <ul id=nav>
+    <%- for page in @pages -%>
+      <li>
+        <%= page -%>
+      </li>
+    <%- end -%>
+  </ul>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>

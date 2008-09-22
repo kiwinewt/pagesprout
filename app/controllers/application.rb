@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   before_filter :login_required
   helper :all
+  layout 'master'
   include AuthenticatedSystem
   protect_from_forgery
 end

@@ -8,6 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   map.reset_password '/reset_password/:id', :controller => 'password', :action => 'edit'
   map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   
+  map.resources :pages, :collection => { :completely_destroy_deleted => :delete }, :member => { :restore => :put, :completely_destroy => :delete }
+  map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
+  
   map.resources :roles
 
   map.resources :users, :member => { :enable => :put } do |users|

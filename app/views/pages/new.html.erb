@@ -1,0 +1,24 @@
+<h1>New page</h1>
+
+<% form_for(@page) do |f| %>
+  <%= f.error_messages %>
+    
+  <div class="element">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="element">
+    <%= f.label :body %>
+    <%= fckeditor_textarea("page", "body", :toolbarSet => 'Simple', :height => '400px', :width => '550px') %>
+  </div>
+
+  <div class="element">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag 'Create' %>
+  </div>
+<% end %>

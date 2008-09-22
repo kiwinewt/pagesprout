@@ -1,0 +1,21 @@
+#nav {
+  list-style-type: none;
+  line-height: 35px;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+  #nav li {
+    display: inline;
+    padding: 0.5em;
+  }
+  
+  #nav .selected {
+    padding: 5px 5px 5px 0;
+  }
+  
+    #nav .selected span {
+      padding: 5px 5px 5px 10px;
+    }
+
