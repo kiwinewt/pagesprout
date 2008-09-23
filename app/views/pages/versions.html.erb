@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Version</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Slug</th>
+    <th>Last Updated</th>
+    <th>Actions</th>
+  </tr>
+
+<% for version in @versions %>
+  <tr>
+    <td><%=h version.version %></td>
+    <td><%=h version.title %></td>
+    <td><%=h version.body %></td>
+    <td><%=h version.slug %></td>
+    <td><%= time_ago_in_words(version.updated_at).capitalize %> ago</td>
+    <td>
+      <%= link_to h('(revert to this version)'), :controller => "pages", :action => "revert_to_version", :id => @page, :version => version.version %>
+    </td>
+  </tr>
+<% end %>
+</table>
