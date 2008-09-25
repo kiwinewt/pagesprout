@@ -1,0 +1,12 @@
+<%- for option in @options.keys.each -%>
+  <%- form_tag( :action => :save_settings, :settings => option.to_s ) do -%>
+    <h3><%= option == RAILS_ENV ? '<div class="selected">'+option.capitalize+" - Current</div>" : option.capitalize %></h3>
+    <%- for value in @options[option].keys.each %>
+      <div class="element">
+        <%= label_tag value %>
+        <%= text_field_tag option+"_"+value, @options[option][value] %>
+      </div>
+    <%- end -%>
+  <%= submit_tag("Save #{option} Settings") %>
+  <%- end -%>
+<%- end -%>

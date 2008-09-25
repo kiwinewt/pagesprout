@@ -1,15 +1,15 @@
 Authentication - done basics
-    A roles-based system for users to be created and managed. Users must be able to log in via cookie or session.
+    A roles-based system for users to be created and managed. Users must be able to log in via cookie or session. - done
 Pages
     A basic system to manage the pages on the site - done
     a simplified markup language or WYSIWYG editor - done
     images - done
-    revisions
+    revisions - done
     published/unpublished states - published/deleted?
 Settings
-    Research into various options for configuration files/tables
-    A YAML configuration file or alternate configuration to store key-value pairs for settings
-    Guideline for settings and value types
+    Research into various options for configuration files/tables - yaml, pulled in at start
+    A YAML configuration file or alternate configuration to store key-value pairs for settings - done
+    Guideline for settings and value types - in YAML file
 Themes
     Theme directory structure
     Sample themes, including YAML configuration file, CSS and images
@@ -19,15 +19,15 @@ Forms
     Contact form
 Other
     Packaging
-    Routing
-    Server Error Pages
+    Routing - in progress as developed
+    Server Error Pages - done?
     Design and construction of an admin panel
 Test-driven development
     Test Plan created - done
     All items have tests created before the items themselves are created
 Quality Metrics
     Quality analysis and implementation plan created - done
-    
-    
+
+
 Search
     Create a search controller

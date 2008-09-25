@@ -6,7 +6,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :slug
       t.datetime :deleted_at
       t.integer :version, :default=>1
-      t.boolean :home_page
+      t.boolean :home_page, :default=>false
       t.timestamps
     end
     

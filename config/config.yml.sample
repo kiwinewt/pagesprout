@@ -1,0 +1,23 @@
+# configuration goes in here
+# this file is read as: 
+#
+# any new settings added can be accessed with AppConfig.setting_name
+
+common:
+  # non-specific configuration goes here
+  mail_address: mail.example.com
+  mail_port: 25
+  mail_domain: yourapplication.com
+  mail_user_name: mail@yourapplication.com
+  mail_password: yourapplicationpassword
+  
+  root_url: www.example.com
+  site_name: Example Site
+  admin_email: joe.bloggs@example.com
+
+production:
+  # production-specific configuration goes here
+
+development:
+  # development-specific configuration goes here
+  root_url: localhost:3000

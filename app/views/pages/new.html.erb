@@ -17,6 +17,11 @@
     <%= f.label :slug %>
     <%= f.text_field :slug %>
   </div>
+
+  <div class="element">
+    <%= f.label :home_page %>
+    <%= check_box('page', 'home_page') %>
+  </div>
   
   <div class="actions">
     <%= submit_tag 'Create' %>

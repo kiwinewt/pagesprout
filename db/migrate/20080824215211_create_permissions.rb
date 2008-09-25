@@ -10,7 +10,7 @@ class CreatePermissions < ActiveRecord::Migration
     #Be sure change the password later or in this migration file
     user = User.new
     user.login = "admin"
-    user.email = ADMIN_EMAIL
+    user.email = AppConfig.admin_email
     user.password = "admin"
     user.password_confirmation = "admin"
     user.save(false)

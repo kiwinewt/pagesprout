@@ -20,10 +20,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
   map.resource :password
+  map.admin '/admin', :controller => 'admin'
   
   map.root :controller => 'about'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.connect '*path', :controller => 'about', :action => 'errorpage'
 end

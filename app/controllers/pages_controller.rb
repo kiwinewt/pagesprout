@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  before_filter :find_page, :only => [:show, :new, :edit, :update, :destroy, :versions, :revert_to_version]
+  before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :revert_to_version]
   before_filter :find_deleted_page, :only => [:completely_destroy, :restore]
   before_filter :login_required, :except => :show
+  before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
   
   # GET /pages
   # GET /pages.xml
@@ -110,6 +111,7 @@ class PagesController < ApplicationController
   
   def find_page
     @page = Page.find_by_slug(params[:id])
+    @page_title = @page.title
   end
   
   def find_deleted_page

@@ -76,20 +76,17 @@ module AuthenticatedSystem
     def permission_denied      
       respond_to do |format|
         format.html do
+          domain_name = AppConfig.root_url
           http_referer = session[:refer_to]
           if http_referer.nil?
             store_referer
-            http_referer = ( session[:refer_to] || SITE_DOMAIN )
+            http_referer = ( session[:refer_to] || domain_name )
           end
           flash[:error] = "You don't have permission to complete that action."
           #The [0..20] represents the 21 characters in http://localhost:3000
-          #You have to set that to the number of characters in your domain name
-          if http_referer[0..20] != SITE_DOMAIN  
-            session[:refer_to] = nil
-            redirect_to root_path
-          else
-            redirect_to_referer_or_default(root_path)  
-          end
+          #You have to set that to the number of characters in your domain name 
+          session[:refer_to] = nil
+          redirect_to :controller => :about, :action => :errorpage, :error => "You don't have permission to complete that action."
         end
         format.xml do
           headers["Status"]           = "Unauthorized"
@@ -106,11 +103,20 @@ module AuthenticatedSystem
       session[:return_to] = request.request_uri
     end
 
+    def store_referer
+      session[:refer_to] = request.env["HTTP_REFERER"]
+    end
+
     # Redirect to the URI stored by the most recent store_location call or
     # to the passed default.
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
+    end
+  
+    def redirect_to_referer_or_default(default)
+      redirect_to(session[:refer_to] || default)
+      session[:refer_to] = nil
     end
 
     # Inclusion hook to make #current_user and #logged_in?
@@ -139,4 +145,5 @@ module AuthenticatedSystem
         self.current_user = user
       end
     end
+    
 end

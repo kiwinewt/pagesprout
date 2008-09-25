@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:show, :edit, :update]
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
   
-  def index
-    @users = User.find(:all)
-  end
-  
   #This show action only allows users to view their own profile
   def show
     @user = current_user
@@ -52,7 +48,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = "There was a problem disabling this user."
     end
-    redirect_to :action => 'index'
+    redirect_to :controller => 'admin', :action => 'users'
   end
  
   def enable
@@ -62,7 +58,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = "There was a problem enabling this user."
     end
-      redirect_to :action => 'index'
+      redirect_to :controller => 'admin', :action => 'users'
   end
 
 end

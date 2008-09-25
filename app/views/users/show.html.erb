@@ -1,4 +1,4 @@
-<h2>User: <%=h @user.login %></h2>
+<% @page_title = "User: " + @user.login %>
 <p>Joined on: <%= @user.created_at.to_s(:long) %></p>
 
 <% if @user == @current_user %>
