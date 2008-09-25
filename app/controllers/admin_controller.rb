@@ -1,5 +1,4 @@
 class AdminController < ApplicationController
-  before_filter :check_administrator_role
   def index
   end
   
@@ -46,7 +45,7 @@ class AdminController < ApplicationController
     flash[:notice] = "Settings Saved"
   end
   
-  private
+  private    
     def get_config
       @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     end

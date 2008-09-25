@@ -131,7 +131,11 @@ class User < ActiveRecord::Base
   end
   
   def has_role?(rolename)
-    self.roles.find_by_rolename(rolename) ? true : false
+    result = self.roles.find_by_rolename(rolename) ? true : false
+    if !result
+      result = self.roles.find_by_rolename('administrator') ? true : false
+    end
+    result
   end
 
   protected
