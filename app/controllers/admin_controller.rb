@@ -8,6 +8,7 @@ class AdminController < ApplicationController
   
   def settings
     get_config
+    @themes = get_themes
     @options = {}
     @application_config.marshal_dump.keys.each do |group|
       group_values = @application_config.send(group.to_s)
@@ -33,7 +34,11 @@ class AdminController < ApplicationController
     for section in settings_dump.each
       if section[0].to_s == settings_group && section[1]
         for item in settings_dump[section[0]]
-          settings_dump[section[0]][item[0]] = settings[item[0]]
+          if item[0].include? "theme"
+            settings_dump[section[0]][item[0]] = settings[item[0]]['id']
+          else
+            settings_dump[section[0]][item[0]] = settings[item[0]]
+          end
         end
       end
     end
@@ -46,6 +51,18 @@ class AdminController < ApplicationController
   end
   
   private    
+    def get_themes
+      result = {}
+      files = Dir.entries("#{RAILS_ROOT}/public/themes/")
+      for file in files.each
+        file.to_s
+        if !file.include? "."
+          result[file] = file
+        end
+      end
+      result.sort
+    end
+    
     def get_config
       @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     end

@@ -1,5 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+
+  def get_theme_stylesheet
+    if AppConfig.theme
+      stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
+    else
+      stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
+    end
+    stylesheet
+  end
   
   def get_navigation
     @pages = []

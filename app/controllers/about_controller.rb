@@ -3,9 +3,14 @@ class AboutController < ApplicationController
 
   def index
     @page = Page.find_by_home_page(true, :first)
+    notice = params[:notice]
+    error = params[:error]
     if @page
-      flash[:notice] = params[:notice]
-      flash[:error] = params[:error]
+      if error
+        flash[:error] = error
+      elsif notice
+        flash[:notice] = notice
+      end
       redirect_to(@page)
     end
   end
