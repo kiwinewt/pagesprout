@@ -1,1 +1,17 @@
+.section {
+  padding-left: 25px;
+  float: left;
+  padding-bottom: 20px
+}
 
+  .section .element {
+    padding-top: 5px;
+  }
+  
+    .section .element .element_content {
+      padding-top: 2px;
+    }
+  
+      .section .element .element_content input {
+        width: 300px;
+      }

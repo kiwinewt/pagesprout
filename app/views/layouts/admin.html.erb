@@ -20,15 +20,17 @@
       </li>
     <%- end -%>
   </ul>
+  <ul id="subnav">
     <%= link_to ('Configuration', :controller => 'admin', :action => 'settings') %>
     <%= link_to('Administer Users', :controller => 'admin', :action => 'users')%>
     <%= link_to('Administer Pages', pages_path)%>
-  <ul id="subnav">
   </ul>
   <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-  <%= @page_heading ? "<h1>"+@page_heading+"</h1>" : "" %>
+  <%= @page_heading ? "<div id='header'>"+@page_heading+"</div>" : "" %>
 
-  <%= yield  %>
+  <div id="article">
+    <%= yield  %>
+  </div>
 
 </body>
 </html>

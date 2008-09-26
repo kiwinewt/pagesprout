@@ -36,3 +36,25 @@ body {
       padding: 5px 5px 5px 10px;
     }
 
+
+#subnav {
+  list-style-type: none;
+  line-height: 35px;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+  #subnav li {
+    display: inline;
+    padding: 0.5em;
+  }
+  
+  #subnav .selected {
+    padding: 5px 5px 5px 0;
+  }
+  
+    #subnav .selected span {
+      padding: 5px 5px 5px 10px;
+    }
+
