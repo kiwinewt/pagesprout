@@ -3,6 +3,7 @@ class RolesController < ApplicationController
   def index
     @roles = Role.find(:all)#
     @user = User.find(params[:user_id])
+    render :action => "index", :layout => "admin"
   end
   
   def new

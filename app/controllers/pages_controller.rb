@@ -9,11 +9,7 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
     @deleted_pages = Page.deleted
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @pages }
-    end
+    render :action => "index", :layout => "admin"
   end
 
   # GET /pages/1

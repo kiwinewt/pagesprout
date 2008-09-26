@@ -5,7 +5,7 @@ module ApplicationHelper
     if AppConfig.theme
       stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
     else
-      stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
+      stylesheet = '/themes/default/stylesheets/master'
     end
     stylesheet
   end
