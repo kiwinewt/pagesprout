@@ -11,7 +11,7 @@ Settings
     A YAML configuration file or alternate configuration to store key-value pairs for settings - done
     Guideline for settings and value types - in YAML file
 Themes
-    Theme directory structure
+    Theme directory structure - done
     Sample themes, including YAML configuration file, CSS and images
 Posts
     Wrapper for pages, linked via a contextual post model

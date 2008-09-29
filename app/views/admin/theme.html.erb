@@ -1,0 +1,28 @@
+<%- form_tag ({:action => :save_theme}) do -%>
+  <table>
+    <tr>
+      <th>Screenshot</th>
+      <th>Name</th>
+      <th>Enabled</th>
+    </tr>
+    <%- for theme in @themes -%>
+      <tr>
+        <%- @theme_checked = AppConfig.theme.to_s.eql? theme[0].to_s -%>
+        <td>
+          <%= image_tag "/themes/"+theme[0]+"/screenshot.jpg", :alt => theme[0] %>
+        </td>
+        <td>
+          <%= theme[0] %>
+        </td>
+        <td>
+          <%= radio_button_tag "theme", theme[0], checked = @theme_checked %>
+        </td>
+      </tr>
+    <%- end -%>
+    <tr>
+      <td colspan=3>
+        <%= submit_tag("Save Theme") %>
+      </td>
+    </tr>
+  </table>
+<%- end -%>

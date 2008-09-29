@@ -1,17 +1,9 @@
 <%- for option in @options.keys.each -%>
-  <div class="section">
-  <%- form_tag( :action => :save_settings, :settings => option.to_s ) do -%>
+  <%- form_tag ({:action => :save_settings, :settings => option.to_s}, :class => "section", :id => option) do -%>
     <h3><%= option == RAILS_ENV ? '<div class="selected">'+option.capitalize+" - Current</div>" : option.capitalize %></h3>
     <%- for value in @options[option].keys.sort.each %>
       <div class="element">
-        <%- if value == "theme" -%>
-          <div class="element_label">
-          <%= label_tag value %>
-          </div>
-          <div class="element_content">
-          <%= select (option+"_"+value, "id", @themes, :selected => @options[option][value].to_s) %>
-          </div>
-        <%- else -%>
+        <%- if value != "theme" -%>
           <div class="element_label">
           <%= label_tag value %>
           </div>
@@ -22,8 +14,8 @@
       </div>
     <%- end -%>
     <div class="element">
+      <input type="button" value="Add another field" onClick="addInput('<%= option %>');">
       <%= submit_tag("Save #{option} Settings") %>
     </div>
   <%- end -%>
-  </div>
 <%- end -%>
