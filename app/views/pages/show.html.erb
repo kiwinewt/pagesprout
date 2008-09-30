@@ -1,7 +1,9 @@
-<%= @page.body %>
+<div class="section">
+  <%= @page.body %>
 
-<% if logged_in? %>
-  <%= link_to 'Edit', edit_page_path(@page) %> |
-  <%= link_to 'Delete', @page, :method => :delete %> |
-  <%= link_to 'Back', pages_path %>
-<% end %>
+  <% if logged_in? %>
+    <%= link_to 'Edit', edit_page_path(@page) %> |
+    <%= link_to 'Delete', @page, :method => :delete %> |
+    <%= link_to 'Back', pages_path %>
+  <% end %>
+</div>

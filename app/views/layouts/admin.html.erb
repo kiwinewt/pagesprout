@@ -45,7 +45,7 @@
     <%= link_to('Select Theme', :controller => 'admin', :action => 'theme')%>
   </ul>
   <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-  <%= @page_heading ? "<div id='header'>"+@page_heading+"</div>" : "" %>
+  <%= @page_heading && !@hidden_title ? "<div id='header'>"+@page_heading+"</div>" : "" %>
 
   <div id="article">
     <%= yield  %>

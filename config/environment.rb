@@ -36,7 +36,7 @@ Rails::Initializer.run do |config|
   else  
     secret = Rails::SecretKeyGenerator.new(session_key).generate_secret  
     File.open(secret_file, 'w') { |f| f.write(secret) }  
-  end  
+  end
   config.active_record.observers = :user_observer
   config.action_controller.session = {
     #converts site name to lowercase and swaps all spaces for underscores if they havent been caught already
