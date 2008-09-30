@@ -15,3 +15,14 @@
       .section .element .element_content input {
         width: 300px;
       }
+
+  .section tr td {
+    padding: 1em 2em 1em 1em;
+    border-top: 1px solid #cccccc;
+    text-align: left;
+  }
+
+  .section tr th {
+    text-align: left;
+    padding-left: 1em;
+  }

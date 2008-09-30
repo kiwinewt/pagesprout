@@ -1,5 +1,5 @@
 <%- form_tag ({:action => :save_theme}) do -%>
-  <table>
+  <table class="section" id="themes">
     <tr>
       <th>Screenshot</th>
       <th>Name</th>
@@ -9,7 +9,7 @@
       <tr>
         <%- @theme_checked = AppConfig.theme.to_s.eql? theme[0].to_s -%>
         <td>
-          <%= image_tag "/themes/"+theme[0]+"/screenshot.jpg", :alt => theme[0] %>
+          <%= image_tag "/themes/"+theme[0]+"/screenshot.jpg", :alt => theme[0]+" theme screenshot" %>
         </td>
         <td>
           <%= theme[0] %>

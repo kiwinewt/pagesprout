@@ -1,6 +1,6 @@
 <%- @page_title = 'Administer Pages' -%>
 
-<table>
+<table class="section">
   <tr>
     <th>Title</th>
     <th>Last Updated</th>
@@ -19,15 +19,21 @@
     </td>
   </tr>
 <% end %>
+  <tr>
+    <td colspan=3>
+      <%= link_to 'New page', new_page_path %>
+    </td>
+  </tr>
 </table>
-
-<%= link_to 'New page', new_page_path %>
 
 <% unless @deleted_pages.empty? %>
   
-  <h2>Trash</h2>
+  <table class="section">
+  <tr>
+    <th colspan=6>
+      <h2>Trash</h2>
+    </td>
   
-  <table>
     <tr>
       <th>Title</th>
       <th>Body</th>
@@ -44,8 +50,12 @@
       <td><%= link_to 'Delete Forever', completely_destroy_page_path(page), :method => :delete, :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
+  <tr>
+    <td colspan=6>
+      <%= link_to 'Empty Trash', completely_destroy_deleted_pages_path, :method => :delete, :confirm => 'Are you sure?' %>
+    </td>
+  </tr>
   </table>
   
-  <%= link_to 'Empty Trash', completely_destroy_deleted_pages_path, :method => :delete, :confirm => 'Are you sure?' %>
 
 <% end %>
