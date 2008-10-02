@@ -1,3 +1,4 @@
+# a rake task to neatly list all the tests that are currently created for the CMS
 task :agiledox do
   tests = FileList['test/**/*_test.rb']
   tests.each do |file|

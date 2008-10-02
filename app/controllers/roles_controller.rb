@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   before_filter :check_administrator_role
   def index
-    @roles = Role.find(:all)#
+    @roles = Role.find(:all)
     @user = User.find(params[:user_id])
     render :action => "index", :layout => "admin"
   end

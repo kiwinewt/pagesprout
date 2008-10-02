@@ -9,10 +9,12 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # login
     password_authentication(params[:login], params[:password])
   end
 
   def destroy
+    # logout
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session

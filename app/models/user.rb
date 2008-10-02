@@ -130,6 +130,7 @@ class User < ActiveRecord::Base
     find :first, :conditions => ['email = ? and activated_at IS NOT NULL', email]
   end
   
+  # check if the user has the role, or if they are an administrator
   def has_role?(rolename)
     result = self.roles.find_by_rolename(rolename) ? true : false
     if !result

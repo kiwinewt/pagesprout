@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class RoleTest < ActiveSupport::TestCase
+  fixtures :users
   
   def test_should_create_role
     assert_difference 'Role.count' do
@@ -10,7 +11,7 @@ class RoleTest < ActiveSupport::TestCase
   end
   
   def test_user_should_have_role
-    user = create_user
+    user = users(:quentin)
     assert_difference 'user.roles.count' do
       role = create_role
       user.roles << role

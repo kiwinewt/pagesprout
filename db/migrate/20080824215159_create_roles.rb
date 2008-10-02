@@ -2,7 +2,6 @@ class CreateRoles < ActiveRecord::Migration
   def self.up
     create_table :roles do |t|
       t.string :rolename
-
       t.timestamps
     end
   end

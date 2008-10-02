@@ -21,8 +21,9 @@ class PagesControllerTest < ActionController::TestCase
   end
   
   def test_non_existant_page
-    get :page => "700"
-    assert_response 404
+    @request.session[:id] = 1 
+    get :page => "lah"
+    assert_redirected_to( :action=>"index", :controller=>"about" )
   end
 
   

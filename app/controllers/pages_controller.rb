@@ -76,16 +76,19 @@ class PagesController < ApplicationController
   end
   
   def restore
+    # restore a 'deleted' page
     @page.recover!
     redirect_to_pages
   end
   
   def completely_destroy
+    # permanently delete a page
     @page.destroy!
     redirect_to_pages
   end
   
   def completely_destroy_deleted
+    # equivalent of empty trash
     Page.delete_all!("deleted_at IS NOT NULL")
     redirect_to_pages
   end
@@ -105,19 +108,19 @@ class PagesController < ApplicationController
   
   private
   
-  def find_page
-    @page = Page.find_by_slug(params[:id])
-    @page_title = @page.title
-  end
-  
-  def find_deleted_page
-    @page = Page.find_with_deleted(:first, :conditions => { :slug => params[:id] })
-  end
-  
-  def redirect_to_pages
-    respond_to do |format|
-      format.html { redirect_to(pages_url) }
-      format.xml { head :ok }
+    def find_page
+      @page = Page.find_by_slug(params[:id])
+      @page_title = @page.title
     end
-  end
+    
+    def find_deleted_page
+      @page = Page.find_with_deleted(:first, :conditions => { :slug => params[:id] })
+    end
+    
+    def redirect_to_pages
+      respond_to do |format|
+        format.html { redirect_to(pages_url) }
+        format.xml { head :ok }
+      end
+    end
 end

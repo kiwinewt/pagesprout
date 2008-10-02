@@ -1,7 +1,5 @@
 class AdminController < ApplicationController
   layout 'admin'
-  def index
-  end
   
   def theme
     @themes = get_themes
@@ -14,6 +12,7 @@ class AdminController < ApplicationController
   def settings
     get_config
     @options = {}
+    # convert the config to a table to be able to access it as key-value pairs
     @application_config.marshal_dump.keys.each do |group|
       group_values = @application_config.send(group.to_s)
       @options[group.to_s] = {}
@@ -29,11 +28,13 @@ class AdminController < ApplicationController
     get_config
     settings_group = params["settings"]
     settings = {}
+    # find all the parameters that start with the settings group eg common_xxx
     for param in params
       if param[0].include? settings_group
         settings[param[0].gsub(settings_group + "_", "")] = param[1]
       end
     end
+    #convert the current settings to a table then update all the originals with the new settings
     settings_dump = @application_config.marshal_dump
     for section in settings_dump.each
       if section[0].to_s == settings_group && section[1]
@@ -43,6 +44,7 @@ class AdminController < ApplicationController
           end
         end
       end
+      # find any new fields and add them to the settings
       for item in params.each
         theLabel = section[0].to_s+"_new_label_"
         if item[0].include? theLabel
@@ -57,6 +59,7 @@ class AdminController < ApplicationController
         end
       end
     end
+    # if there are new settings then save them. helps stop all settings being wiped
     if settings_dump
       @application_config = OpenStruct.new(settings_dump)
     end
@@ -100,6 +103,8 @@ class AdminController < ApplicationController
       config_file = File.join(RAILS_ROOT, "config/config.yml")
       File.open(config_file, 'w') { |f| f.write(output) }  
       
+      # for this to work without having to restart the RoR server the AppConfig
+      # plugin had to be modified to be able to save the variables
       new_application_config = @application_config
       env_config = new_application_config.send(RAILS_ENV)
       new_application_config.common.update(env_config) unless env_config.nil?

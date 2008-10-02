@@ -33,7 +33,6 @@ class PasswordController < ApplicationController
   rescue
     logger.error "Invalid Reset Code entered."
     flash[:notice] = "Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)"
-    #redirect_back_or_default('/')
     redirect_to new_user_path
   end
     
