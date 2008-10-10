@@ -30,16 +30,6 @@ Rails::Initializer.run do |config|
     end
   end
   
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address => application_config.common["mail_address"],
-    :port => application_config.common["mail_port"],
-    :domain => application_config.common["mail_domain"],
-    :authentication => :login,
-    :user_name => application_config.common["mail_user_name"],
-    :password => application_config.common["mail_password"]
-  }
-  
   #create new session key for each site, so that there arent a million sites all with the same key
   session_key = "#{config.app_config['site_name'].downcase.gsub!(/\ +/, '_')}_session"
   secret_file = File.join(RAILS_ROOT, "secret")  
@@ -57,15 +47,5 @@ Rails::Initializer.run do |config|
     :secret      => secret
   }
 end
-
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => AppConfig.mail_address,
-  :port => AppConfig.mail_port,
-  :domain => AppConfig.mail_domain,
-  :authentication => :login,
-  :user_name => AppConfig.mail_user_name,
-  :password => AppConfig.mail_password
-}
 
 SITE_KEY = 'base' # Used for session key

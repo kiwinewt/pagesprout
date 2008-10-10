@@ -1,0 +1,37 @@
+<%- @page_title = "Edit Blog" -%>
+
+<div class="section">
+  <% form_for(@blog) do |f| %>
+    <div class="element">
+      <%= f.error_messages %>
+      
+    <div class="element">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="element">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="element">
+      <%= f.label :slug %>
+      <%= f.text_field :slug %>
+    </div>
+
+    <div class="element">
+      <%= f.label :enabled %>
+      <%= check_box('blog', 'enabled') %>
+    </div>
+
+    <div class="element">
+      <%= f.submit "Update" %>
+    </div>
+  <% end %>
+
+  <div class="element">
+    <%= link_to 'Show', @blog %> |
+    <%= link_to 'Back', blogs_path %>
+  </div>
+</div>

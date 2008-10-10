@@ -21,6 +21,7 @@ body {
   margin: 0 0 10px 0;
   overflow: hidden;
   padding: 0;
+  background: #AAFFAA;
 }
 
   #nav li {
@@ -43,6 +44,7 @@ body {
   margin: 0 0 10px 0;
   overflow: hidden;
   padding: 0;
+  background: #AAAAFF;
 }
 
   #subnav li {
@@ -57,4 +59,11 @@ body {
     #subnav .selected span {
       padding: 5px 5px 5px 10px;
     }
+    
+h3.disabled_post {
+  font-style: italic;
+}
 
+li {
+  list-style-type: disc;
+}

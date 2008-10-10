@@ -6,7 +6,15 @@
 
   .section .element {
     padding-top: 5px;
+    clear: both;
   }
+  
+    .section .element .column {
+      float: left;
+      padding-left: 10px;
+      width: 12em;
+      border: 1px solid #cccccc;
+    }
   
     .section .element .element_content {
       padding-top: 2px;
@@ -16,13 +24,29 @@
         width: 300px;
       }
 
-  .section tr td {
+  .disabled_item {
+    color: #FF0000;
+  }
+
+  tr.enabled_item {
+    color: #00CC00;
+  }
+  
+  tr.element_odd {
+    background: #CCCCCC;
+  }
+  
+  .element_even {
+    background: #FFFFFF;
+  }
+
+  .section#themes tr td {
     padding: 1em 2em 1em 1em;
     border-top: 1px solid #cccccc;
     text-align: left;
   }
 
-  .section tr th {
+  .section#themes tr th {
     text-align: left;
     padding-left: 1em;
   }

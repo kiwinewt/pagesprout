@@ -1,15 +1,20 @@
-<h1>New role</h1>
-
-<% form_for([@user, @role]) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :rolename %><br />
-    <%= f.text_field :rolename %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', user_roles_path %>
+<% @page_title = "New Role" %>
+<div class="section">
+  <% form_for([@user, @role]) do |f| %>   
+    <div class="element">
+      <%= f.error_messages %>
+    </div>
+    
+    <div class="element">
+      <%= f.label :rolename %><br />
+      <%= f.text_field :rolename %>
+    </div>
+    
+    <div class="element">
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+  <div class="element">
+    <%= link_to 'Back', user_roles_path %>
+  </div>
+</div>

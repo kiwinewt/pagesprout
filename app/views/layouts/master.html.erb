@@ -8,7 +8,13 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= @page_title %></title>
   <%= stylesheet_link_tag get_theme_stylesheet %>
-  <%= javascript_include_tag 'fckeditor/fckeditor' %>
+  <script type="text/javascript">
+    _editor_url  = "/javascripts/xinha/"
+    _editor_lang = "en";
+    _editor_skin = "silva";
+  </script>
+  <script type="text/javascript" src="/javascripts/xinha/XinhaCore.js"></script>
+  <script type="text/javascript" src="/javascripts/xinha/config.js"></script>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
@@ -20,10 +26,22 @@
       </li>
     <%- end -%>
   </ul>
+  <%- if @subnav -%>
+    <ul id="subnav">
+      <%- for page in @sub_pages -%>
+        <li>
+          <%= page -%>
+        </li>
+      <%- end -%>
+    </ul>
+  <%- end -%>
   <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-  <%= @page_heading ? "<h1>"+@page_heading+"</h1>" : "" %>
+  <%= @page_heading && !@hidden_title ? "<div id='header'>"+@page_heading+"</div>" : "" %>
 
-  <%= yield  %>
+  <div id="article">
+    <%= yield  %>
+  </div>
+
 
 </body>
 </html>

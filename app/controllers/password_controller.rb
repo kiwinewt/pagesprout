@@ -1,5 +1,5 @@
 class PasswordController < ApplicationController
-  before_filter :not_logged_in_required, :only => [:new, :create]
+  before_filter :login_required, :except => [:new, :create]
   
   # Enter email address to recover password 
   def new

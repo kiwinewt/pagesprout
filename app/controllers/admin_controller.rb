@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   layout 'admin'
+  before_filter :check_administrator_role
   
   def theme
     @themes = get_themes

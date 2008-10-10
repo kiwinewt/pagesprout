@@ -1,0 +1,29 @@
+<% @page_title = "New Post" %>
+<div class="section">
+  <% form_for([@blog,@post]) do |f| %>
+    <%= f.error_messages %>
+      
+    <div class="element">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="element">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="element">
+      <%= f.label :enabled %>
+      <%= check_box('post', 'enabled') %>
+    </div>
+
+    <div class="element">
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+
+  <div class="element">
+    <%= link_to 'Back', blog_path(@blog) %>
+  </div>
+</div>

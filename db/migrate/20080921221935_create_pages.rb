@@ -1,12 +1,16 @@
 class CreatePages < ActiveRecord::Migration
   def self.up
     create_table :pages do |t|
-      t.string :title
-      t.text :body
-      t.string :slug
-      t.datetime :deleted_at
+      t.integer :parent_id
+      t.integer :lft
+      t.integer :rgt
+      t.string  :title
+      t.text    :body
+      t.string  :slug
       t.integer :version, :default=>1
       t.boolean :home_page, :default=>false
+      t.boolean :locked, :default=>false
+      t.boolean :enabled, :default=>false
       t.timestamps
     end
     
@@ -15,7 +19,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :version
       t.string  :title
       t.text    :body
-      t.string :slug
+      t.string  :slug
       t.timestamps
     end
 

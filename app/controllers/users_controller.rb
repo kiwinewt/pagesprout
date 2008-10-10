@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
   before_filter :not_logged_in_required, :only => [:new, :create] 
-  before_filter :login_required, :only => [:show, :edit, :update]
+  before_filter :public_profile, :only => :show
+  before_filter :login_required, :only => [:edit, :update]
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
   
   #This show action only allows users to view their own profile
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
     
   # render new.rhtml
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   def create
     cookies.delete :auth_token
     @user = User.new(params[:user])
+    @user.public_profile = false
     @user.save!
     flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
     redirect_to login_path    
@@ -26,14 +28,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
+    @user.update_attribute(:public_profile, params[:user][:public_profile])
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated"
-      redirect_to :action => 'show', :id => current_user
+      redirect_to @user
     else
       render :action => 'edit'
     end
@@ -58,5 +61,13 @@ class UsersController < ApplicationController
     end
       redirect_to :controller => 'admin', :action => 'users'
   end
+  
+  protected
+    def public_profile
+      logged_in?
+      @user = User.find(params[:id])
+      result = @user.public_profile || authorized?
+      result || permission_denied
+    end
 
 end

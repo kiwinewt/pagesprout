@@ -1,9 +1,13 @@
 <div class="section">
-  <%= @page.body %>
-
-  <% if logged_in? %>
-    <%= link_to 'Edit', edit_page_path(@page) %> |
-    <%= link_to 'Delete', @page, :method => :delete %> |
-    <%= link_to 'Back', pages_path %>
-  <% end %>
+  <div class="element">
+    <%= @page.body %>
+  </div>
+  
+  <div class="element">
+    <% if logged_in? && current_user.has_role?('administrator') %>
+      <%= link_to 'Edit', edit_page_path(@page) %> |
+      <%= link_to 'Delete', @page, :method => :delete %> |
+      <%= link_to 'Back', pages_path %>
+    <% end %>
+  </div>
 </div>

@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :revert_to_version]
-  before_filter :find_deleted_page, :only => [:completely_destroy, :restore]
   before_filter :login_required, :except => :show
+  before_filter :page_enabled, :only => :show
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
-  
+
   # GET /pages
   # GET /pages.xml
   def index
-    @pages = Page.all
-    @deleted_pages = Page.deleted
+    @all_top_level_pages = Page.all_top_level_pages
     render :action => "index", :layout => "admin"
   end
 
@@ -25,6 +24,11 @@ class PagesController < ApplicationController
   # GET /pages/new.xml
   def new
     @page = Page.new
+    if Page.find_by_slug(params[:id])
+      @parent_id = Page.find_by_slug(params[:id]).id
+    else
+      @parent_id = "0"
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +47,7 @@ class PagesController < ApplicationController
     
     respond_to do |format|
       if @page.save
+        after_save_move(@page.id, params[:page][:parent_id])
         flash[:notice] = 'Page was successfully created.'
         format.html { redirect_to(@page) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
@@ -106,11 +111,23 @@ class PagesController < ApplicationController
     redirect_to_pages
   end
   
+  def update_positions
+    # returned array contains the Page ids
+    Page.reorder_siblings(params[params[:id]])
+    @all_top_level_pages = Page.all_top_level_pages
+  end
+  
   private
   
     def find_page
       @page = Page.find_by_slug(params[:id])
       @page_title = @page.title
+    end
+    
+    def page_enabled
+      # if the page is active then let it through
+      # if not then the user has to be an admin to access it
+      @page.enabled? || check_administrator_role
     end
     
     def find_deleted_page
@@ -121,6 +138,14 @@ class PagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to(pages_url) }
         format.xml { head :ok }
+      end
+    end
+    
+    def after_save_move(id, parent_id)
+      if parent_id != "0"
+        @page = Page.find_by_id(id)
+        @parent = Page.find_by_id(parent_id)
+        @page.move_to_child_of @parent
       end
     end
 end

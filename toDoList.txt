@@ -3,9 +3,11 @@ Authentication - done basics
 Pages
     A basic system to manage the pages on the site - done
     a simplified markup language or WYSIWYG editor - done
-    images - done
+    images
     revisions - done
-    published/unpublished states - published/deleted?
+    published/unpublished states - done
+    rewrite the pages interface
+    remove deleted state - published, unpublished or fully deleted.
 Settings
     Research into various options for configuration files/tables - yaml, pulled in at start
     A YAML configuration file or alternate configuration to store key-value pairs for settings - done
@@ -27,7 +29,6 @@ Test-driven development
     All items have tests created before the items themselves are created
 Quality Metrics
     Quality analysis and implementation plan created - done
-
 
 Search
     Create a search controller

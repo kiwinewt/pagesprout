@@ -1,65 +1,28 @@
-<%- @hidden_title = true -%>
-<table class="section">
-  <tr>
-    <th colspan=3>
-      <h2><%= @page_title = 'Administer Pages' %></h2>
-    </th>
-  </tr>
-  <tr>
-    <th>Title</th>
-    <th>Last Updated</th>
-    <th>Actions</th>
-  </tr>
+<%- @page_title = 'Administer Pages' -%>
 
-<% for page in @pages %>
-  <tr>
-    <td><%= link_to h(page.title), page %></td>
-    <td><%= time_ago_in_words(page.updated_at).capitalize %> ago</td>
-    <td>
-      <%= link_to 'Show', page %>
-      <%= link_to 'Edit', edit_page_path(page) %>
-      <%= link_to 'Destroy', page, :method => :delete %>
-      <%= link_to 'Versions', :id => page, :action => :versions %>
-    </td>
-  </tr>
-<% end %>
-  <tr>
-    <td colspan=3>
-      <%= link_to 'New page', new_page_path %>
-    </td>
-  </tr>
-</table>
-
-<% unless @deleted_pages.empty? %>
-  
-  <table class="section">
-  <tr>
-    <th colspan=6>
-      <h2>Trash</h2>
-    </td>
-  
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Slug</th>
-    </tr>
-  
-  <% for page in @deleted_pages %>
-    <tr>
-      <td><%=h page.title %></td>
-      <td><%=h page.body %></td>
-      <td><%=h page.slug %></td>
-      <td><%= time_ago_in_words(page.deleted_at).capitalize %> ago</td>
-      <td><%= link_to 'Restore', restore_page_path(page), :method => :put %></td>
-      <td><%= link_to 'Delete Forever', completely_destroy_page_path(page), :method => :delete, :confirm => 'Are you sure?' %></td>
-    </tr>
-  <% end %>
-  <tr>
-    <td colspan=6>
-      <%= link_to 'Empty Trash', completely_destroy_deleted_pages_path, :method => :delete, :confirm => 'Are you sure?' %>
-    </td>
-  </tr>
-  </table>
-  
-
-<% end %>
+<ul id="section" >
+  <%- if @all_top_level_pages %>
+    <%- for primary_page in @all_top_level_pages -%>
+	    <li id="<%= primary_page.id %>" class="<%= primary_page.enabled ? "enabled_item" : "disabled_item"%>">
+		    <%= link_to primary_page.title, primary_page %>
+		    <%= link_to "(+)", :action => "new",  :id => primary_page %>
+        <%= link_to 'Edit', edit_page_path(primary_page) %>
+        <%= link_to 'Destroy', primary_page, :method => :delete %>
+		    <%= link_to 'Versions', :id => primary_page, :action => :versions %>
+		    <%- if primary_page.children.count > 0 -%>
+		    <ul class="edit_list">
+			    <%- for secondary_page in primary_page.children -%>
+			    <li id="<%= secondary_page.id %>" class="<%= secondary_page.enabled ? "enabled_item" : "disabled_item"%>">
+				    <%= link_to secondary_page.title, secondary_page %>
+            <%= link_to 'Edit', edit_page_path(secondary_page) %>
+            <%= link_to 'Destroy', secondary_page, :method => :delete %>
+		        <%= link_to 'Versions', :id => secondary_page, :action => :versions %>
+			    </li>
+			    <%- end -%>
+		    </ul>
+		    <%- end -%>
+	    </li>
+    <%- end -%>
+  <%- end -%>
+  <li><%= link_to '--New page--', new_page_path -%></li>
+</ul>

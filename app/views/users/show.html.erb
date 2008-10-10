@@ -1,6 +1,10 @@
 <% @page_title = "User: " + @user.login %>
-<p>Joined on: <%= @user.created_at.to_s(:long) %></p>
+<div class="section">
+  <p>Joined on: <%= @user.created_at.to_s(:long) %></p>
+  <p><%= @user.public_profile %></p>
 
-<% if @user == @current_user %>
-  <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-<% end %>
+  <% if @user == @current_user %>
+    <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+  <% end %>
+</div>
+

@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  acts_as_paranoid
+  acts_as_nested_set
   version_fu
   
   validates_presence_of :title, :body
@@ -8,9 +8,33 @@ class Page < ActiveRecord::Base
   
   after_save :downcase_slug
   
-  # Acts as paranoid prevents using named_scope
-  def self.deleted
-    find_with_deleted(:all, :conditions => "deleted_at IS NOT NULL")
+  attr_accessor :child_of
+  
+  def self.all_top_level_pages
+    Page.find(:all, :conditions => "parent_id IS NULL")
+  end
+  
+  def self.reorder_siblings(siblings)
+
+    index = 0
+    @parent = nil
+    last_child = nil
+
+    # Heres were most of the work is done
+    siblings.each do |child|
+      this_child = Page.find(child)
+      
+      # If last child is nil, then we know that we are dealing with the first item
+      # in the array
+      if(last_child.nil?)
+          last_child ||= this_child
+      else
+        # If we are here the we know that we need to take this child and 
+        # move it to the right of the last child
+          this_child.move_to_right_of last_child
+          last_child = this_child
+      end
+    end
   end
   
   def to_param

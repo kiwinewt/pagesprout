@@ -1,7 +1,16 @@
-<% form_tag url_for(:action => "update", :id => params[:id]) do %>
-  Password:<br />
-  <%= password_field_tag :password %><br />
-  Confirm Password:<br />
-  <%= password_field_tag :password_confirmation %><br />
-  <%= submit_tag "Reset Your Password" %>
-<% end %>
+<% @page_title = "Reset Password" %>
+<div class="section">
+  <% form_tag url_for(:action => "update", :id => params[:id]) do %>
+    <div class="element">
+      Password:<br />
+      <%= password_field_tag :password %><br />
+    </div>
+    <div class="element">
+      Confirm Password:<br />
+      <%= password_field_tag :password_confirmation %><br />
+    </div>
+    <div class="element">
+      <%= submit_tag "Reset Your Password" %>
+    </div>
+  <% end %>
+</div>
