@@ -4,7 +4,6 @@
 # any new settings added can be accessed with AppConfig.setting_name
 
 common:
-  # non-specific configuration goes here
   mail_address: mail.example.com
   mail_port: 25
   mail_domain: yourapplication.com
@@ -16,8 +15,11 @@ common:
   admin_email: joe.bloggs@example.com
 
 production:
-  # production-specific configuration goes here
 
 development:
-  # development-specific configuration goes here
   root_url: localhost:3000
+  site_name: Example Site
+
+test:
+  root_url: localhost:3000
+  site_name: Example Site
