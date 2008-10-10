@@ -13,8 +13,8 @@ module ApplicationHelper
   def get_navigation
     @pages = []
     @pages << (link_to('Home', root_path))
-    @pages += Page.find(:all, :conditions => [ "home_page = false AND enabled = true AND parent_id IS NULL"]).collect { |p| link_to(h(p.title), p) }
-    @pages += Blog.find(:all, :conditions => [ "enabled = true"]).collect { |p| link_to(h(p.title), p) }
+    @pages += Page.find(:all, :conditions => { :home_page => false, :enabled => true, :parent_id => nil }).collect { |p| link_to(h(p.title), p) }
+    @pages += Blog.find(:all, :conditions => { :enabled => true }).collect { |p| link_to(h(p.title), p) }
     if logged_in?
       @pages << ('Logged in as: ' + link_to(h(current_user.login.capitalize), user_path(current_user)))
       if current_user.has_role?('administrator')
@@ -28,11 +28,11 @@ module ApplicationHelper
       if @page.root?
         if @page.children.count != 0
           @subnav = true
-          @sub_pages = Page.find(:all, :conditions => [ "enabled = true AND parent_id = ?", @page.id]).collect { |p| link_to(h(p.title), p) }
+          @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.id }).collect { |p| link_to(h(p.title), p) }
         end
       else
         @subnav = true
-        @sub_pages = Page.find(:all, :conditions => [ "enabled = true AND parent_id = ?", @page.parent_id]).collect { |p| link_to(h(p.title), p) }
+        @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.parent_id }).collect { |p| link_to(h(p.title), p) }
       end
     end
   end
