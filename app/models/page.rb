@@ -45,5 +45,6 @@ class Page < ActiveRecord::Base
   
   def downcase_slug
     slug.downcase!
+    self.instatiate_revision
   end
 end

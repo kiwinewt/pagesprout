@@ -4,22 +4,19 @@
 # any new settings added can be accessed with AppConfig.setting_name
 
 common:
-  mail_address: mail.example.com
-  mail_port: 25
+  theme: new
+  date_string: "%d %h %Y - %H:%M %p"
   mail_domain: yourapplication.com
-  mail_user_name: mail@yourapplication.com
-  mail_password: yourapplicationpassword
-  
-  root_url: www.example.com
+  admin_email: admin@example.com
+  another: test
   site_name: Example Site
-  admin_email: joe.bloggs@example.com
+  page_not_found: It seems that the page you were looking for does not exist, so you have been redirected here.
+  root_url: www.example.com
 
 production:
 
 development:
   root_url: localhost:3000
-  site_name: Example Site
 
 test:
   root_url: localhost:3000
-  site_name: Example Site

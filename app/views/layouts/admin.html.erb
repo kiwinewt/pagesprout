@@ -45,11 +45,21 @@
     <%- end -%>
   </ul>
   <ul id="subnav">
-    <%= link_to ('Configuration', :controller => 'admin', :action => 'settings') %>
-    <%= link_to('Administer Users', :controller => 'admin', :action => 'users')%>
-    <%= link_to('Administer Pages', pages_path)%>
-    <%= link_to('Administer Blogs', blogs_path)%>
-    <%= link_to('Select Theme', :controller => 'admin', :action => 'theme')%>
+    <li>
+      <%= link_to ('Configuration', :controller => 'admin', :action => 'settings') %>
+    </li>
+    <li>
+      <%= link_to('Users', :controller => 'admin', :action => 'users')%>
+    </li>
+    <li>
+      <%= link_to('Pages', pages_path)%>
+    </li>
+    <li>
+      <%= link_to('Blogs', blogs_path)%>
+    </li>
+    <li>
+      <%= link_to('Theme', :controller => 'admin', :action => 'theme')%>
+    </li>
   </ul>
   <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
   <%= @page_heading && !@hidden_title ? "<div id='header'>"+@page_heading+"</div>" : "" %>
