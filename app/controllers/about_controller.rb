@@ -18,6 +18,17 @@ class AboutController < ApplicationController
     end
   end
   
+  def sitemap
+    @pages = Page.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500)
+    headers["Content-Type"] = "text/xml"
+    # set last modified header to the date of the latest entry. 
+    headers["Last-Modified"] = @pages[0].updated_at.httpdate  
+    @blogs = Blog.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500) 
+    headers["Last-Modified"] = headers["Last-Modified"] > @pages[0].updated_at.httpdate ? headers["Last-Modified"] : @pages[0].updated_at.httpdate 
+    render :action => "sitemap", :layout => false
+  end
+
+  
   def errorpage
     # if there is a notice/error it will be passed on, otherwise the default will be used
     notice = params[:notice]

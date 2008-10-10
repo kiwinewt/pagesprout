@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.reset_password '/reset_password/:id', :controller => 'password', :action => 'edit'
   map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   
+  map.sitemap 'sitemap.xml', :controller => 'about', :action => 'sitemap'
+  
   map.resources :pages
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
   
