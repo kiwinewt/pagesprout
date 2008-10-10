@@ -28,7 +28,7 @@
     color: #FF0000;
   }
 
-  tr.enabled_item {
+  .enabled_item {
     color: #00CC00;
   }
   

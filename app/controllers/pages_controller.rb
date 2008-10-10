@@ -47,7 +47,6 @@ class PagesController < ApplicationController
     
     respond_to do |format|
       if @page.save
-        after_save_move(@page.id, params[:page][:parent_id])
         flash[:notice] = 'Page was successfully created.'
         format.html { redirect_to(@page) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
@@ -138,14 +137,6 @@ class PagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to(pages_url) }
         format.xml { head :ok }
-      end
-    end
-    
-    def after_save_move(id, parent_id)
-      if parent_id != "0"
-        @page = Page.find_by_id(id)
-        @parent = Page.find_by_id(parent_id)
-        @page.move_to_child_of @parent
       end
     end
 end
