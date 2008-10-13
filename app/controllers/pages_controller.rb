@@ -47,6 +47,7 @@ class PagesController < ApplicationController
     
     respond_to do |format|
       if @page.save
+        create_screenshot
         flash[:notice] = 'Page was successfully created.'
         format.html { redirect_to(@page) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
@@ -62,6 +63,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update_attributes(params[:page])
+        create_screenshot
         flash[:notice] = 'Page was successfully updated.'
         format.html { redirect_to(@page) }
         format.xml  { head :ok }
