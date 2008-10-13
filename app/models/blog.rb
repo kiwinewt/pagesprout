@@ -1,7 +1,7 @@
 class Blog < ActiveRecord::Base
   has_many :posts
   
-  acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :slug => {} },
+  acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :slug_with_spaces => {} },
                  :remote => true,
                  :store_class_name => true
   
@@ -13,6 +13,10 @@ class Blog < ActiveRecord::Base
   
   def to_param
     slug_was
+  end
+
+  def slug_with_spaces
+    return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
   def enabled_posts_shortlist
