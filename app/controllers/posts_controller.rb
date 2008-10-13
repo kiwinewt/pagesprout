@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :find_post, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_post, :only => [:show, :edit, :update, :destroy, :enable]
   before_filter :get_blog
   before_filter :login_required, :except => :show
   before_filter :post_enabled, :only => :show
@@ -74,6 +74,12 @@ class PostsController < ApplicationController
     end
   end
   
+  def enable
+    @post.enabled = !@post.enabled
+    @post.save
+    redirect_to_blogs
+  end
+  
   private
   
     def find_post
@@ -89,5 +95,12 @@ class PostsController < ApplicationController
       # if the page is active then let it through
       # if not then the user has to be an admin to access it
       @post.enabled? || check_administrator_role
+    end
+    
+    def redirect_to_blogs
+      respond_to do |format|
+        format.html { redirect_to(blogs_url) }
+        format.xml { head :ok }
+      end
     end
 end

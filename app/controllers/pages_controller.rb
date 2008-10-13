@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :revert_to_version]
+  before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
   before_filter :login_required, :except => :show
   before_filter :page_enabled, :only => :show
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
@@ -96,6 +96,12 @@ class PagesController < ApplicationController
   def completely_destroy_deleted
     # equivalent of empty trash
     Page.delete_all!("deleted_at IS NOT NULL")
+    redirect_to_pages
+  end
+  
+  def enable
+    @page.enabled = !@page.enabled
+    @page.save
     redirect_to_pages
   end
   
