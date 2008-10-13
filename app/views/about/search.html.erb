@@ -6,18 +6,8 @@
     Total number of results: <%= @result.total_hits %>
   </div>
   <%- for item in @result -%>
-    <%- if (item.type == Blog) -%>
-      <div class="element">
-        <%= highlight(item.title, @query) %><br />
-        <%= highlight(item.description, @query) %><br />
-        <%= link_to(highlight(item.slug, @query), item) %>
-      </div>
-    <%- else -%>  
-      <div class="element">
-        <%= highlight(item.title, @query) %><br />
-        <%= highlight(item.body, @query) %><br />
-        <%= link_to(highlight(item.slug, @query), item) %>
-      </div>
-    <%- end -%>
+    <div class="element">
+      <%= search_result(item, @query) %>
+    </div>
   <%- end -%>
 </div>

@@ -22,13 +22,13 @@ class AboutController < ApplicationController
     begin
       @query = params[:query]
       if @query == ""
-        @query = null
+        @query = nil
       end
       additional_models = [Post, Blog]
       @result = Page.find_by_contents(@query, {:multi => additional_models}, {:conditions => "enabled = true"})
-    #rescue
-    #  flash[:error] = "Please enter something to search for"
-    #  redirect_to(:controller => :about, :action => :index)
+    rescue
+      flash[:error] = "Please enter something to search for"
+      redirect_to(:controller => :about, :action => :index)
     end
   end
   

@@ -28,6 +28,15 @@ body {
     display: inline;
     padding: 0.5em;
   }
+
+    #nav li form {
+      display: inline;
+    }
+
+      /* work around ruby on rail's form authenticity token box in the search */
+      #nav li form div {
+        display: inline; 
+      }
   
   #nav .selected {
     padding: 5px 5px 5px 0;
