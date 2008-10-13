@@ -24,6 +24,7 @@ class AboutController < ApplicationController
       if @query == ""
         @query = nil
       end
+      # add any other models that are acts_as_ferret here
       additional_models = [Post, Blog]
       @result = Page.find_by_contents(@query, {:multi => additional_models}, {:conditions => "enabled = true"})
     rescue
