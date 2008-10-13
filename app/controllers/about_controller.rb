@@ -17,6 +17,20 @@ class AboutController < ApplicationController
       redirect_to(@page)
     end
   end
+
+  def search
+    begin
+      @query = params[:query]
+      if @query == ""
+        @query = null
+      end
+      additional_models = [Post, Blog]
+      @result = Page.find_by_contents(@query, {:multi => additional_models}, {:conditions => "enabled = true"})
+    #rescue
+    #  flash[:error] = "Please enter something to search for"
+    #  redirect_to(:controller => :about, :action => :index)
+    end
+  end
   
   def sitemap
     @pages = Page.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500)
@@ -53,6 +67,38 @@ class AboutController < ApplicationController
       else
         flash[:notice] = notice
         redirect_to :action => 'index'
+      end
+    end
+  end
+  
+  def send_contact_form
+    if request.post?
+      from_name = params[:name]
+      from_email = params[:email]
+      message = params[:message]
+      subject = params[:subject]
+      begin
+        #First check if the senders email is valid
+        if from_email =~ /^[a-zA-Z0-9._%-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$/
+          #put all the contents of my form in a hash
+          mail_info = {"from_name" => from_name, "from_email" => from_email, "message" => message, "subject" => subject}
+          ContactMailer.deliver_message_from_visitor(mail_info)
+          #Display a message notifying the sender that his email was delivered.
+          flash[:notice] = 'Your message was successfully delivered.'
+          #Then redirect to index or any page you want with the message
+          redirect_to(:action => 'index')
+        else
+          #if the senders email address is not valid
+          #display a warning and redirect to any action you want
+          flash[:error] = 'Your email address appears to be invalid.'
+          redirect_to(:action => 'index')
+        end
+      rescue
+        #if everything fails, display a warning and the exception
+        #Maybe not always advisable if your app is public
+        #But good for debugging, especially if action mailer is setup wrong
+        flash[:error] = "Your message could not be delivered at this time. #$!. Please try again later"
+        redirect_to(:action => 'index')
       end
     end
   end

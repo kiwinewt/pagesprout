@@ -1,6 +1,9 @@
 class Page < ActiveRecord::Base
   #acts_as_nested_set
   acts_as_tree :order => "title"
+  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug => {} },
+                 :remote => true,
+                 :store_class_name => true
   version_fu
   
   validates_presence_of :title, :body

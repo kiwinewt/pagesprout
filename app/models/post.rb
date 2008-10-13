@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-
+  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug => {} },
+                 :remote => true,
+                 :store_class_name => true
   belongs_to :blog
   
   validates_presence_of :title, :body, :slug

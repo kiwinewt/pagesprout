@@ -1,0 +1,23 @@
+<%- @page_title = "Search Results" -%>
+
+<div class="section">
+  <div class="element">
+    Search: <%= @query %><br />
+    Total number of results: <%= @result.total_hits %>
+  </div>
+  <%- for item in @result -%>
+    <%- if (item.type == Blog) -%>
+      <div class="element">
+        <%= highlight(item.title, @query) %><br />
+        <%= highlight(item.description, @query) %><br />
+        <%= link_to(highlight(item.slug, @query), item) %>
+      </div>
+    <%- else -%>  
+      <div class="element">
+        <%= highlight(item.title, @query) %><br />
+        <%= highlight(item.body, @query) %><br />
+        <%= link_to(highlight(item.slug, @query), item) %>
+      </div>
+    <%- end -%>
+  <%- end -%>
+</div>

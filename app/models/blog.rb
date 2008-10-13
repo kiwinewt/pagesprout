@@ -1,6 +1,10 @@
 class Blog < ActiveRecord::Base
   has_many :posts
   
+  acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :slug => {} },
+                 :remote => true,
+                 :store_class_name => true
+  
   validates_presence_of :title, :description
   validates_uniqueness_of :title, :slug
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i

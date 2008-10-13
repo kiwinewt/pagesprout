@@ -1,0 +1,35 @@
+# configuration for the acts_as_ferret DRb server
+
+# host: where to reach the DRb server (used by application processes to contact the server)
+# port: which port the server should listen on
+# pid_file: location of the server's pid file (relative to RAILS_ROOT)
+# log_file: log file (default: RAILS_ROOT/log/ferret_server.log
+# log_level: log level for the server's logger
+
+# the reason for a remote ferret server (can be running on the same machine) is
+# that multiple rails processes accessing the same index files can cause
+# corruption of the indexes really quickly.
+
+# ferret is a required Gem for this CMS to run
+
+production:
+  host: localhost
+  port: 9010
+  pid_file: log/ferret.pid
+  log_file: log/ferret_server.log
+  log_level: warn
+
+# aaf won't try to use the DRb server in environments that are not 
+# configured here. leaving this commented out means a remote server will not be used
+#development:
+#  host: localhost
+#  port: 9010
+#  pid_file: log/ferret.pid
+#  log_file: log/ferret_server.log
+#  log_level: warn
+#test:
+#  host: localhost
+#  port: 9010
+#  pid_file: log/ferret.pid
+#  log_file: log/ferret_server.log
+#  log_level: warn

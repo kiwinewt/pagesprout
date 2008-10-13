@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 require 'plugins/app_config/lib/configuration'
 require 'ostruct'
+require 'ferret'
 require 'yaml'
 require 'action_mailer'
 require 'rails_generator/secret_key_generator'  

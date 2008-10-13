@@ -25,6 +25,12 @@
         <%= page -%>
       </li>
     <%- end -%>
+    <li>
+      <%- form_tag ({:controller => :about, :action => :search}) do -%>
+        <%= text_field_tag "query" %>
+        <%= submit_tag("Search") %>
+      <%- end -%>
+    </li>
   </ul>
   <%- if @subnav -%>
     <ul id="subnav">
