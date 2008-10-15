@@ -1,5 +1,0 @@
-/* fallback in case of no set styles */
-@import 'scaffold.css';
-
-@import 'general.css';
-@import 'composition.css';

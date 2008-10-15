@@ -18,36 +18,40 @@
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-  <ul id=nav>
+  <div id="header">
+    <h1><%= AppConfig.site_name %></h1>
+    <h2><%= AppConfig.site_slogan %></h2>
+  </div>
+  <ul id="nav">
     <%- get_navigation -%>
     <%- for page in @pages -%>
-      <li>
+      <li <%= page == @pages[0] ? ' class="first"' : '' %>>
         <%= page -%>
       </li>
     <%- end -%>
-    <li>
+    <li class="search">
       <%- form_tag ("/search") do -%>
-        <%= text_field_tag "query" %>
-        <%= submit_tag("Search") %>
+        <%= text_field_tag "query", "Search" %>
+        <%= submit_tag("Go") %>
       <%- end -%>
     </li>
   </ul>
   <%- if @subnav -%>
     <ul id="subnav">
       <%- for page in @sub_pages -%>
-        <li>
+        <li <%= page == @sub_pages[0] ? ' class="first"' : '' %>>
           <%= page -%>
         </li>
       <%- end -%>
     </ul>
   <%- end -%>
-  <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-  <%= @page_heading && !@hidden_title ? "<div id='header'>"+@page_heading+"</div>" : "" %>
 
-  <div id="article">
+  <div class="article">
+    <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
+    <%= @page_heading && !@hidden_title ? "<div class='heading'>"+@page_heading+"</div>" : "" %>
     <%= yield  %>
   </div>
-
+  <div id="footer"><%= AppConfig.site_footer %></div>
 
 </body>
 </html>

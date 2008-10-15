@@ -8,7 +8,7 @@ class AboutController < ApplicationController
     # if there is a page it will flashed on the next page
     notice = params[:notice]
     error = params[:error]
-    if @page
+    if @page && @page.enabled
       if error
         flash[:error] = error
       elsif notice

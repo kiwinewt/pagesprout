@@ -2,6 +2,12 @@ class AdminController < ApplicationController
   layout 'admin'
   before_filter :check_administrator_role
   
+  def index
+    # redirect to the settings page as there is nothing on this page.
+    # comment out to add items to the admin/index page
+    redirect_to :action => 'settings'
+  end
+  
   def theme
     @themes = get_themes
   end

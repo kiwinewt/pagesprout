@@ -1,5 +1,5 @@
 <tr class="<%= cycle('element_odd', 'element_even') %>">
-  <td><%=h user.login %></td>
+  <td><%= link_to(user.login, user) %></td>
   <td><%=h user.email %></td>
   <td><%= user.enabled ? 'yes' : 'no' %>
     <%- unless user == current_user -%>

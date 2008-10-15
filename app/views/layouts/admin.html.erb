@@ -16,7 +16,7 @@
   <script type="text/javascript" src="/javascripts/xinha/XinhaCore.js"></script>
   <script type="text/javascript" src="/javascripts/xinha/config.js"></script>
   <%= javascript_include_tag :defaults %>
-  <script>
+  <script type="text/javascript">
   var counter = 0;
   var limit = 3;
   function addInput(divName){
@@ -24,28 +24,33 @@
           alert("You have reached the limit of adding " + counter + " inputs");
      }
      else {
-          var newdiv = document.createElement('div');
-          newdiv.innerHTML = "<div class='element'>";
-          newdiv.innerHTML += '<div class="element_label"><input type="text" name="'+divName+'_new_label_'+counter+'">';
-          newdiv.innerHTML += "</div><div class='element_content'>";
-          newdiv.innerHTML += "<input type='text' name='"+divName+"_new_value_"+counter+"'></div></div>";
-          document.getElementById(divName).appendChild(newdiv);
           counter++;
+          var newdiv = document.createElement('div');
+          newdiv.className = "element"
+          newdiv.innerHTML = '<label for="'+divName+'_new_label_'+counter+'">Field '+counter+' Name</label>'
+          newdiv.innerHTML += '<input type="text" name="'+divName+'_new_label_'+counter+'"><br />';
+          newdiv.innerHTML += '<label for="'+divName+'_new_value_'+counter+'">Field '+counter+' Value</label>'
+          newdiv.innerHTML += "<input type='text' name='"+divName+"_new_value_"+counter+"' />";
+          document.getElementById(divName).appendChild(newdiv);
      }
   }
   </script>
 </head>
 <body>
+  <div id="header">
+    <h1><%= AppConfig.site_name %></h1>
+    <h2><%= AppConfig.site_slogan %></h2>
+  </div>
   <ul id="nav">
     <%- get_navigation -%>
     <%- for page in @pages -%>
-      <li>
+      <li <%= page == @pages[0] ? ' class="first"' : '' %>>
         <%= page -%>
       </li>
     <%- end -%>
   </ul>
   <ul id="subnav">
-    <li>
+    <li class="first">
       <%= link_to ('Configuration', :controller => 'admin', :action => 'settings') %>
     </li>
     <li>
@@ -61,12 +66,13 @@
       <%= link_to('Theme', :controller => 'admin', :action => 'theme')%>
     </li>
   </ul>
-  <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-  <%= @page_heading && !@hidden_title ? "<div id='header'>"+@page_heading+"</div>" : "" %>
 
-  <div id="article">
+  <div class="article">
+    <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
+    <%= @page_heading && !@hidden_title ? "<div class='heading'>"+@page_heading+"</div>" : "" %>
     <%= yield  %>
   </div>
+  <div id="footer"><%= h(AppConfig.site_footer) %></div>
 
 </body>
 </html>
