@@ -3,7 +3,7 @@ class AboutController < ApplicationController
 
   def index
     # Find the Page that has the homepage set. Will be nil if none
-    @page = Page.find_by_home_page(true, :first)
+    @page = Page.find_by_home_page_and_enabled(true, true, :first)
     # if there is no Page then the flash will be shown
     # if there is a page it will flashed on the next page
     notice = params[:notice]

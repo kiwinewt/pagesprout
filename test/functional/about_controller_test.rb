@@ -7,10 +7,11 @@ class AboutControllerTest < ActionController::TestCase
   end
   
   def test_home_page_set
-    page = Page.create(:title => "home", :body => "Tester", :slug => "home", :home_page => true)
-    page.save
+    user_signin
+    @page = Page.new(:title => "agnu page", :body => "A Gnu Page", :slug => "home", :enabled => 1, :home_page => 1)
+    @page.save
     get :index
-    assert_response :redirect
+    assert_redirected_to :action=>"show", :controller=>"pages", :id => "home" 
   end
     
 end

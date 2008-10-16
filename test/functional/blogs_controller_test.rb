@@ -1,43 +1,61 @@
 require 'test_helper'
 
 class BlogsControllerTest < ActionController::TestCase
-  def test_should_get_index
+  def test_should_get_admin_index
+    user_signin
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:blogs)
+  end
+  
+  def test_should_not_get_unauthorised_index
+    user_signin
     get :index
     assert_response :success
     assert_not_nil assigns(:blogs)
   end
 
   def test_should_get_new
+    user_signin
     get :new
     assert_response :success
   end
 
   def test_should_create_blog
+    user_signin
     assert_difference('Blog.count') do
-      post :create, :blog => { }
+      post :create, :blog => { :title => "Agnu Blog", :description => "A Test Blog", :slug => "angublog" }
     end
 
     assert_redirected_to blog_path(assigns(:blog))
   end
 
   def test_should_show_blog
-    get :show, :id => blogs(:one).id
+    get :show, :id => blogs(:one).slug
     assert_response :success
   end
 
   def test_should_get_edit
-    get :edit, :id => blogs(:one).id
+    user_signin
+    get :edit, :id => blogs(:one).slug
     assert_response :success
   end
 
+  def test_should_not_get_unauthorised_edit
+    get :edit, :id => blogs(:one).slug
+    assert_response :redirect
+  end
+
   def test_should_update_blog
-    put :update, :id => blogs(:one).id, :blog => { }
+    user_signin
+    put :update, :id => blogs(:one).slug, :blog => { :title => blogs(:one).title, :description => "Another Test Blog", :slug => blogs(:one).slug }
     assert_redirected_to blog_path(assigns(:blog))
   end
 
   def test_should_destroy_blog
+    user_signin
     assert_difference('Blog.count', -1) do
-      delete :destroy, :id => blogs(:one).id
+      delete :destroy, :id => blogs(:one).slug
     end
 
     assert_redirected_to blogs_path

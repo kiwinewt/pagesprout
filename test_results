@@ -1,0 +1,13 @@
+(in /home/nate/code/project_orc)
+Loaded suite /var/lib/gems/1.8/gems/rake-0.8.3/lib/rake/rake_test_loader
+Started
+........................
+Finished in 0.594656 seconds.
+
+24 tests, 47 assertions, 0 failures, 0 errors
+Loaded suite /var/lib/gems/1.8/gems/rake-0.8.3/lib/rake/rake_test_loader
+Started
+....................................
+Finished in 0.864525 seconds.
+
+36 tests, 62 assertions, 0 failures, 0 errors

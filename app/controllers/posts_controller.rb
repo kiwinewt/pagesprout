@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     flash[:notice] = 'Post was successfully deleted.'
 
     respond_to do |format|
-      format.html { redirect_to(blogs_path) }
+      format.html { redirect_to(@blog) }
       format.xml  { head :ok }
     end
   end

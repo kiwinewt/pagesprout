@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require 'sessions_controller'
 
 class Test::Unit::TestCase
   include AuthenticatedTestHelper
@@ -13,5 +14,13 @@ class Test::Unit::TestCase
   def no_test
     flunk "Test hasn't been written yet."
   end
+  
+  def user_signin
+    old_controller = @controller
+    @controller = SessionsController.new
+    post :create, :login => 'quentin', :password => 'test'
+    @controller = old_controller
+  end
+
 
 end
