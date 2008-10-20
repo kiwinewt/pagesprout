@@ -1,5 +1,81 @@
+###############################################
+                 Project ORC
+###############################################
+
+21 October 2008
+
+This is a preview alpha of the XXX CMS which is an awesome Ruby on Rails Content Management System.
+This has been written as part of the Final Project of Nate Walker for RocketBoys Ltd.
+
+
+Maintainer Contact
+-----------------------------------------------
+Nate Walker (Nickname: kiwinewt)
+< kiwinewt (at) gmail (dot) com >
+
+Requirements
+-----------------------------------------------
+This CMS requires:
+  Ruby on Rails >= 2.1
+  The ferret Gem
+
+Documentation
+-----------------------------------------------
+http://doc.rocketboys.co.nz/xxxcms
+
+Installation Instructions
+-----------------------------------------------
+1. Extract all the folders and files to the root of your web directory. You should then have this directory structure:
+  app
+  config
+  db
+  doc
+  lib
+  LICENCE
+  log
+  public
+  Rakefile
+  README
+  script
+  vendor
+
+2. Please read the LICENCE file
+
+3. Configure the CMS for your preferences by copying these files to these locations then modifying them as required:
+  config/config.yml.sample                config/config.yml
+  config/database.yml.sample              config/database.yml
+  config/ferret_server.yml.sample         config/ferret_server.yml
+  config/initializers/mail.rb.sample      config/initializers/mail.rb
+
+4. Uncomment the first line in config/environment.rb:
+  # ENV['RAILS_ENV'] ||= 'production'
+
+5. Create the database by running rake db:create from the command line
+
+6. Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
+
+Please raise issues, bugs, contributions in the forum - see http://www.silverstripe.com/modules-discussion/flat/3719
+
+Usage Overview
+-----------------------------------------------
+1. Open a web browser and access the site from whatever location the server is set to run from
+  (e.g.: http://localhost:3000)
+
+2. Login with the following settings:
+  user: admin
+  password: admin
+  
+3. Create new pages and blogs via the menus.
+
+4. For new themes, please visit:
+  http://www.rocketboys.co.nz/pages/xxxcms-themes
+  
+5. For information on how to create a custom theme, please visit:
+  http://doc.rocketboys.co.nz/xxxcms-themes
+
+Known issues
+-----------------------------------------------
 Modified Plugins:
 app_config
   - modified to allow the application variables to be changed while it is running, without having to restart the application
-fckeditor
-  - modified to make it actually work with RoR
+  - Currently in the process of being tested and uploaded to GitHub.
