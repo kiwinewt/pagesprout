@@ -1,0 +1,101 @@
+.article {
+  border: 4px solid #666;
+  border-bottom: none;
+  min-height: 350px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 10px;
+  padding-left: 25px;
+  margin-top: 10px;
+  z-index: -1;
+}
+
+    
+.heading {
+  font-size: 1.5em;
+  padding: 5px 5px 5px 25px;
+}
+
+.section {
+  padding: 0 25px 20px 0;
+  margin-left: 25px;
+}
+
+  .section .element {
+    padding-top: 5px;
+  }
+  
+    .element label {
+    	display: block;
+	    width: 300px;
+      vertical-align: top;
+    }
+    
+    .element textarea {
+      width: 350px;
+      height: 10em;
+      border: 2px solid #cccccc;
+    }
+    
+    .element input[type=text], .element input[type=password] {
+      width: 350px;
+      border: 2px solid #cccccc;
+    }
+    
+    .element textarea:hover,
+    .element input[type=text]:hover,
+    .element input[type=password]:hover,
+    .element textarea:hover {
+      background-color: #cce;
+    }
+  
+    .section .element .column {
+      padding-left: 10px;
+      width: 12em;
+      border: 1px solid #cccccc;
+    }
+
+
+  .disabled_item:hover, .enabled_item:hover {
+    background: #cce;
+  }
+  
+  .disabled_item {
+    color: #FF0000;
+  }
+
+  .enabled_item {
+    color: #00CC00;
+  }
+  
+  th {
+    padding: 2px 15px 2px 0;
+  }
+  
+  td {
+    border: 1px dotted #cccccc;
+    padding: 2px 5px;
+  }
+  
+  tr.element_odd:hover {
+    background: #cce;
+  }
+  
+  tr.element_even:hover {
+    background: #cce;
+  }
+
+  .section#themes tr td {
+    padding: 1em 2em 1em 1em;
+    border-top: 1px solid #cccccc;
+    text-align: left;
+  }
+
+  .section#themes tr:hover {
+    background-color: #cce;
+  }
+
+  .section#themes tr th {
+    text-align: left;
+    padding-left: 1em;
+  }
