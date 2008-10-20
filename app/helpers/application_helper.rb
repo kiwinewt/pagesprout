@@ -38,14 +38,15 @@ module ApplicationHelper
     end
   end
   
-  def get_page_title
-    if !@page_title && !@page
-      @page_title = AppConfig.site_name
-    else
-      @page_title = @page_title || ""
-      @page_heading = @page_title
-      @page_title = @page_title + ' - ' + AppConfig.site_name
-    end
+  # Returns the complete title of the page, to be used inside the title tags
+  def page_title
+    (@content_for_title + " &mdash; " if @content_for_title).to_s + AppConfig.site_name
+  end
+  
+  # Sets the page's title and displays the heading
+  # You can choose to hide the title in the view by changing the <%= prefix to <%
+  def page_heading(text)
+    content_tag(:div, content_for(:title){ text }, :class => 'heading')
   end
 
 end

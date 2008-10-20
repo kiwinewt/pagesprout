@@ -1,12 +1,8 @@
-<%- get_page_title -%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= @page_title %></title>
+  <title><%= page_title %></title>
   <%= stylesheet_link_tag get_theme_stylesheet %>
   <script type="text/javascript">
     _editor_url  = "/javascripts/xinha/"
@@ -48,7 +44,6 @@
 
   <div class="article">
     <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
-    <%= @page_heading && !@hidden_title ? "<div class='heading'>"+@page_heading+"</div>" : "" %>
     <%= yield  %>
   </div>
   <div id="footer"><%= AppConfig.site_footer %></div>

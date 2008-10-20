@@ -1,4 +1,5 @@
-<%- @page_title = 'Administer Blogs' -%>
+<%= page_heading 'Administer Blogs' %>
+
 <ul id="section" >
   <%- for blog in @blogs -%>
 	  <li id="<%= blog.id %>" class="<%= blog.enabled ? "enabled_item" : "disabled_item"%>">
