@@ -38,13 +38,13 @@ module ApplicationHelper
     end
   end
   
-  # Returns the complete title of the page, to be used inside the title tags
+  # Returns the complete title of the page, to be used inside the title tags.
   def page_title
     (@content_for_title + " &mdash; " if @content_for_title).to_s + AppConfig.site_name
   end
   
-  # Sets the page's title and displays the heading
-  # You can choose to hide the title in the view by changing the <%= prefix to <%
+  # Sets the page's title and displays the heading.
+  # You can choose to hide the title in the view by changing the <tt><%=</tt> prefix to <tt><%</tt>.
   def page_heading(text)
     content_tag(:div, content_for(:title){ text }, :class => 'heading')
   end
