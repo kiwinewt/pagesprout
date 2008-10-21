@@ -1,18 +1,21 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the user-created Pages in the site
 class PagesController < ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
   before_filter :login_required, :except => :show
   before_filter :page_enabled, :only => :show
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
 
-  # GET /pages
-  # GET /pages.xml
+  # List all pages. Requires Admin User
   def index
     @all_top_level_pages = Page.all_top_level_pages
     render :action => "index", :layout => "admin"
   end
 
-  # GET /pages/1
-  # GET /pages/1.xml
+  # Show the page and its details. Page must be enabled or user must be admin.
   def show
     respond_to do |format|
       format.html # show.html.erb
@@ -20,8 +23,7 @@ class PagesController < ApplicationController
     end
   end
 
-  # GET /pages/new
-  # GET /pages/new.xml
+  # Create a new page
   def new
     @page = Page.new
     if Page.find_by_slug(params[:id])
@@ -40,8 +42,7 @@ class PagesController < ApplicationController
   def edit
   end
 
-  # POST /pages
-  # POST /pages.xml
+  # Save the new page. Part 2 of the new method.
   def create
     @page = Page.new(params[:page])
     
@@ -57,8 +58,7 @@ class PagesController < ApplicationController
     end
   end
 
-  # PUT /pages/1
-  # PUT /pages/1.xml
+  # Update the pages details. Second half of edit method.
   def update
     respond_to do |format|
       if @page.update_attributes(params[:page])
@@ -72,41 +72,25 @@ class PagesController < ApplicationController
     end
   end
 
-  # DELETE /pages/1
-  # DELETE /pages/1.xml
+  # Delete the page. Does not delete children.
   def destroy
-    @page.destroy
-    redirect_to_pages
-  end
-  
-  def restore
-    # restore a 'deleted' page
-    @page.recover!
-    redirect_to_pages
-  end
-  
-  def completely_destroy
-    # permanently delete a page
     @page.destroy!
     redirect_to_pages
   end
   
-  def completely_destroy_deleted
-    # equivalent of empty trash
-    Page.delete_all!("deleted_at IS NOT NULL")
-    redirect_to_pages
-  end
-  
+  # Toggle the enabled/disabled state of a page.
   def enable
     @page.enabled = !@page.enabled
     @page.save
     redirect_to_pages
   end
   
+  # Return a list of all the versions of a page.
   def versions
     @versions = @page.versions
   end
   
+  # Change the page back to a previous version.
   def revert_to_version
     @version = @page.versions.find_by_version(params[:version])
     @page.title = @version.title
@@ -116,29 +100,20 @@ class PagesController < ApplicationController
     redirect_to_pages
   end
   
-  def update_positions
-    # returned array contains the Page ids
-    Page.reorder_siblings(params[params[:id]])
-    @all_top_level_pages = Page.all_top_level_pages
-  end
-  
   private
-  
+    # Find a page by its slug
     def find_page
       @page = Page.find_by_slug(params[:id])
       @page_title = @page.title
     end
     
+    # if the page is active then let it through
+    # if not then the user has to be an admin to access it
     def page_enabled
-      # if the page is active then let it through
-      # if not then the user has to be an admin to access it
       @page.enabled? || check_administrator_role
     end
     
-    def find_deleted_page
-      @page = Page.find_with_deleted(:first, :conditions => { :slug => params[:id] })
-    end
-    
+    # Redirect to the correct place to list the pages.
     def redirect_to_pages
       respond_to do |format|
         format.html { redirect_to(pages_url) }

@@ -1,16 +1,20 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of Blogs and their details.
 class BlogsController < ApplicationController
   before_filter :find_blog, :only => [:show, :edit, :update, :destroy, :enable]
   before_filter :login_required, :except => :show
   before_filter :blog_enabled, :only => :show
-  # GET /blogs
-  # GET /blogs.xml
+  
+  # Get a list of all blogs. Only accessible to the admin user.
   def index
     @blogs = Blog.find(:all)
     render :action => "index", :layout => "admin"
   end
 
-  # GET /blogs/1
-  # GET /blogs/1.xml
+  # Display the blog and all its enabled posts.
   def show
     @posts = get_posts
     respond_to do |format|
@@ -19,8 +23,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # GET /blogs/new
-  # GET /blogs/new.xml
+  # Create a new blog. Must be logged in.
   def new
     @blog = Blog.new
 
@@ -34,8 +37,7 @@ class BlogsController < ApplicationController
   def edit
   end
 
-  # POST /blogs
-  # POST /blogs.xml
+  # Save the new blog. Second half of new method.
   def create
     @blog = Blog.new(params[:blog])
 
@@ -51,8 +53,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # PUT /blogs/1
-  # PUT /blogs/1.xml
+  # Update the blogs details. Second half of edit method.
   def update
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
@@ -66,8 +67,7 @@ class BlogsController < ApplicationController
     end
   end
 
-  # DELETE /blogs/1
-  # DELETE /blogs/1.xml
+  # Delete the blog from the site. Does not delete posts.
   def destroy
     @blog.destroy
 
@@ -77,6 +77,7 @@ class BlogsController < ApplicationController
     end
   end
   
+  # Toggle the enabled state of the blog.
   def enable
     @blog.enabled = !@blog.enabled
     @blog.save
@@ -84,6 +85,8 @@ class BlogsController < ApplicationController
   end
   
   protected
+    # Return an array of this blogs posts.
+    # Include disabled posts if the user is an administrator.
     def get_posts
       if logged_in? && current_user.has_role?('administrator')
         @blog.posts.find(:all, :limit => 10).reverse
@@ -93,16 +96,18 @@ class BlogsController < ApplicationController
     end
   
   private  
+    # Find the blog by its slug.
     def find_blog
       @blog = Blog.find_by_slug(params[:id])
     end
     
+    # if the page is active then let it through
+    # if not then the user has to be an admin to access it
     def blog_enabled
-      # if the page is active then let it through
-      # if not then the user has to be an admin to access it
       @blog.enabled? || check_administrator_role
     end
     
+    # Redirect to the correct place to list the blogs.
     def redirect_to_blogs
       respond_to do |format|
         format.html { redirect_to(blogs_url) }

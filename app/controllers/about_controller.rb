@@ -1,6 +1,12 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the welcome screen if there is no page defined, searching and other misc items
 class AboutController < ApplicationController
   skip_before_filter :login_required
 
+  # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
   def index
     # Find the Page that has the homepage set. Will be nil if none
     @page = Page.find_by_home_page_and_enabled(true, true, :first)
@@ -18,6 +24,8 @@ class AboutController < ApplicationController
     end
   end
 
+  # Handle requests from the search box/form, process them then display the results in a page.
+  # Requres Ferret and acts_as_ferret.
   def search
     begin
       @query = params[:query]
@@ -33,6 +41,8 @@ class AboutController < ApplicationController
     end
   end
   
+  # Produce and display a google sitemap at http://site_root/sitemap.xml.
+  # The URL can be passed to google so it will be dynamically updated.
   def sitemap
     @pages = Page.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500)
     headers["Content-Type"] = "text/xml"
@@ -43,7 +53,8 @@ class AboutController < ApplicationController
     render :action => "sitemap", :layout => false
   end
 
-  
+  # Either display the error passed or pass on the default error.
+  # Has some quirks to allow multiple levels of redirect in the index action.
   def errorpage
     # if there is a notice/error it will be passed on, otherwise the default will be used
     notice = params[:notice]
@@ -71,6 +82,8 @@ class AboutController < ApplicationController
     end
   end
   
+  # Take the details from the contact form and pass them to the ContactMailer so that they can be sent.
+  # On error it will send the user back to the home page with an error message
   def send_contact_form
     if request.post?
       from_name = params[:name]

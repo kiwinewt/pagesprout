@@ -1,3 +1,8 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the account activation and password changing
 class AccountsController < ApplicationController
   before_filter :login_required, :except => :show
   before_filter :not_logged_in_required, :only => :show

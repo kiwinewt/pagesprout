@@ -1,21 +1,29 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the Admin Section
 class AdminController < ApplicationController
   layout 'admin'
   before_filter :check_administrator_role
   
+  # Redirect to the settings page as there is nothing on this page.
+  # Change this method to allow items to be placed specifically on the main admin page.
   def index
-    # redirect to the settings page as there is nothing on this page.
-    # comment out to add items to the admin/index page
     redirect_to :action => 'settings'
   end
   
+  # Theme changing page
   def theme
     @themes = get_themes
   end
   
+  #User admin page - lists all users.
   def users
     @users = User.find(:all)
   end
   
+  # Settings page. Uses tables from the app_config dump
   def settings
     get_config
     @options = {}
@@ -31,6 +39,8 @@ class AdminController < ApplicationController
     end
   end
   
+  # Save settings action. Takes all settings, merges them with existing settings.
+  # After this, writes to the yaml file and updates all current settings.
   def save_settings
     get_config
     settings_group = params["settings"]
@@ -75,6 +85,7 @@ class AdminController < ApplicationController
     flash[:notice] = "Settings Saved"
   end
   
+  # Save theme action. Updates the theme in the app_config settings and yaml file.
   def save_theme
     get_config
     theValue = params['theme']
@@ -88,7 +99,8 @@ class AdminController < ApplicationController
     flash[:notice] = "Theme changed"
   end
   
-  private    
+  private
+    # Return a list of themes based on directory names.
     def get_themes
       result = {}
       files = Dir.entries("#{RAILS_ROOT}/public/themes/")
@@ -101,10 +113,12 @@ class AdminController < ApplicationController
       result.sort
     end
     
+    # Load the config file into an openstruct.
     def get_config
       @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     end
     
+    # Save the app_config settings into the yaml file.
     def save_config
       output = "# configuration goes in here\n# this file is read as:\n#\n# any new settings added can be accessed with AppConfig.setting_name\n" + @application_config.marshal_dump.to_yaml
       config_file = File.join(RAILS_ROOT, "config/config.yml")
