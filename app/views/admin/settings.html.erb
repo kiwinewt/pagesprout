@@ -1,4 +1,4 @@
-<%- @page_title = "Edit Settings" -%>
+<%= page_heading 'Edit Settings' %>
 
 <%- @options.keys.each do |option| -%>
   <%- form_tag ({:action => :save_settings, :settings => option.to_s}, :class => "section", :id => option) do -%>

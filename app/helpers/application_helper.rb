@@ -1,18 +1,18 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
-  def get_theme_stylesheet
-    if AppConfig.theme
-      stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
-    else
-      stylesheet = '/themes/default/stylesheets/master'
-    end
-    stylesheet
+  
+  def theme
+    AppConfig.theme || 'default'
   end
   
+  def theme_stylesheet
+    "/themes/#{theme}/stylesheets/master"
+  end
+  
+  # TODO move navigation instance variables to controller
   def get_navigation
     @pages = []
     @pages << (link_to('Home', root_path))
+    # TODO change complicated finds to named scopes
     @pages += Page.find(:all, :conditions => { :home_page => false, :enabled => true, :parent_id => 0 }).collect { |p| link_to(h(p.title), p) }
     @pages += Blog.find(:all, :conditions => { :enabled => true }).collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
@@ -38,14 +38,15 @@ module ApplicationHelper
     end
   end
   
-  def get_page_title
-    if !@page_title && !@page
-      @page_title = AppConfig.site_name
-    else
-      @page_title = @page_title || ""
-      @page_heading = @page_title
-      @page_title = @page_title + ' - ' + AppConfig.site_name
-    end
+  # Returns the complete title of the page, to be used inside the title tags.
+  def page_title
+    (@content_for_title + " &mdash; " if @content_for_title).to_s + AppConfig.site_name
+  end
+  
+  # Sets the page's title and displays the heading.
+  # You can choose to hide the title in the view by changing the <tt><%=</tt> prefix to <tt><%</tt>.
+  def page_heading(text)
+    content_tag(:div, content_for(:title){ text }, :class => 'heading')
   end
 
 end

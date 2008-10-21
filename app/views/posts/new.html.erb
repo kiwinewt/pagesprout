@@ -1,4 +1,5 @@
-<% @page_title = "New Post" %>
+<%= page_heading 'New Post' %>
+
 <div class="section">
   <% form_for([@blog,@post]) do |f| %>
     <%= f.error_messages %>
