@@ -17,7 +17,13 @@ Requirements
 -----------------------------------------------
 This CMS requires:
   Ruby on Rails >= 2.1
-  The ferret Gem
+  The ferret gem
+Depending on your setup:
+  The mysql gem
+  The sqlite3-ruby gem
+  
+To automatically install the *required* gems, run:
+  rake gems:install
 
 Documentation
 -----------------------------------------------
@@ -50,7 +56,7 @@ Installation Instructions
 4. Uncomment the first line in config/environment.rb:
   # ENV['RAILS_ENV'] ||= 'production'
 
-5. Create the database by running rake db:create from the command line
+5. Create the database by running rake db:create then rake db:migrate from the command line
 
 6. Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
 

@@ -4,7 +4,7 @@
 # any new settings added can be accessed with AppConfig.setting_name
 
 common:
-  theme: new
+  theme: default
   date_string: "%d %h %Y - %H:%M %p"
   admin_email: admin@example.com
   contact_email: admin@example.com
