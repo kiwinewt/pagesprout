@@ -1,3 +1,7 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
 class Page < ActiveRecord::Base
   #acts_as_nested_set
   acts_as_tree :order => "title"
@@ -12,22 +16,27 @@ class Page < ActiveRecord::Base
   
   after_save :downcase_slug
 
+  # Return the slug with underscores and dashes split to spaces to allow better search.
   def slug_with_spaces
     return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
+  # Return list of top level pages for the menu bar
   def self.all_top_level_pages
     Page.find(:all, :conditions => {:parent_id => 0})
   end
   
+  # Check if a page is at the top of the tree
   def root?
     self.parent_id == 0 ? true : false
   end
   
+  # find all pages that have this page as a parent.
   def self.children
     Page.find(:all, :conditions => {:parent_id => self.id})
   end
   
+  # Return the slug as the page ID
   def to_param
     slug_was
   end

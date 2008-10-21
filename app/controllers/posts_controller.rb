@@ -1,3 +1,8 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the user-created Posts in the site, each of which is linked to a blog.
 class PostsController < ApplicationController
   before_filter :find_post, :only => [:show, :edit, :update, :destroy, :enable]
   before_filter :get_blog

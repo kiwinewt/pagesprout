@@ -1,13 +1,24 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
 module ApplicationHelper
   
+  # If a theme is set then use it, otherwise display the default theme.
   def theme
     AppConfig.theme || 'default'
   end
   
+  # Theme stylesheet location.
   def theme_stylesheet
     "/themes/#{theme}/stylesheets/master"
   end
   
+  # Retrieve navigation and subnav list:
+  # * Home page
+  # * Pages
+  # * Blogs
+  # * Admin Link
+  # * Login/out
   # TODO move navigation instance variables to controller
   def get_navigation
     @pages = []
@@ -49,10 +60,12 @@ module ApplicationHelper
     content_tag(:div, content_for(:title){ text }, :class => 'heading')
   end
   
+  # Add the links for the scripts to the code
   def scripts
     render(:partial => 'layouts/scripts') + @content_for_scripts.to_s
   end
   
+  # Add the page footer to the code
   def footer
     render :partial => 'layouts/footer'
   end

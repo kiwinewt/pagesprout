@@ -1,3 +1,7 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
 
@@ -8,13 +12,13 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # login
   def create
-    # login
     password_authentication(params[:login], params[:password])
   end
 
+  # logout
   def destroy
-    # logout
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
@@ -24,6 +28,7 @@ class SessionsController < ApplicationController
   
   protected
 
+    # Login action, check the user/password.
     def password_authentication(login, password)
       user = User.authenticate(login, password)
       if user == nil
@@ -39,12 +44,13 @@ class SessionsController < ApplicationController
     end
 
   private
-  
+    # Handle a failed login
     def failed_login(message)
       flash.now[:error] = message
       render :action => 'new'
     end
     
+    # Successful login, create new session cookie.
     def successful_login
       if params[:remember_me] == "1"
         self.current_user.remember_me

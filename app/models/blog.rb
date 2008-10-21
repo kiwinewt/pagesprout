@@ -1,3 +1,6 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
 class Blog < ActiveRecord::Base
   has_many :posts
   
@@ -11,21 +14,24 @@ class Blog < ActiveRecord::Base
   
   after_save :downcase_slug
   
+  # Return the slug as the blog ID
   def to_param
     slug_was
   end
 
+  # Return the slug with underscores and dashes split to spaces to allow better search.
   def slug_with_spaces
     return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
+  # List latest 10 posts, ordered by date
   def enabled_posts_shortlist
     self.posts.find(:all, :conditions => { :enabled => true }, :limit => 10).reverse
   end
   
   private
   
-  def downcase_slug
-    slug.downcase!
-  end
+    def downcase_slug
+      slug.downcase!
+    end
 end

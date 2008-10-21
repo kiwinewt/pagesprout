@@ -1,3 +1,8 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the users, including new user activation tokens.
 class UsersController < ApplicationController
 
   before_filter :not_logged_in_required, :only => [:new, :create] 
@@ -5,7 +10,7 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:edit, :update]
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
   
-  #This show action only allows users to view their own profile
+  # This show action only allows users to view their own profile unless they have a public profile
   def show
     @user = User.find(params[:id])
   end
@@ -15,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
  
+  # Create the new user, sending them to the login path after signup.
   def create
     cookies.delete :auth_token
     @user = User.new(params[:user])
@@ -27,10 +33,12 @@ class UsersController < ApplicationController
     render :action => 'new'
   end
   
+  # Edit user profile.
   def edit
     @user = User.find(params[:id])
   end
   
+  # Save user profile.
   def update
     @user = User.find(params[:id])
     @user.update_attribute(:public_profile, params[:user][:public_profile])
@@ -42,6 +50,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # Disable user.
   def destroy
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, false)
@@ -52,6 +61,7 @@ class UsersController < ApplicationController
     redirect_to :controller => 'admin', :action => 'users'
   end
  
+  # Enable user.
   def enable
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, true)
@@ -63,6 +73,8 @@ class UsersController < ApplicationController
   end
   
   protected
+    # Check if there is a logged in user, if not, find if the users profile is public.
+    # If not, permission denied, redirect to homepage.
     def public_profile
       logged_in?
       @user = User.find(params[:id])

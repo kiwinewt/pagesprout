@@ -1,8 +1,13 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
 class UserObserver < ActiveRecord::Observer
+  # Send signup email once the user has been created
   def after_create(user)
     UserMailer.deliver_signup_notification(user)
   end
 
+  # Send correct email on user save
   def after_save(user)
     UserMailer.deliver_activation(user) if user.pending?
     UserMailer.deliver_forgot_password(user) if user.recently_forgot_password?

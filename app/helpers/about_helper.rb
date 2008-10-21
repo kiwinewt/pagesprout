@@ -1,8 +1,13 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of the user-created Pages in the site
 module AboutHelper
 
+  # This code allows specific linking/etc for items in the search results.
+  # Add more details here if required. 
   def search_result (item, query)
-    # this code allows specific linking/etc for items in the search results.
-    # add more details here if required
     result = highlight(item.title, @query) + '<br />'
     case item.type.to_s
       when "Blog"

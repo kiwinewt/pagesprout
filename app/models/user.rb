@@ -1,3 +1,6 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_many :permissions
@@ -46,11 +49,12 @@ class User < ActiveRecord::Base
     save(false)
   end
 
+  # the existence of an activation code means they have not activated yet
   def active?
-    # the existence of an activation code means they have not activated yet
     !activated_at.nil?
   end
   
+  # Check if a use has been activated or not
   def pending?
     @activated
   end
@@ -71,10 +75,12 @@ class User < ActiveRecord::Base
     self.class.encrypt(password, salt)
   end
 
+  # Check the password
   def authenticated?(password)
     crypted_password == encrypt(password)
   end
 
+  # Check if a login should still be remembered.
   def remember_token?
     remember_token_expires_at && Time.now.utc < remember_token_expires_at 
   end
@@ -84,16 +90,19 @@ class User < ActiveRecord::Base
     remember_me_for 2.weeks
   end
 
+  # Remember the user for X amount of time
   def remember_me_for(time)
     remember_me_until time.from_now.utc
   end
 
+  # Remember the user until the time specified
   def remember_me_until(time)
     self.remember_token_expires_at = time
     self.remember_token            = encrypt("#{email}--#{remember_token_expires_at}")
     save(false)
   end
 
+  # No longer remember the user
   def forget_me
     self.remember_token_expires_at = nil
     self.remember_token            = nil
@@ -105,14 +114,15 @@ class User < ActiveRecord::Base
     @activated
   end
   
+  # Sets a forgotten password variable so the user cant login until their password is changed.
   def forgot_password
     @forgotten_password = true
     self.make_password_reset_code
   end
  
+  # First update the password_reset_code before setting the
+  # reset_password flag to avoid duplicate email notifications.
   def reset_password
-    # First update the password_reset_code before setting the
-    # reset_password flag to avoid duplicate email notifications.
     update_attribute(:password_reset_code, nil)
     @reset_password = true
   end  
@@ -122,10 +132,12 @@ class User < ActiveRecord::Base
     @forgotten_password
   end
  
+  #used in user_observer
   def recently_reset_password?
     @reset_password
   end
   
+  #used in user_observer
   def self.find_for_forget(email)
     find :first, :conditions => ['email = ? and activated_at IS NOT NULL', email]
   end
@@ -147,14 +159,17 @@ class User < ActiveRecord::Base
       self.crypted_password = encrypt(password)
     end
       
+    # Make sure there is a password
     def password_required?
       crypted_password.blank? || !password.blank?
     end
     
+    # Create the activation code.
     def make_activation_code
       self.activation_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
     end
- 
+    
+    # Create the password reset code.
     def make_password_reset_code
       self.password_reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
     end

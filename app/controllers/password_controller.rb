@@ -1,11 +1,16 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
+# This class takes care of forgotten passwords and resetting them.
 class PasswordController < ApplicationController
   before_filter :login_required, :except => [:new, :create]
   
-  # Enter email address to recover password 
+  # Enter email address to recover password.
   def new
   end
  
-  # Forgot password action
+  # Forgot password action.
   def create    
     return unless request.post?
     if @user = User.find_for_forget(params[:email])

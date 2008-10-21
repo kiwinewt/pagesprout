@@ -1,3 +1,6 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
 class Post < ActiveRecord::Base
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug_with_spaces => {} },
                  :remote => true,
@@ -10,10 +13,12 @@ class Post < ActiveRecord::Base
   
   after_save :downcase_slug
 
+  # Return the slug with underscores and dashes split to spaces to allow better search.
   def slug_with_spaces
     return self.slug.gsub('-', ' ').gsub('_', ' ')
   end
   
+  # Return the slug as the post ID
   def to_param
     slug_was
   end
