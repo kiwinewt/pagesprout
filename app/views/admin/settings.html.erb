@@ -1,9 +1,9 @@
 <%= page_heading 'Edit Settings' %>
 
-<%- for option in @options.keys.each -%>
+<%- @options.keys.each do |option| -%>
   <%- form_tag ({:action => :save_settings, :settings => option.to_s}, :class => "section", :id => option) do -%>
     <h3<%= option == RAILS_ENV ? ' class="selected">'+option.capitalize+" - Current Environment" : '>' + option.capitalize %></h3>
-    <%- for value in @options[option].keys.sort.each %>
+    <%- @options[option].keys.sort.each do |value| %>
       <div class="element">
         <%- if value != "theme" -%>
           <%= label_tag value %>
