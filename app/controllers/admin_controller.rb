@@ -120,7 +120,7 @@ class AdminController < ApplicationController
     
     # Save the app_config settings into the yaml file.
     def save_config
-      output = "# configuration goes in here\n# this file is read as:\n#\n# any new settings added can be accessed with AppConfig.setting_name\n" + @application_config.marshal_dump.to_yaml
+      output = "# Settings are accessed with AppConfig.setting_name\n" + @application_config.marshal_dump.to_yaml
       config_file = File.join(RAILS_ROOT, "config/config.yml")
       File.open(config_file, 'w') { |f| f.write(output) }  
       
