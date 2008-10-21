@@ -1,18 +1,18 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
-  def get_theme_stylesheet
-    if AppConfig.theme
-      stylesheet = '/themes/' + AppConfig.theme + '/stylesheets/master'
-    else
-      stylesheet = '/themes/default/stylesheets/master'
-    end
-    stylesheet
+  
+  def theme
+    AppConfig.theme || 'default'
   end
   
+  def theme_stylesheet
+    "/themes/#{theme}/stylesheets/master"
+  end
+  
+  # TODO move navigation instance variables to controller
   def get_navigation
     @pages = []
     @pages << (link_to('Home', root_path))
+    # TODO change complicated finds to named scopes
     @pages += Page.find(:all, :conditions => { :home_page => false, :enabled => true, :parent_id => 0 }).collect { |p| link_to(h(p.title), p) }
     @pages += Blog.find(:all, :conditions => { :enabled => true }).collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
