@@ -8,7 +8,7 @@ class AboutController < ApplicationController
     # if there is a page it will flashed on the next page
     notice = params[:notice]
     error = params[:error]
-    if @page && @page.enabled
+    if !@page.nil? && @page.enabled
       if error
         flash[:error] = error
       elsif notice
@@ -21,7 +21,7 @@ class AboutController < ApplicationController
   def search
     begin
       @query = params[:query]
-      if @query == ""
+      if @query.empty?
         @query = nil
       end
       # add any other models that are acts_as_ferret here
@@ -64,11 +64,10 @@ class AboutController < ApplicationController
     else
       if error
         flash[:error] = error
-        redirect_to :action => 'index'
       else
         flash[:notice] = notice
-        redirect_to :action => 'index'
       end
+      redirect_to :action => 'index'
     end
   end
   
