@@ -27,7 +27,10 @@ To automatically install the *required* gems, run:
 
 Documentation
 -----------------------------------------------
-http://doc.rocketboys.co.nz/xxxcms
+To generate documentation, run the command:
+  rake doc:app
+For more information, visit:
+  http://doc.rocketboys.co.nz/xxxcms
 
 Installation Instructions
 -----------------------------------------------
