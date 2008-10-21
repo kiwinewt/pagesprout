@@ -48,5 +48,13 @@ module ApplicationHelper
   def page_heading(text)
     content_tag(:div, content_for(:title){ text }, :class => 'heading')
   end
+  
+  def scripts
+    render(:partial => 'layouts/scripts') + @content_for_scripts.to_s
+  end
+  
+  def footer
+    render :partial => 'layouts/footer'
+  end
 
 end
