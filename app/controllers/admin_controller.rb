@@ -92,7 +92,7 @@ class AdminController < ApplicationController
     def get_themes
       result = {}
       files = Dir.entries("#{RAILS_ROOT}/public/themes/")
-      for file in files.each
+      files.each do |file|
         file.to_s
         if !file.include? "."
           result[file] = file
