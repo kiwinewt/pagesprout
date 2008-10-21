@@ -4,14 +4,18 @@
 class UserObserver < ActiveRecord::Observer
   # Send signup email once the user has been created
   def after_create(user)
-    UserMailer.deliver_signup_notification(user)
+    if user.id > 1
+      UserMailer.deliver_signup_notification(user)
+    end
   end
 
   # Send correct email on user save
   def after_save(user)
-    UserMailer.deliver_activation(user) if user.pending?
-    UserMailer.deliver_forgot_password(user) if user.recently_forgot_password?
-    UserMailer.deliver_reset_password(user) if user.recently_reset_password?
+    if user.id > 1
+      UserMailer.deliver_activation(user) if user.pending?
+      UserMailer.deliver_forgot_password(user) if user.recently_forgot_password?
+      UserMailer.deliver_reset_password(user) if user.recently_reset_password?
+    end
   end
 
 end
