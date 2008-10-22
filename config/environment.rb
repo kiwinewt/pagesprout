@@ -20,8 +20,6 @@ Rails::Initializer.run do |config|
     application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     env_config = application_config.send(RAILS_ENV)
     application_config.common.update(env_config) unless env_config.nil?
-  rescue Exception
-    application_config = OpenStruct.new()
   end
 
   # Merge config.yml into ::AppConfig

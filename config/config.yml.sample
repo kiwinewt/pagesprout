@@ -6,10 +6,10 @@ common:
   admin_email: admin@example.com
   contact_email: admin@example.com
   another: test
-  site_name: Example Site
-  site_slogan: An Awesome Project ORC Site
-  site_footer: Powered by Project ORCS
-  page_not_found: It seems that the page you were looking for does not exist, so you have been redirected here.
+  site_name: "Example Site"
+  site_slogan: "An Awesome Project ORC Site"
+  site_footer: "Powered by Project ORCS"
+  page_not_found: "It seems that the page you were looking for does not exist, so you have been redirected here."
   root_url: www.example.com
 
 production:
