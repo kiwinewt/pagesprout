@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :body, :slug
   validates_uniqueness_of :slug
-  validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
+  validates_format_of :slug, :with => /\A[a-z0-9\-_]+\z/i
   
   after_save :downcase_slug
 
