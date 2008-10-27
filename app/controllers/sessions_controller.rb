@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 
   # login
   def create
+    reset_session
     password_authentication(params[:login], params[:password])
   end
 
