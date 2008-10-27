@@ -89,7 +89,7 @@ class BlogsController < ApplicationController
     # Include disabled posts if the user is an administrator.
     def get_posts
       if logged_in? && current_user.has_role?('administrator')
-        @blog.posts.find(:all, :limit => 10).reverse
+        @blog.posts.find(:all, {:limit => 10, :order => "updated_at DESC"})
       else
         @blog.enabled_posts_shortlist
       end
