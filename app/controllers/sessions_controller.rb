@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   before_filter :login_required, :only => :destroy
   before_filter :not_logged_in_required, :only => [:new, :create]
+  filter_parameter_logging :password
 
   # render new.rhtml
   def new

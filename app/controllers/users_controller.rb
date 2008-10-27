@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   before_filter :public_profile, :only => :show
   before_filter :login_required, :only => [:edit, :update]
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
+  filter_parameter_logging :password
   
   # This show action only allows users to view their own profile unless they have a public profile
   def show
