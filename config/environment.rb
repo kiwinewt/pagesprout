@@ -45,6 +45,9 @@ Rails::Initializer.run do |config|
     :session_key => session_key,
     :secret      => secret
   }
+  
+  RECAPTCHA_PUBLIC_KEY = config.app_config['recaptcha_public_key']
+  RECAPTCHA_PRIVATE_KEY = config.app_config['recaptcha_private_key']
 end
 
 SITE_KEY = 'base' # Used for session key
