@@ -82,9 +82,10 @@ Usage Overview
 5. For information on how to create a custom theme, please visit:
   http://doc.rocketboys.co.nz/xxxcms-themes
 
+6. To add a CAPTCHA to your contact page, please:
+  Sign up at http://recaptcha.net/
+  Add your Public and Private API keys to the settings page/config file.
+
 Known issues
 -----------------------------------------------
-Modified Plugins:
-app_config
-  - modified to allow the application variables to be changed while it is running, without having to restart the application
-  - Currently in the process of being tested and uploaded to GitHub.
+Currently none
