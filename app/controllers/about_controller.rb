@@ -93,7 +93,11 @@ class AboutController < ApplicationController
       begin
         # First check that the recaptcha is to be used, then verify the tags
         if !AppConfig.recaptcha_public_key.blank? && !AppConfig.recaptcha_private_key.blank?
-          verify_recaptcha
+          if !verify_recaptcha
+            # if the captcha tags are invalid, redirect back
+            flash[:error] = 'Please enter the correct CAPTCHA tags.'
+            redirect_to(:action => 'contact')
+          end
         end
         #Then check if the senders email is valid
         if from_email =~ /^[a-zA-Z0-9._%-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$/
