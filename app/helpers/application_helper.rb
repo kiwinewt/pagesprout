@@ -27,10 +27,8 @@ module ApplicationHelper
     @pages += Page.find(:all, :conditions => { :home_page => false, :enabled => true, :parent_id => 0 }).collect { |p| link_to(h(p.title), p) }
     @pages += Blog.find(:all, :conditions => { :enabled => true }).collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
-    link_to_if(!logged_in?, "Log In", new_session_path) do
-      if current_user.has_role?('administrator')
-        @pages << (link_to('Site Administration', admin_path))
-      end
+    @pages << link_to_if(!logged_in?, "Log In", new_session_path) do
+      @pages << link_to_if(current_user.has_role?('administrator'),'Site Administration', admin_path)
       link_to('Log Out', logout_url)
     end
     if @page
