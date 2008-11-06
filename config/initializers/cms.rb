@@ -1,3 +1,3 @@
-CMS_NAME = 'Unnamed CMS'
-CMS_WEBSITE = 'http://www.rocketboys.co.nz'
+CMS_NAME = 'PageSprout'
+CMS_WEBSITE = 'http://pagesprout.com/'
 CMS_COMPANY = 'Rocket Boys Ltd'

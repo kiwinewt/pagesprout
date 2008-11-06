@@ -10,7 +10,7 @@
 # that multiple rails processes accessing the same index files can cause
 # corruption of the indexes really quickly.
 
-# ferret is a required Gem for this CMS to run
+# ferret is a required Gem for PageSprout to run
 
 production:
   host: localhost

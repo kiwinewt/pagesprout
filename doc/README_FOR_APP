@@ -2,13 +2,13 @@
 
 21 October 2008
 
-This is a preview alpha of the XXX CMS which is an awesome Ruby on Rails Content Management System.
-This has been written as part of the Final Project of Nate Walker for RocketBoys Ltd.
+This is a preview alpha of the PageSprout CMS which is an awesome Ruby on Rails Content Management System.
+This has been written by RocketBoys Ltd.
 
 
 == Maintainer Contact
-Nate Walker (Nickname: kiwinewt)
-< kiwinewt (at) gmail (dot) com >
+Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
+< nate (at) rocketboys (dot) co (dot) nz >
 
 == Requirements
 This CMS requires:
@@ -25,7 +25,7 @@ To automatically install the *required* gems, run:
 To generate documentation, run the command:
   rake doc:app
 For more information, visit:
-  http://doc.rocketboys.co.nz/xxxcms
+  http://pagesprout.com/
 
 == Installation Instructions
 1. Extract all the folders and files to the root of your web directory. You should then have this directory structure:
@@ -52,7 +52,7 @@ For more information, visit:
 5. Create the database by running rake db:create then rake db:migrate from the command line
 6. Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
 
-* Please raise issues, bugs, contributions in the forum - see http://www.rocketboys.co.nz/xxxcms
+* Please raise issues, bugs, contributions in the forum - see http://pagesprout.com/
 
 == Usage Overview
 1. Open a web browser and access the site from whatever location the server is set to run from
@@ -65,10 +65,10 @@ For more information, visit:
 3. Create new pages and blogs via the menus.
 
 4. For new themes, please visit:
-   * http://www.rocketboys.co.nz/pages/xxxcms-themes
+   * hhttp://pagesprout.com/
   
 5. For information on how to create a custom theme, please visit:
-   * http://doc.rocketboys.co.nz/xxxcms-themes
+   * http://pagesprout.com/
 
 6. To add a CAPTCHA to your contact page, please:
    * Sign up at http://recaptcha.net/
