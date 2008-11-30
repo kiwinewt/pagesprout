@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   # Redirect to the settings page as there is nothing on this page.
   # Change this method to allow items to be placed specifically on the main admin page.
   def index
-    redirect_to :action => 'settings'
+    redirect_to pages_path
   end
   
   # Theme changing page
@@ -21,68 +21,6 @@ class AdminController < ApplicationController
   #User admin page - lists all users.
   def users
     @users = User.find(:all)
-  end
-  
-  # Settings page. Uses tables from the app_config dump
-  def settings
-    get_config
-    @options = {}
-    # convert the config to a table to be able to access it as key-value pairs
-    @application_config.marshal_dump.keys.each do |group|
-      group_values = @application_config.send(group.to_s)
-      @options[group.to_s] = {}
-      if group_values
-        group_values.keys.each do |key|
-          @options[group.to_s][key.to_s] = group_values[key].to_s
-        end
-      end
-    end
-  end
-  
-  # Save settings action. Takes all settings, merges them with existing settings.
-  # After this, writes to the yaml file and updates all current settings.
-  def save_settings
-    get_config
-    settings_group = params["settings"]
-    settings = {}
-    # find all the parameters that start with the settings group eg common_xxx
-    for param in params
-      if param[0].include? settings_group
-        settings[param[0].gsub(settings_group + "_", "")] = param[1]
-      end
-    end
-    #convert the current settings to a table then update all the originals with the new settings
-    settings_dump = @application_config.marshal_dump
-    for section in settings_dump.each
-      if section[0].to_s == settings_group && section[1]
-        for item in settings_dump[section[0]]
-          if !item[0].include? "theme"
-            settings_dump[section[0]][item[0]] = settings[item[0]]
-          end
-        end
-      end
-      # find any new fields and add them to the settings
-      for item in params.each
-        theLabel = section[0].to_s+"_new_label_"
-        if item[0].include? theLabel
-          count = item[0].gsub(theLabel,"")
-          theField = params[item[0]]
-          theValue = params[section[0].to_s+"_new_value_"+count]
-          if settings_dump[section[0]] != nil
-            settings_dump[section[0]].merge!({theField => theValue})
-          else
-            settings_dump.merge!({section[0] => {theField => theValue}})
-          end
-        end
-      end
-    end
-    # if there are new settings then save them. helps stop all settings being wiped
-    if settings_dump
-      @application_config = OpenStruct.new(settings_dump)
-    end
-    save_config
-    redirect_to :action => 'settings'
-    flash[:notice] = "Settings Saved"
   end
   
   # Save theme action. Updates the theme in the app_config settings and yaml file.
