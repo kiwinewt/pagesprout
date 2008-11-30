@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.public_profile = false
     @user.save!
+    if @user.id == 1
+      @role = Role.create(:rolename => 'administrator')
+      User.find_and_activate!(@user.activation_code)
+      permission = Permission.new
+      permission.role = @role
+      permission.user = @user
+      permission.save(false)
+    end
     flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
     redirect_to login_path    
   rescue ActiveRecord::RecordInvalid
