@@ -14,4 +14,4 @@ db/schema.rb
 config/config.yml
 secret
 vendor/plugins/database_migrate
-
+.DS_Store
