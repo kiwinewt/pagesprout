@@ -64,5 +64,18 @@ module ApplicationHelper
   def footer
     render :partial => 'layouts/footer'
   end
+  
+  #return the number of themes
+  def count_themes
+    result = {}
+    files = Dir.entries("#{RAILS_ROOT}/public/themes/")
+    files.each do |file|
+      file.to_s
+      if !file.include? "."
+        result[file] = file
+      end
+    end
+    result.count
+  end
 
 end
