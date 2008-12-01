@@ -21,11 +21,15 @@ class Page < ActiveRecord::Base
   # Return list of top level pages for the menu bar
   def self.all_top_level_pages
     warn '[DEPRECATION] `all_top_level_pages` method is deprecated over `parentless` named_scope'
-    self.class.parentless
+    parentless
   end
   
   def self.home
     enabled(:conditions => { :home_page => true }).first
+  end
+  
+  def self.home?
+    home.present?
   end
 
   # Return the slug with underscores and dashes split to spaces to allow better search.
