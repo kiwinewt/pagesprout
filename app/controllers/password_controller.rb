@@ -5,15 +5,14 @@
 # This class takes care of forgotten passwords and resetting them.
 class PasswordController < ApplicationController
   skip_before_filter :login_required
+  before_filter :set_mail_url
   
   # Enter email address to recover password.
   def new
-    UserMailer.default_url_options[:host] = request.host_with_port
   end
  
   # Forgot password action.
   def create
-    UserMailer.default_url_options[:host] = request.host_with_port
     return unless request.post?
     if @user = User.find_for_forget(params[:email])
       @user.forgot_password
@@ -31,7 +30,6 @@ class PasswordController < ApplicationController
   # Checks that the id code matches a user in the database
   # Then if everything checks out, shows the password reset fields
   def edit
-    UserMailer.default_url_options[:host] = request.host_with_port
     if params[:id].nil?
       render :action => 'new'
       return
@@ -47,7 +45,6 @@ class PasswordController < ApplicationController
   # Reset password action /reset_password/:id
   # Checks once again that an id is included and makes sure that the password field isn't blank
   def update
-    UserMailer.default_url_options[:host] = request.host_with_port
     if params[:id].nil?
       render :action => 'new'
       return

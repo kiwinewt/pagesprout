@@ -23,5 +23,9 @@ class ApplicationController < ActionController::Base
   def not_found
     redirect_to :controller => "about", :action => 'errorpage'
   end
+  
+  def set_mail_url
+    UserMailer.default_url_options[:host] = request.host_with_port
+  end
 
 end

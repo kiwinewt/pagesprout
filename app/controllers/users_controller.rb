@@ -6,6 +6,7 @@
 class UsersController < ApplicationController
 
   before_filter :not_logged_in_required, :only => [:new, :create] 
+  before_filter :set_mail_url, :only => [:new, :create] 
   before_filter :public_profile, :only => :show
   before_filter :login_required, :only => [:edit, :update]
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
-    UserMailer.default_url_options[:host] = request.host_with_port
   end
  
   # Create the new user, sending them to the login path after signup.
