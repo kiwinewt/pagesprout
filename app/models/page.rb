@@ -4,7 +4,7 @@
 
 class Page < ActiveRecord::Base
   named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
-  named_scope :parentless, :conditions => { :parent_id => 0 }
+  named_scope :parentless, :conditions => { :parent_id => 0, :home_page => false }
   
   acts_as_tree :order => "title"
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug_with_spaces => {} },
