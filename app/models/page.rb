@@ -3,7 +3,8 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
-  #acts_as_nested_set
+  named_scope :parentless, :conditions => { :parent_id => 0 }
+  
   acts_as_tree :order => "title"
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug_with_spaces => {} },
                  :remote => true,
@@ -23,7 +24,7 @@ class Page < ActiveRecord::Base
   
   # Return list of top level pages for the menu bar
   def self.all_top_level_pages
-    Page.find(:all, :conditions => {:parent_id => 0})
+    Page.find(:all, :conditions => { :parent_id => 0 }) # DEPRECATE in favour of parentless named_scope
   end
   
   # Check if a page is at the top of the tree
@@ -32,8 +33,8 @@ class Page < ActiveRecord::Base
   end
   
   # find all pages that have this page as a parent.
-  def self.children
-    Page.find(:all, :conditions => {:parent_id => self.id})
+  def children
+    Page.find(:all, :conditions => { :parent_id => self.id })
   end
   
   # Return the slug as the page ID
