@@ -3,16 +3,6 @@
 # License::   BSD Licence, see application root.
 module ApplicationHelper
   
-  # If a theme is set then use it, otherwise display the default theme.
-  def theme
-    AppConfig.theme || 'default'
-  end
-  
-  # Theme stylesheet location.
-  def theme_stylesheet
-    "/themes/#{theme}/stylesheets/master"
-  end
-  
   # Retrieve navigation and subnav list:
   # * Home page
   # * Pages

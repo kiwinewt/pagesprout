@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   
   # Theme changing page
   def theme
-    @themes = get_themes
+    @themes = Theme.all
   end
   
   #User admin page - lists all users.
@@ -38,20 +38,7 @@ class AdminController < ApplicationController
   end
   
   private
-    # Return a list of themes based on directory names.
-    def get_themes
-      result = {}
-      files = Dir.entries("#{RAILS_ROOT}/public/themes/")
-      files.each do |file|
-        file.to_s
-        if !file.include? "."
-          result[file] = file
-        end
-      end
-      result.sort
-    end
-    
-    # Load the config file into an openstruct.
+    # Load the config file into an openstruct
     def get_config
       @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     end
