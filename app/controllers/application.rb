@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   before_filter :login_required
   
   # simple error handling when in production environment
-  if RAILS_ENV == 'development'
+  if RAILS_ENV == 'production'
     rescue_from ActionController::UnknownAction, :with => :not_found
     rescue_from NoMethodError, :with => :not_found
     rescue_from NameError, :with => :not_found
@@ -25,10 +25,14 @@ class ApplicationController < ActionController::Base
   
   protected
   
-  # Handle the not_found action which occurs when an Exception happens.
-  # Modify this for emailing exception notices.
-  def not_found
-    redirect_to :controller => "about", :action => 'errorpage'
-  end
+    # Handle the not_found action which occurs when an Exception happens.
+    # Modify this for emailing exception notices.
+    def not_found
+      redirect_to :controller => "about", :action => 'errorpage'
+    end
+    
+    def set_mail_url
+      UserMailer.default_url_options[:host] = request.host_with_port
+    end
 
 end
