@@ -15,3 +15,4 @@ config/config.yml
 secret
 vendor/plugins/database_migrate
 .DS_Store
+index
