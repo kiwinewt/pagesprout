@@ -25,14 +25,14 @@ class ApplicationController < ActionController::Base
   
   protected
   
-  # Handle the not_found action which occurs when an Exception happens.
-  # Modify this for emailing exception notices.
-  def not_found
-    redirect_to :controller => "about", :action => 'errorpage'
-  end
-  
-  def set_mail_url
-    UserMailer.default_url_options[:host] = request.host_with_port
-  end
+    # Handle the not_found action which occurs when an Exception happens.
+    # Modify this for emailing exception notices.
+    def not_found
+      redirect_to :controller => "about", :action => 'errorpage'
+    end
+    
+    def set_mail_url
+      UserMailer.default_url_options[:host] = request.host_with_port
+    end
 
 end
