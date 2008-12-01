@@ -74,7 +74,7 @@ class PagesController < ApplicationController
 
   # Delete the page. Does not delete children.
   def destroy
-    @page.destroy!
+    @page.destroy
     redirect_to_pages
   end
   

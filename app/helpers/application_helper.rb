@@ -14,7 +14,7 @@ module ApplicationHelper
     @pages = []
     @pages << (link_to('Home', root_path))
     # TODO change complicated finds to named scopes
-    @pages += Page.enabled.parentless(:all, :conditions => { :home_page => false }).collect { |p| link_to(h(p.title), p) }
+    @pages += Page.enabled.parentless(:all, :conditions => { :home => false }).collect { |p| link_to(h(p.title), p) }
     @pages += Blog.enabled(:all).collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
     @pages << link_to_if(!logged_in?, "Log In", new_session_path) do
