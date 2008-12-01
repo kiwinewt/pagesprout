@@ -5,14 +5,21 @@
 # This class takes care of the user-created Pages in the site
 class PagesController < ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
-  before_filter :login_required, :except => :show
+  before_filter :login_required, :except => [:show, :index, :sitemap]
   before_filter :page_enabled, :only => :show
-  before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
+  before_filter :check_administrator_role, :only => [:list, :destroy, :enable]
+
+  # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
+  def index
+    if @page = Page.home
+      redirect_to(@page)
+    end
+  end
 
   # List all pages. Requires Admin User
-  def index
+  def list
     @all_top_level_pages = Page.parentless
-    render :action => "index", :layout => "admin"
+    render :action => "list", :layout => "admin"
   end
 
   # Show the page and its details. Page must be enabled or user must be admin.
@@ -100,6 +107,17 @@ class PagesController < ApplicationController
     redirect_to_pages
   end
   
+  # Produce and display a google sitemap at http://site_root/sitemap.xml.
+  # The URL can be passed to google so it will be dynamically updated.
+  def sitemap
+    @pages = Page.enabled
+    @blogs = Blog.enabled
+    
+    respond_to do |format|
+      format.xml { render :layout => false }
+    end
+  end
+  
   private
     # Find a page by its permalink
     def find_page
@@ -116,7 +134,7 @@ class PagesController < ApplicationController
     # Redirect to the correct place to list the pages.
     def redirect_to_pages
       respond_to do |format|
-        format.html { redirect_to(pages_url) }
+        format.html { redirect_to(page_list_url) }
         format.xml { head :ok }
       end
     end

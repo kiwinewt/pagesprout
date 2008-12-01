@@ -1,0 +1,34 @@
+<%= page_heading 'Administer Pages' %>
+
+<ul id="section" >
+  <%- if @all_top_level_pages %>
+    <%- for primary_page in @all_top_level_pages -%>
+	    <li id="<%= primary_page.id %>" class="<%= primary_page.enabled ? "enabled_item" : "disabled_item"%>">
+		    <%= link_to primary_page.title, primary_page %>
+		    <small>
+		      <%= link_to "(+)", :action => "new",  :id => primary_page %>
+          <%= link_to 'Edit', edit_page_path(primary_page) %>
+          <%= link_to 'Destroy', primary_page, :method => :delete %>
+		      <%= link_to (primary_page.enabled ? 'Disable' : 'Enable'), :id => primary_page, :action => :enable %>
+		      <%= link_to 'Versions', :id => primary_page, :action => :versions %>
+	      </small>
+		    <%- if primary_page.children.count > 0 -%>
+		    <ul class="edit_list">
+			    <%- for secondary_page in primary_page.children -%>
+			    <li id="<%= secondary_page.id %>" class="<%= secondary_page.enabled ? "enabled_item" : "disabled_item"%>">
+				    <%= link_to secondary_page.title, secondary_page %>
+            <small>
+		          <%= link_to 'Edit', edit_page_path(secondary_page) %>
+              <%= link_to 'Destroy', secondary_page, :method => :delete %>
+		          <%= link_to (secondary_page.enabled ? 'Disable' : 'Enable'), :id => secondary_page, :action => :enable %>
+		          <%= link_to 'Versions', :id => secondary_page, :action => :versions %>
+	          </small>
+			    </li>
+			    <%- end -%>
+		    </ul>
+		    <%- end -%>
+	    </li>
+    <%- end -%>
+  <%- end -%>
+  <li><%= link_to '--New page--', new_page_path -%></li>
+</ul>

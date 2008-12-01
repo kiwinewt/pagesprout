@@ -8,11 +8,12 @@ ActionController::Routing::Routes.draw do |map|
   map.reset_password '/reset_password/:id', :controller => 'password', :action => 'edit'
   map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   
-  map.search '/search', :controller => 'about', :action => 'search'
-  map.sitemap 'sitemap.xml', :controller => 'about', :action => 'sitemap'
+  #map.search '/search', :controller => 'about', :action => 'search'
+  map.sitemap 'sitemap.xml', :controller => 'pages', :action => 'sitemap'
   
-  map.resources :pages
+  map.page_list '/pages/list', :controller => "pages", :action => "list"
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
+  map.resources :pages
   
   map.resources :roles
 
@@ -30,10 +31,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :password
   map.admin '/admin', :controller => 'admin'
   
-  map.root :controller => 'about'
+  map.root :controller => 'pages'
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  map.connect '*path', :controller => 'about', :action => 'errorpage'
+  #map.connect '*path', :controller => 'about', :action => 'errorpage'
 end

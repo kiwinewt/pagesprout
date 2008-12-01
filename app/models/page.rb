@@ -16,9 +16,7 @@ class Page < ActiveRecord::Base
   validates_presence_of :title, :body
   validates_uniqueness_of :permalink
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
-  
-  attr_writer :permalink
-  
+    
   def self.home
     parentless.find(:first, :conditions => { :home_page => true, :enabled => true })
   end
@@ -40,10 +38,6 @@ class Page < ActiveRecord::Base
   # find all pages that have this page as a parent.
   def children
     self.class.find(:all, :conditions => { :parent_id => self.id })
-  end
-  
-  def permalink=(text)
-    self[:permalink] = text.downcase!
   end
   
   # Return the permalink as the page ID

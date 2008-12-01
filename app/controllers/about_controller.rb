@@ -4,14 +4,6 @@
 
 # This class takes care of the welcome screen if there is no page defined, searching and other misc items
 class AboutController < ApplicationController
-  skip_before_filter :login_required
-
-  # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
-  def index
-    if @page = Page.home
-      redirect_to(@page)
-    end
-  end
 
   # Handle requests from the search box/form, process them then display the results in a page.
   # Requres Ferret and acts_as_ferret.
@@ -19,17 +11,6 @@ class AboutController < ApplicationController
     if params[:query].present?
       @query = params[:query]
       @results = Page.enabled.find_by_contents(@query, { :multi => [Post, Blog] })
-    end
-  end
-  
-  # Produce and display a google sitemap at http://site_root/sitemap.xml.
-  # The URL can be passed to google so it will be dynamically updated.
-  def sitemap
-    @pages = Page.enabled(:order => "updated_at DESC", :limit => 500)
-    @blogs = Blog.enabled(:order => "updated_at DESC", :limit => 500)
-    
-    respond_to do |format|
-      format.xml { render :layout => false }
     end
   end
 
