@@ -6,6 +6,13 @@ class UserObserver < ActiveRecord::Observer
   def after_create(user)
     if user.id > 1
       UserMailer.deliver_signup_notification(user)
+    else
+      @role = Role.create(:rolename => 'administrator')
+      User.find_and_activate!(user.activation_code)
+      permission = Permission.new
+      permission.role = @role
+      permission.user = user
+      permission.save(false)
     end
   end
 
