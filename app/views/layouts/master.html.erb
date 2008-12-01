@@ -18,12 +18,14 @@
         <%= page -%>
       </li>
     <%- end -%>
-    <li class="search">
-      <%- form_tag ("/search") do -%>
-        <%= text_field_tag "query", "Search" %>
-        <%= submit_tag("Go") %>
-      <%- end -%>
-    </li>
+    <%- if AppConfig.search_enabled -%>
+      <li class="search">
+        <%- form_tag ("/search") do -%>
+          <%= text_field_tag "query", "Search" %>
+          <%= submit_tag("Go") %>
+        <%- end -%>
+      </li>
+    <%- end -%>
   </ul>
   <%- if @subnav -%>
     <ul id="subnav">
