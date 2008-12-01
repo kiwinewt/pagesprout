@@ -19,7 +19,7 @@ class Page < ActiveRecord::Base
   after_save :downcase_slug
   
   def self.home
-    enabled(:conditions => { :home_page => true }).first
+    enabled.find(:first, :conditions => { :home_page => true })
   end
   
   def self.home?
