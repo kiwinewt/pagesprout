@@ -2,23 +2,8 @@
 
 <div class="section">
   <% form_for(@blog) do |f| %>
-    <%= f.error_messages %>
-      
-    <div class="element">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-
-    <div class="element">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
-
-    <div class="element">
-      <%= f.label :slug %>
-      <%= f.text_field :slug %>
-    </div>
-
+    <%= render :partial => 'fields', :locals => { :f => f } %>
+    
     <div class="element">
       <%= f.submit "Create" %>
     </div>
