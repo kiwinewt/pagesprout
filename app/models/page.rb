@@ -24,7 +24,8 @@ class Page < ActiveRecord::Base
   
   # Return list of top level pages for the menu bar
   def self.all_top_level_pages
-    Page.find(:all, :conditions => { :parent_id => 0 }) # DEPRECATE in favour of parentless named_scope
+    warn '[DEPRECATION] `all_top_level_pages` method is deprecated over `parentless` named_scope'
+    self.class.parentless
   end
   
   # Check if a page is at the top of the tree
