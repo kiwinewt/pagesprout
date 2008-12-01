@@ -35,7 +35,7 @@ Rails::Initializer.run do |config|
   if File.exist?(secret_file)  
     secret = File.read(secret_file)  
   else  
-    secret = Rails::SecretKeyGenerator.new(session_key).generate_secret  
+    secret = ActiveSupport::SecureRandom.hex(64) 
     File.open(secret_file, 'w') { |f| f.write(secret) }  
   end
   
