@@ -4,7 +4,7 @@
 class Blog < ActiveRecord::Base
   has_many :posts
   
-  named_scope :enabled, lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first }
+  named_scope :enabled, lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   
   acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :slug_with_spaces => {} },
                  :remote => true,

@@ -3,7 +3,7 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
-  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first }
+  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   named_scope :parentless, :conditions => { :parent_id => 0 }
   
   acts_as_tree :order => "title"
