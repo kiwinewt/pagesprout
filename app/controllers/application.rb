@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   before_filter :login_required
   
   # simple error handling when in production environment
-  if RAILS_ENV == 'development'
+  if RAILS_ENV == 'production'
     rescue_from ActionController::UnknownAction, :with => :not_found
     rescue_from NoMethodError, :with => :not_found
     rescue_from NameError, :with => :not_found
