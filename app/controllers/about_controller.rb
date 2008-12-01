@@ -11,8 +11,8 @@ class AboutController < ApplicationController
     if @page = Page.home
       # This passes the flash to the page designated as home page
       # (It wont pass on with multiple redirect to's from the error page)
-      flash[:error] = params[:error]
-      flash[:notice] = params[:notice]
+      flash[:error] = params[:error] if params[:error]
+      flash[:notice] = params[:notice] if params[:notice]
       redirect_to(@page)
     end
   end
