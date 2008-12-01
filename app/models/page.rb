@@ -3,6 +3,7 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
+  named_scope :enabled, :conditions => { :enabled => true }
   named_scope :parentless, :conditions => { :parent_id => 0 }
   
   acts_as_tree :order => "title"
@@ -16,16 +17,20 @@ class Page < ActiveRecord::Base
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
   after_save :downcase_slug
-
-  # Return the slug with underscores and dashes split to spaces to allow better search.
-  def slug_with_spaces
-    return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
-  end
   
   # Return list of top level pages for the menu bar
   def self.all_top_level_pages
     warn '[DEPRECATION] `all_top_level_pages` method is deprecated over `parentless` named_scope'
     self.class.parentless
+  end
+  
+  def self.home
+    enabled(:conditions => { :home_page => true }).first
+  end
+
+  # Return the slug with underscores and dashes split to spaces to allow better search.
+  def slug_with_spaces
+    return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
   # Check if a page is at the top of the tree
@@ -35,7 +40,7 @@ class Page < ActiveRecord::Base
   
   # find all pages that have this page as a parent.
   def children
-    Page.find(:all, :conditions => { :parent_id => self.id })
+    self.class.find(:all, :conditions => { :parent_id => self.id })
   end
   
   # Return the slug as the page ID

@@ -9,7 +9,7 @@ class AboutController < ApplicationController
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
   def index
     # Find the Page that has the homepage set. Will be nil if none
-    @page = Page.find_by_home_page_and_enabled(true, true, :first)
+    @page = Page.home
     # if there is no Page then the flash will be shown
     # if there is a page it will flashed on the next page
     notice = params[:notice]
