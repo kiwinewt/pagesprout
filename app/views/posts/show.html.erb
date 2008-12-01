@@ -4,12 +4,4 @@
   <div class="element">
     <%= @post.body %>
   </div>
-  
-  <div class="element">
-    <% if logged_in? && current_user.has_role?('administrator') %>
-      <%= link_to 'Edit', edit_blog_post_path(@blog,@post) %> |
-      <%= link_to 'Delete', [@blog,@post], :method => :delete %> |
-    <% end %>
-    <%= link_to 'Back', blog_path(@blog) %>
-  </div>
 </div>

@@ -8,11 +8,4 @@
       <div class="blog_post_body"><%= post.body %></div>
     </div>
   <% end %>
-  <%- if logged_in? %>
-    <div class="element">
-      <%- if current_user.has_role?('administrator') -%>
-        <%= link_to('New Post', new_blog_post_path(@blog)) %>
-      <%- end -%>
-    </div>
-  <%- end -%>
 </div>
