@@ -3,7 +3,7 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
-  named_scope :enabled, :conditions => { :enabled => true }
+  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   named_scope :parentless, :conditions => { :parent_id => 0 }
   
   acts_as_tree :order => "title"
@@ -17,12 +17,6 @@ class Page < ActiveRecord::Base
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
   after_save :downcase_slug
-  
-  # Return list of top level pages for the menu bar
-  def self.all_top_level_pages
-    warn '[DEPRECATION] `all_top_level_pages` method is deprecated over `parentless` named_scope'
-    parentless
-  end
   
   def self.home
     enabled(:conditions => { :home_page => true }).first

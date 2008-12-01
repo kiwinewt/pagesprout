@@ -25,14 +25,12 @@ class AboutController < ApplicationController
   # Produce and display a google sitemap at http://site_root/sitemap.xml.
   # The URL can be passed to google so it will be dynamically updated.
   def sitemap
-    # From Google: each Sitemap file that you provide must have no more than 50,000 URLs
-    @pages = Page.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500)
-    headers["Content-Type"] = "text/xml"
-    # set last modified header to the date of the latest entry. 
-    headers["Last-Modified"] = @pages[0].updated_at.httpdate  
-    @blogs = Blog.find(:all, :conditions => { :enabled => true }, :order => "updated_at DESC", :limit => 500) 
-    headers["Last-Modified"] = headers["Last-Modified"] > @pages[0].updated_at.httpdate ? headers["Last-Modified"] : @pages[0].updated_at.httpdate 
-    render :action => "sitemap", :layout => false
+    @pages = Page.enabled(:order => "updated_at DESC", :limit => 500)
+    @blogs = Blog.enabled(:order => "updated_at DESC", :limit => 500)
+    
+    respond_to do |format|
+      format.xml { render :layout => false }
+    end
   end
 
   # Either display the error passed or pass on the default error.
