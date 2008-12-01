@@ -13,23 +13,18 @@ module ApplicationHelper
   def get_navigation
     @pages = []
     @pages << (link_to('Home', root_path))
-    # TODO change complicated finds to named scopes
     @pages += Page.enabled.parentless.collect { |p| link_to(h(p.title), p) }
     @pages += Blog.enabled.collect { |p| link_to(h(p.title), p) }
-    @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
-    @pages << link_to_if(!logged_in?, "Log In", new_session_path) do
+    @pages << link_to('Contact Us', contact_path)
+    @pages << link_to_if(!logged_in?, 'Log In', new_session_path) do
       @pages << link_to_if(current_user.has_role?('administrator'),'Site Administration', admin_path)
       link_to('Log Out', logout_url)
     end
+    # Collect subnav
     if @page
-      if @page.root?
-        if @page.children.count != 0
-          @subnav = true
-          @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
-        end
-      else
+      if !@page.root? || @page.children.count != 0
         @subnav = true
-        @sub_pages = Page.enabled.sub_page(@page.parent_id).collect { |p| link_to(h(p.title), p) }
+        @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
       end
     end
   end

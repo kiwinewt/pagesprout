@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   
   #map.search '/search', :controller => 'about', :action => 'search'
   map.sitemap 'sitemap.xml', :controller => 'pages', :action => 'sitemap'
+  map.contact '/contact', :controller => 'pages', :action => 'contact'
   
   map.page_list '/pages/list', :controller => "pages", :action => "list"
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
@@ -36,5 +37,5 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  #map.connect '*path', :controller => 'about', :action => 'errorpage'
+  map.connect '*path', :controller => 'pages', :action => 'errorpage'
 end
