@@ -9,7 +9,9 @@ class AboutController < ApplicationController
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
   def index
     if @page = Page.home
-      flash[:error] = params[:error] # Hrrm... this seems unneccessary
+      # This passes the flash to the page designated as home page
+      # (It wont pass on with multiple redirect to's from the error page)
+      flash[:error] = params[:error]
       flash[:notice] = params[:notice]
       redirect_to(@page)
     end
