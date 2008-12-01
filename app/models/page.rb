@@ -3,8 +3,9 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
-  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true, :home_page => false }, :limit => limit.flatten.first } }
   named_scope :parentless, :conditions => { :parent_id => 0 }
+  named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   
   acts_as_tree :order => "title"
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug_with_spaces => {} },
@@ -19,7 +20,7 @@ class Page < ActiveRecord::Base
   attr_writer :slug
   
   def self.home
-    enabled.find(:first, :conditions => { :home_page => true })
+    parentless.find(:first, :conditions => { :home_page => true, :enabled => true })
   end
   
   def self.home?

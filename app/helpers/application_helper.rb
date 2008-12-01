@@ -14,8 +14,8 @@ module ApplicationHelper
     @pages = []
     @pages << (link_to('Home', root_path))
     # TODO change complicated finds to named scopes
-    @pages += Page.enabled.parentless(:all, :conditions => { :home => false }).collect { |p| link_to(h(p.title), p) }
-    @pages += Blog.enabled(:all).collect { |p| link_to(h(p.title), p) }
+    @pages += Page.enabled.parentless.collect { |p| link_to(h(p.title), p) }
+    @pages += Blog.enabled.collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', :controller => 'about', :action => 'contact')
     @pages << link_to_if(!logged_in?, "Log In", new_session_path) do
       @pages << link_to_if(current_user.has_role?('administrator'),'Site Administration', admin_path)
@@ -25,11 +25,11 @@ module ApplicationHelper
       if @page.root?
         if @page.children.count != 0
           @subnav = true
-          @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.id }).collect { |p| link_to(h(p.title), p) }
+          @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
         end
       else
         @subnav = true
-        @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.parent_id }).collect { |p| link_to(h(p.title), p) }
+        @sub_pages = Page.enabled.sub_page(@page.parent_id).collect { |p| link_to(h(p.title), p) }
       end
     end
   end

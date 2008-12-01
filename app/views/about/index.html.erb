@@ -9,6 +9,8 @@
 </p>
 
 <ol>
-  <li><%= link_to 'Create an account', signup_path %></li>
+  <% if !logged_in? %>
+    <li><%= link_to 'Create an account', signup_path %></li>
+  <% end %>
   <li>Change this page</li>
 </ol>
