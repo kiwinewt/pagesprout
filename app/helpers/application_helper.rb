@@ -25,11 +25,11 @@ module ApplicationHelper
       if @page.root?
         if @page.children.count != 0
           @subnav = true
-          @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.id }).collect { |p| link_to(h(p.title), p) }
+          @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
         end
       else
         @subnav = true
-        @sub_pages = Page.find(:all, :conditions => { :enabled => true, :parent_id => @page.parent_id }).collect { |p| link_to(h(p.title), p) }
+        @sub_pages = Page.enabled.sub_page(@page.parent_id).collect { |p| link_to(h(p.title), p) }
       end
     end
   end
