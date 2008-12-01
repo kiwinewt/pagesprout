@@ -10,7 +10,7 @@ class Blog < ActiveRecord::Base
   
   validates_presence_of :title, :description
   validates_uniqueness_of :title, :slug
-  validates_format_of :slug, :with => /\A[a-z0-9\-_]+\z/i
+  validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
   after_save :downcase_slug
   
