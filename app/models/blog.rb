@@ -4,6 +4,8 @@
 class Blog < ActiveRecord::Base
   has_many :posts
   
+  named_scope :enabled, :conditions => { :enabled => true }
+  
   acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :slug_with_spaces => {} },
                  :remote => true,
                  :store_class_name => true
