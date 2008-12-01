@@ -66,7 +66,8 @@ module ApplicationHelper
     render :partial => 'layouts/footer'
   end
   
-  #return the number of themes
+  # return the number of themes
+  # TODO should be part of a theme model
   def count_themes
     result = {}
     files = Dir.entries("#{RAILS_ROOT}/public/themes/")
