@@ -1,5 +1,14 @@
-<%= page_heading 'Welcome' %>
+<%= page_heading "Welcome to #{CMS_NAME}" %>
 
-<div class="section">
-  Thank you for installing <%= link_to CMS_NAME, CMS_WEBSITE %>. To get set up, please login as the admin user and enjoy!
-</div>
+<p>
+  Welcome to your new site!
+</p>
+
+<p>
+  To get started:
+</p>
+
+<ol>
+  <li><%= link_to 'Create an account', signup_path %></li>
+  <li>Change this page</li>
+</ol>
