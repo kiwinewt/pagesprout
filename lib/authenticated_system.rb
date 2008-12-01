@@ -76,7 +76,7 @@ module AuthenticatedSystem
     def permission_denied      
       respond_to do |format|
         format.html do
-          domain_name = AppConfig.root_url
+          domain_name = request.host_with_port
           http_referer = session[:refer_to]
           if http_referer.nil?
             store_referer
