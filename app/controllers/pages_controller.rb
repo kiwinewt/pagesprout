@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   # List all pages. Requires Admin User
   def index
-    @all_top_level_pages = Page.all_top_level_pages
+    @all_top_level_pages = Page.parentless
     render :action => "index", :layout => "admin"
   end
 
