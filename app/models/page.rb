@@ -8,16 +8,16 @@ class Page < ActiveRecord::Base
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   
   acts_as_tree :order => "title"
-  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :slug_with_spaces => {} },
+  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :permalink_with_spaces => {} },
                  :remote => true,
                  :store_class_name => true
   version_fu
   
   validates_presence_of :title, :body
-  validates_uniqueness_of :slug
-  validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
+  validates_uniqueness_of :permalink
+  validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
   
-  attr_writer :slug
+  attr_writer :permalink
   
   def self.home
     parentless.find(:first, :conditions => { :home_page => true, :enabled => true })
@@ -27,9 +27,9 @@ class Page < ActiveRecord::Base
     home.present?
   end
   
-  # Return the slug with underscores and dashes split to spaces to allow better search.
-  def slug_with_spaces
-    return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
+  # Return the permalink with underscores and dashes split to spaces to allow better search.
+  def permalink_with_spaces
+    return self.permalink.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
   # Check if a page is at the top of the tree
@@ -42,12 +42,12 @@ class Page < ActiveRecord::Base
     self.class.find(:all, :conditions => { :parent_id => self.id })
   end
   
-  def slug=(text)
-    self[:slug] = text.downcase!
+  def permalink=(text)
+    self[:permalink] = text.downcase!
   end
   
-  # Return the slug as the page ID
+  # Return the permalink as the page ID
   def to_param
-    slug_was
+    permalink_was
   end
 end

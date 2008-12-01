@@ -5,5 +5,5 @@ one:
   title: A Post
   blog_id: 1
   body: A test post. Hello.
-  slug: post_test
+  permalink: post_test
   enabled: 1

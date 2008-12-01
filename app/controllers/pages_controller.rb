@@ -26,8 +26,8 @@ class PagesController < ApplicationController
   # Create a new page
   def new
     @page = Page.new
-    if Page.find_by_slug(params[:id])
-      @parent_id = Page.find_by_slug(params[:id]).id
+    if Page.find_by_permalink(params[:id])
+      @parent_id = Page.find_by_permalink(params[:id]).id
     else
       @parent_id = "0"
     end
@@ -95,15 +95,15 @@ class PagesController < ApplicationController
     @version = @page.versions.find_by_version(params[:version])
     @page.title = @version.title
     @page.body = @version.body
-    @page.slug = @version.slug
+    @page.permalink = @version.permalink
     @page.save
     redirect_to_pages
   end
   
   private
-    # Find a page by its slug
+    # Find a page by its permalink
     def find_page
-      @page = Page.find_by_slug(params[:id])
+      @page = Page.find_by_permalink(params[:id])
       @page_title = @page.title
     end
     

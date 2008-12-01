@@ -7,12 +7,12 @@ class PagesControllerTest < ActionController::TestCase
   def test_create_page
     user_signin
     assert_difference('Page.count') do
-      post :create, :page => { :title => "agnu", :body => "A Gnu Page", :slug => "newpage" }
+      post :create, :page => { :title => "agnu", :body => "A Gnu Page", :permalink => "newpage" }
     end
   end
   
   def test_create_page_no_user
-    post :create, :page => { :title => "home", :body => "Tester", :slug => "home", :home_page => false }  
+    post :create, :page => { :title => "home", :body => "Tester", :permalink => "home", :home_page => false }  
     assert_redirected_to( :action=>"new", :controller=>"sessions" )
   end 
   
@@ -31,7 +31,7 @@ class PagesControllerTest < ActionController::TestCase
   
   protected
     def create_page(options = {})
-      post :create, :page => { :title => "home", :body => "Tester", :slug => "home", :home_page => false }.merge(options)
+      post :create, :page => { :title => "home", :body => "Tester", :permalink => "home", :home_page => false }.merge(options)
     end
     
 end

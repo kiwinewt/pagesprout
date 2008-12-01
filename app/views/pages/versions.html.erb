@@ -12,7 +12,7 @@
       Body
     </div>
     <div class="column">
-      Slug
+      Permalink
     </div>
     <div class="column">
       Last Updated
@@ -33,7 +33,7 @@
         <%=h version.body %>
       </div>
       <div class="column">
-        <%=h version.slug %>
+        <%=h version.permalink %>
       </div>
       <div class="column">
         <%= time_ago_in_words(version.updated_at).capitalize %> ago

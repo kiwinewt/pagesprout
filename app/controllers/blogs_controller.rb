@@ -96,9 +96,9 @@ class BlogsController < ApplicationController
     end
   
   private  
-    # Find the blog by its slug.
+    # Find the blog by its permalink.
     def find_blog
-      @blog = Blog.find_by_slug(params[:id])
+      @blog = Blog.find_by_permalink(params[:id])
     end
     
     # if the page is active then let it through

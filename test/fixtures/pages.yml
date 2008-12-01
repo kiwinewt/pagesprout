@@ -3,11 +3,11 @@
 test:
   title: Test Page
   body: This is a test page. Welcome!
-  slug: homer
+  permalink: homer
   home_page: 1
   enabled: 0
   
 test2:
   title: Test Page 2
   body: This is also a test page. Welcome!
-  slug: homeAgnu
+  permalink: homeAgnu

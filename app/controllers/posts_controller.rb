@@ -37,8 +37,8 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
-    @post.blog_id = Blog.find_by_slug(params[:blog_id]).id || Blog.find_by_slug(@blog.id).id
-    @post.slug = Time.now.strftime('%Y-%m-%d-')+@post.title.gsub(/[" "]/, '-')
+    @post.blog_id = Blog.find_by_permalink(params[:blog_id]).id || Blog.find_by_permalink(@blog.id).id
+    @post.permalink = Time.now.strftime('%Y-%m-%d-')+@post.title.gsub(/[" "]/, '-')
 
     respond_to do |format|
       if @post.save
@@ -88,12 +88,12 @@ class PostsController < ApplicationController
   private
   
     def find_post
-      @post = Post.find_by_slug(params[:id])
+      @post = Post.find_by_permalink(params[:id])
       @page_title = @post.title
     end
     
     def get_blog
-      @blog = Blog.find_by_slug(params[:blog_id])
+      @blog = Blog.find_by_permalink(params[:blog_id])
     end
     
     def post_enabled

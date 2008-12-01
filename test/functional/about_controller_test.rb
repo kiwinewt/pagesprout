@@ -9,7 +9,7 @@ class AboutControllerTest < ActionController::TestCase
   # This should be in PageControllerTest
   test "set home page" do
     user_signin
-    page = Page.new(:title => "agnu page", :body => "A Gnu Page", :slug => "home", :enabled => 1, :home_page => 1)
+    page = Page.new(:title => "agnu page", :body => "A Gnu Page", :permalink => "home", :enabled => 1, :home_page => 1)
     page.save
     get :index
     assert_redirected_to :action=>"show", :controller=>"pages", :id => "home" 

@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :parent_id
       t.string  :title
       t.text    :body
-      t.string  :slug
+      t.string  :permalink
       t.integer :version, :default=>1
       t.boolean :home_page, :default=>false
       t.boolean :locked, :default=>false
@@ -17,7 +17,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :version
       t.string  :title
       t.text    :body
-      t.string  :slug
+      t.string  :permalink
       t.timestamps
     end
 

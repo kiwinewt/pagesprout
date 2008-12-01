@@ -4,7 +4,7 @@ one:
   id: 1
   title: A Blog
   description: A Test Blog
-  slug: test_blog
+  permalink: test_blog
   enabled: 1
 #
 # two:

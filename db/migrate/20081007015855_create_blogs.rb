@@ -3,7 +3,7 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
       t.string :title
       t.text :description
-      t.string :slug
+      t.string :permalink
       t.boolean :enabled, :default=>false
       t.timestamps
     end
