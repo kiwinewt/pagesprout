@@ -4,7 +4,6 @@
 
 # This class takes care of the users, including new user activation tokens.
 class UsersController < ApplicationController
-
   before_filter :not_logged_in_required, :only => [:new, :create] 
   before_filter :set_mail_url, :only => [:new, :create] 
   before_filter :public_profile, :only => :show

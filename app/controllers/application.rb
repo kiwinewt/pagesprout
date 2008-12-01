@@ -6,17 +6,24 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :login_required
-  helper :all
-  layout 'master'
   include AuthenticatedSystem
+  
+  helper :all
+  
+  layout 'master'
+  
   protect_from_forgery
+  
+  before_filter :login_required
+  
   # simple error handling when in production environment
-  if RAILS_ENV == 'production'
+  if RAILS_ENV == 'development'
     rescue_from ActionController::UnknownAction, :with => :not_found
     rescue_from NoMethodError, :with => :not_found
     rescue_from NameError, :with => :not_found
   end
+  
+  protected
   
   # Handle the not_found action which occurs when an Exception happens.
   # Modify this for emailing exception notices.
