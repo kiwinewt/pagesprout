@@ -33,8 +33,8 @@ class AdminController < ApplicationController
       @application_config = OpenStruct.new(settings_dump)
     end
     save_config
-    redirect_to :action => 'theme'
     flash[:notice] = "Theme changed"
+    redirect_to :action => 'theme'
   end
   
   private
@@ -52,8 +52,6 @@ class AdminController < ApplicationController
       # for this to work without having to restart the RoR server the AppConfig
       # plugin had to be modified to be able to save the variables
       new_application_config = @application_config
-      env_config = new_application_config.send(RAILS_ENV)
-      new_application_config.common.update(env_config) unless env_config.nil?
       new_application_config.common.keys.each do |key|
         AppConfig.set_param(key,new_application_config.common[key])
       end

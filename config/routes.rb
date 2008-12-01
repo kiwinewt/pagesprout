@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_password '/change_password', :controller => 'accounts', :action => 'edit'
   
   map.search '/search', :controller => 'search', :action => 'search'
+  map.errorpage '/pages/errorpage', :controller => 'pages', :action => 'errorpage'
   map.sitemap 'sitemap.xml', :controller => 'pages', :action => 'sitemap'
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   

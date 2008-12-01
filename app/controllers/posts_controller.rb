@@ -79,6 +79,7 @@ class PostsController < ApplicationController
     end
   end
   
+  # Toggle the enabled state of the post
   def enable
     @post.enabled = !@post.enabled
     @post.save
@@ -87,21 +88,25 @@ class PostsController < ApplicationController
   
   private
   
+    # Find the current post
     def find_post
       @post = Post.find_by_permalink(params[:id])
       @page_title = @post.title
     end
     
+    # Find the current post's blog
     def get_blog
       @blog = Blog.find_by_permalink(params[:blog_id])
     end
     
+    # Make sure diabled posts are only accessible by the Admin user
     def post_enabled
       # if the page is active then let it through
       # if not then the user has to be an admin to access it
       @post.enabled? || check_administrator_role
     end
     
+    # Go to the blogs list page
     def redirect_to_blogs
       respond_to do |format|
         format.html { redirect_to(blogs_url) }

@@ -12,6 +12,8 @@ class PagesController < ApplicationController
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
   def index
     if @page = Page.home
+      # included for places that redirect here with a flash
+      flash.keep
       redirect_to(@page)
     end
   end
@@ -49,7 +51,7 @@ class PagesController < ApplicationController
   def edit
   end
 
-  # Save the new page. Part 2 of the new method.
+  # Save the new page. Second half of the new method.
   def create
     @page = Page.new(params[:page])
     
@@ -65,7 +67,7 @@ class PagesController < ApplicationController
     end
   end
 
-  # Update the pages details. Second half of edit method.
+  # Update the pages details. Second half of the edit method.
   def update
     respond_to do |format|
       if @page.update_attributes(params[:page])
@@ -161,16 +163,15 @@ class PagesController < ApplicationController
   end
 
   # Either display the error passed or pass on the default error.
-  # Has some quirks to allow multiple levels of redirect in the index action.
   def errorpage
     # if there is a notice/error it will be passed on, otherwise the default will be used
-    notice = params[:notice]
-    error = params[:error]
+    notice = flash['notice']
+    error = flash['error']
     if !notice && !error
-      error = AppConfig.page_not_found
+      flash[:error] = AppConfig.page_not_found
+    else
+      flash.keep
     end
-    flash[:error] = error if error
-    flash[:notice] = notice if notice
     if @page = Page.home
       redirect_to(@page)
     else

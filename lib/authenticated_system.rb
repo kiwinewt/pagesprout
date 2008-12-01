@@ -84,7 +84,7 @@ module AuthenticatedSystem
           end
           flash[:error] = "You don't have permission to complete that action."
           session[:refer_to] = nil
-          redirect_to :controller => :about, :action => :errorpage, :error => "You don't have permission to complete that action."
+          redirect_to errorpage_url
         end
         format.xml do
           headers["Status"]           = "Unauthorized"

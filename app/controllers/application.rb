@@ -31,6 +31,8 @@ class ApplicationController < ActionController::Base
     redirect_to :controller => "about", :action => 'errorpage'
   end
   
+  # Set the URL for the mailer from the current host name
+  # Used in new user signup and forgotten password areas
   def set_mail_url
     UserMailer.default_url_options[:host] = request.host_with_port
   end

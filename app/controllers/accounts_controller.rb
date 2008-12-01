@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
         current_user.password = params[:password]        
         if current_user.save
           flash[:notice] = "Password successfully updated."
-          redirect_to root_path #profile_url(current_user.login)
+          redirect_to root_url
         else
           flash[:error] = "An error occured, your password was not changed."
           render :action => 'edit'
