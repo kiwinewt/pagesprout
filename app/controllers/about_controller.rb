@@ -16,17 +16,9 @@ class AboutController < ApplicationController
   # Handle requests from the search box/form, process them then display the results in a page.
   # Requres Ferret and acts_as_ferret.
   def search
-    begin
+    if params[:query].present?
       @query = params[:query]
-      if @query.empty?
-        @query = nil
-      end
-      # add any other models that are acts_as_ferret here
-      additional_models = [Post, Blog]
-      @result = Page.find_by_contents(@query, {:multi => additional_models}, {:conditions => "enabled = true"})
-    rescue
-      flash[:error] = "Please enter something to search for"
-      redirect_to(:controller => :about, :action => :index)
+      @results = Page.enabled.find_by_contents(@query, { :multi => [Post, Blog] })
     end
   end
   

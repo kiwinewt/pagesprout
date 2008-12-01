@@ -1,13 +1,15 @@
 <%= page_heading 'Search Results' %>
 
-<div class="section">
-  <div class="element">
+<% if @results %>
+  <p>
     Search: <%= @query %><br />
-    Total number of results: <%= @result.total_hits %>
-  </div>
-  <%- for item in @result -%>
-    <div class="element">
+    Total number of results: <%= @results.total_hits %>
+  </p>
+  <%- for item in @results -%>
+    <p>
       <%= search_result(item, @query) %>
-    </div>
+    </p>
   <%- end -%>
-</div>
+<% else %>
+  <p>Please enter a search term.</p>
+<% end %>
