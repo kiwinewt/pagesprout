@@ -14,7 +14,7 @@ class Blog < ActiveRecord::Base
   validates_uniqueness_of :title, :slug
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
-  after_save :downcase_slug
+  attr_writer :slug
   
   # Return the slug as the blog ID
   def to_param
@@ -26,14 +26,12 @@ class Blog < ActiveRecord::Base
     return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
+  def slug=(text)
+    self[:slug] = text.downcase!
+  end
+  
   # List latest 10 posts, ordered by date
   def enabled_posts_shortlist
     self.posts.enabled(10).reverse
   end
-  
-  private
-  
-    def downcase_slug
-      slug.downcase!
-    end
 end

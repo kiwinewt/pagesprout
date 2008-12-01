@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :slug
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
-  after_save :downcase_slug
+  attr_writer :slug
 
   # Return the slug with underscores and dashes split to spaces to allow better search.
   def slug_with_spaces
@@ -25,9 +25,7 @@ class Post < ActiveRecord::Base
     slug_was
   end
   
-  private
-  
-  def downcase_slug
-    slug.downcase!
+  def slug=(text)
+    self[:slug] = text.downcase!
   end
 end

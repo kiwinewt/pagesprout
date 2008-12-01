@@ -16,7 +16,7 @@ class Page < ActiveRecord::Base
   validates_uniqueness_of :slug
   validates_format_of :slug, :with => /^[a-z0-9\-_]+$/i
   
-  after_save :downcase_slug
+  attr_writer :slug
   
   def self.home
     enabled.find(:first, :conditions => { :home_page => true })
@@ -25,7 +25,7 @@ class Page < ActiveRecord::Base
   def self.home?
     home.present?
   end
-
+  
   # Return the slug with underscores and dashes split to spaces to allow better search.
   def slug_with_spaces
     return self.slug.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
@@ -41,14 +41,12 @@ class Page < ActiveRecord::Base
     self.class.find(:all, :conditions => { :parent_id => self.id })
   end
   
+  def slug=(text)
+    self[:slug] = text.downcase!
+  end
+  
   # Return the slug as the page ID
   def to_param
     slug_was
-  end
-  
-  private
-  
-  def downcase_slug
-    slug.downcase!
   end
 end
