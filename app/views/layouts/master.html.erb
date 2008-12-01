@@ -20,7 +20,7 @@
     <%- end -%>
     <%- if AppConfig.search_enabled -%>
       <li class="search">
-        <%- form_tag ("/search", :method => :get) do -%>
+        <%- form_tag( "/search", :method => :get ) do -%>
           <%= text_field_tag "query", "Search" %>
           <%= submit_tag("Go") %>
         <%- end -%>

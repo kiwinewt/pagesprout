@@ -22,9 +22,12 @@ module ApplicationHelper
     end
     # Collect subnav
     if @page
-      if !@page.root? || @page.children.count != 0
+      if @page.children.count != 0
         @subnav = true
         @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
+      elsif !@page.root?
+        @subnav = true
+        @sub_pages = Page.enabled.sub_page(@page.parent_id).collect { |p| link_to(h(p.title), p) }
       end
     end
   end
