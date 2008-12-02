@@ -27,7 +27,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.public_profile = false
     @user.save!
-    flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
+    if @user.id > 1
+      flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
+    else
+      flash[:notice] = 
     redirect_to login_path    
   rescue ActiveRecord::RecordInvalid
     flash[:error] = "There was a problem creating your account."

@@ -17,12 +17,12 @@ module ApplicationHelper
     @pages += Blog.enabled.collect { |p| link_to(h(p.title), p) }
     @pages << link_to('Contact Us', contact_path)
     @pages << link_to_if(!logged_in?, 'Log In', new_session_path) do
-      @pages << link_to_if(current_user.has_role?('administrator'),'Site Administration', admin_path)
+      current_user.has_role?('administrator') ? @pages << link_to( 'Site Administration', admin_path ) : ""
       link_to('Log Out', logout_url)
     end
     # Collect subnav
     if @page
-      if @page.children.count != 0
+      if @page.children.length != 0
         @subnav = true
         @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
       elsif !@page.root?
@@ -65,7 +65,7 @@ module ApplicationHelper
         result[file] = file
       end
     end
-    result.count
+    result.length
   end
 
 end
