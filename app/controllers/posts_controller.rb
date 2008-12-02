@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    @post_author = User.find(@post.author_id).login
+    @post_time = @post.updated_at.strftime(AppConfig.date_string)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }

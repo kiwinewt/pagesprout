@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :permalink
       t.boolean :enabled, :default=>false
       t.integer :blog_id, :null => false
+      t.integer :author_id
       t.timestamps
     end
   end

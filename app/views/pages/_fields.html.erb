@@ -26,3 +26,4 @@
   <%= f.label :enabled %>
   <%= check_box('page', 'enabled') %>
 </div>
+<%= f.hidden_field('author_id', {:value => @current_user.id}) %>

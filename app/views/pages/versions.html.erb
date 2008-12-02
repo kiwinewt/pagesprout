@@ -36,7 +36,7 @@
         <%=h version.permalink %>
       </div>
       <div class="column">
-        <%= time_ago_in_words(version.updated_at).capitalize %> ago
+        <%= time_ago_in_words(version.updated_at).capitalize %> ago by <%= User.find(version.author_id).login %>
       </div>
       <div class="column">
         <%= link_to h('(revert to this version)'), :controller => "pages", :action => "revert_to_version", :id => @page, :version => version.version %>

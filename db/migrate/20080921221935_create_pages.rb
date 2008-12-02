@@ -9,6 +9,7 @@ class CreatePages < ActiveRecord::Migration
       t.boolean :home_page, :default=>false
       t.boolean :locked, :default=>false
       t.boolean :enabled, :default=>false
+      t.integer :author_id
       t.timestamps
     end
     
@@ -18,6 +19,7 @@ class CreatePages < ActiveRecord::Migration
       t.string  :title
       t.text    :body
       t.string  :permalink
+      t.integer :author_id
       t.timestamps
     end
 

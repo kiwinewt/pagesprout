@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     if @user.id > 1
       flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
     else
-      flash[:notice] = 
+      flash[:notice] = "Thanks for signing up! Please log in"
+    end
     redirect_to login_path    
   rescue ActiveRecord::RecordInvalid
     flash[:error] = "There was a problem creating your account."
@@ -73,7 +74,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = "There was a problem enabling this user."
     end
-      redirect_to :controller => 'admin', :action => 'users'
+    redirect_to :controller => 'admin', :action => 'users'
   end
   
   protected
