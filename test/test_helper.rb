@@ -22,5 +22,9 @@ class Test::Unit::TestCase
     @controller = old_controller
   end
 
+  def create_user(options = {})
+    post :create, :user => { :login => 'quire', :email => 'quire@example.com',
+      :password => 'quire', :password_confirmation => 'quire' }.merge(options)
+  end
 
 end

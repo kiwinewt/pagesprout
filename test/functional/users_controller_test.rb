@@ -62,9 +62,4 @@ class UsersControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:user).activation_code
   end
 
-  protected
-    def create_user(options = {})
-      post :create, :user => { :login => 'quire', :email => 'quire@example.com',
-        :password => 'quire', :password_confirmation => 'quire' }.merge(options)
-    end
 end
