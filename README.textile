@@ -31,7 +31,7 @@ To generate documentation, run the command:
 
   rake doc:app
   
-For more information, visit: http://doc.pagesprout.com
+For more information, visit: "http://doc.pagesprout.com":http://doc.pagesprout.com
 
 h3. Installation Instructions
 
