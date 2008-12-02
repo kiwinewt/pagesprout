@@ -3,8 +3,8 @@ h2. PageSprout
 2 December 2008
 
 This is the official beta of PageSprout 1.0 which is an awesome Ruby on Rails Content Management System.
-This has been created by "Rocket Boys Ltd":http://www.rocketboys.co.nz.
 
+This has been created by "Rocket Boys Ltd":http://www.rocketboys.co.nz.
 
 h3. Maintainer Contact
 
@@ -36,6 +36,7 @@ For more information, visit: "http://doc.pagesprout.com":http://doc.pagesprout.c
 h3. Installation Instructions
 
 Extract all the folders and files to the root of your web directory. You should then have this directory structure:
+
   app
   config
   db
