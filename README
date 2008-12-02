@@ -1,77 +1,93 @@
-h2. PageSprout
+###############################################
+                 PageSprout
+###############################################
 
 2 December 2008
 
 This is the official beta of PageSprout 1.0 which is an awesome Ruby on Rails Content Management System.
 This has been created by Rocket Boys Ltd.
 
+Version: 0.9 (Beta)
 
-h3. Maintainer Contact
+
+Maintainer Contact
+-----------------------------------------------
 Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
 < nate (at) rocketboys (dot) co (dot) nz >
 
-h3. Requirements
+Requirements
+-----------------------------------------------
 This CMS requires:
-* Ruby on Rails 2.2 (Included)
-* The ferret gem
+  Ruby on Rails 2.2 (Included)
+  The ferret gem
 Depending on your setup:
-* The mysql gem
-* The sqlite3-ruby gem
+  The mysql gem
+  The sqlite3-ruby gem
   
 To automatically install the *required* gems, run:
-* rake gems:install
+  rake gems:install
 
-h3. Documentation
+Documentation
+-----------------------------------------------
 To generate documentation, run the command:
-  * rake doc:app
+  rake doc:app
 For more information, visit:
-  * http://doc.pagesprout.com
+  http://doc.pagesprout.com/
 
-h3. Installation Instructions
-# Extract all the folders and files to the root of your web directory. You should then have this directory structure:
-   * app
-   * config
-   * db
-   * doc
-   * lib
-   * LICENCE
-   * log
-   * public
-   * Rakefile
-   * README
-   * script
-   * vendor
-# Please read the LICENCE file
-# Configure the CMS for your preferences by copying these files to these locations then modifying them as required:
-   * config/config.yml.sample                config/config.yml
-   * config/database.yml.sample              config/database.yml
-   * config/initializers/mail.rb.sample      config/initializers/mail.rb
-# Uncomment the first line in config/environment.rb:
-   * # ENV['RAILS_ENV'] ||= 'production'
-# Create the database by running these from the command line:
-   * rake db:create RAILS_ENV=production
-   * rake db:migrate RAILS_ENV=production
-# Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
+Installation Instructions
+-----------------------------------------------
+1. Extract all the folders and files to the root of your web directory. You should then have this directory structure:
+  app
+  config
+  db
+  doc
+  lib
+  LICENCE
+  log
+  public
+  Rakefile
+  README
+  script
+  vendor
 
-* Please raise issues, bugs, contributions by email - see http://www.pagesprout.com
+2. Please read the LICENCE file
 
-h3. Usage Overview
-# Open a web browser and access the site from whatever location the server is set to run from
-   * (e.g.: http://localhost:3000)
+3. Configure the CMS for your preferences by copying these files to these locations then modifying them as required:
+  config/config.yml.sample                config/config.yml
+  config/database.yml.sample              config/database.yml
+  config/initializers/mail.rb.sample      config/initializers/mail.rb
 
-# Create a new user. The first user will be the site admin.
+4. Uncomment the first line in config/environment.rb:
+  # ENV['RAILS_ENV'] ||= 'production'
+
+5. Create the database by running these from the command line:
+  rake db:create RAILS_ENV=production
+  rake db:migrate RAILS_ENV=production
+
+6. Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
+
+Please raise issues, bugs, contributions by email - see http://www.pagesprout.com/
+
+Usage Overview
+-----------------------------------------------
+1. Open a web browser and access the site from whatever location the server is set to run from
+  (e.g.: http://localhost:3000)
+
+2. Create a new user. The first user will be the site admin.
   
-# Create new pages and blogs via the menus.
+3. Create new pages and blogs via the menus.
 
-# For new themes, please visit:
-   * http://www.pagesprout.com
+4. For new themes, please visit:
+  http://www.pagesprout.com/
   
-# For information on how to create a custom theme, please visit:
-   * http://style.pagesprout.com
+5. For information on how to create a custom theme, please visit:
+  http://style.pagesprout.com/
 
-# To add a CAPTCHA to your contact page, please:
-   * Sign up at http://recaptcha.net
-   * Add your Public and Private API keys to the settings page/config file.
+6. To add a CAPTCHA to your contact page, please:
+  Sign up at http://recaptcha.net/
+  Add your Public and Private API keys to the settings page/config file.
 
-h3. Known issues
-  * Currently none
+Known issues
+-----------------------------------------------
+Currently none
+
