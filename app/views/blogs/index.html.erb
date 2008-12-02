@@ -3,19 +3,21 @@
 <ul id="section" >
   <%- for blog in @blogs -%>
 	  <li id="<%= blog.id %>" class="<%= blog.enabled ? "enabled_item" : "disabled_item"%>">
-		  <%= link_to blog.title, blog %>
+		  <%= blog.title %>
 		  <small>
 		    <%= link_to "(+)", new_blog_post_path(blog) %>
         <%= link_to 'Edit', edit_blog_path(blog) %>
+        <%= link_to 'View', blog %>
         <%= link_to 'Delete', blog, :method => :delete %>
 	      <%= link_to (blog.enabled ? 'Disable' : 'Enable'), :id => blog, :action => :enable %>
       </small>
       <ul>
         <%- for post in blog.posts.find(:all, :order=> "updated_at").reverse do -%>
-          <li class="<%= post.enabled ? "enabled_item" : "disabled_item"%>"><%= link_to post.title, [blog,post] %>
+          <li class="<%= post.enabled ? "enabled_item" : "disabled_item"%>"><%= post.title %>
             <small>
               <%= post.updated_at.strftime(AppConfig.date_string) %>
               <%= link_to 'Edit', edit_blog_post_path(blog,post) %>
+              <%= link_to 'View', [blog,post] %>
               <%= link_to 'Delete', [blog,post], :method => :delete %>
 	            <%= link_to (post.enabled ? 'Disable' : 'Enable'), :id => post, :action => :enable, :controller => :posts %>
             </small>

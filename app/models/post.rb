@@ -13,8 +13,6 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :permalink
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
   
-  attr_writer :permalink
-
   # Return the permalink with underscores and dashes split to spaces to allow better search.
   def permalink_with_spaces
     return self.permalink.gsub('-', ' ').gsub('_', ' ')
@@ -23,9 +21,5 @@ class Post < ActiveRecord::Base
   # Return the permalink as the post ID
   def to_param
     permalink_was
-  end
-  
-  def permalink=(text)
-    self[:permalink] = text.downcase!
   end
 end

@@ -13,9 +13,7 @@ class Blog < ActiveRecord::Base
   validates_presence_of :title, :description
   validates_uniqueness_of :title, :permalink
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
-  
-  attr_writer :permalink
-  
+    
   # Return the permalink as the blog ID
   def to_param
     permalink_was
@@ -24,10 +22,6 @@ class Blog < ActiveRecord::Base
   # Return the permalink with underscores and dashes split to spaces to allow better search.
   def permalink_with_spaces
     return self.permalink.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
-  end
-  
-  def permalink=(text)
-    self[:permalink] = text.downcase!
   end
   
   # List latest 10 posts, ordered by date

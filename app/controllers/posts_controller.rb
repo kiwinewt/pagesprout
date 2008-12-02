@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to([@blog,@post]) }
+        format.html { redirect_to_blogs }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@blog,@post) }
+        format.html { redirect_to_blogs }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
     flash[:notice] = 'Post was successfully deleted.'
 
     respond_to do |format|
-      format.html { redirect_to(@blog) }
+      format.html { redirect_to_blogs }
       format.xml  { head :ok }
     end
   end

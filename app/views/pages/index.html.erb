@@ -10,7 +10,7 @@
 
 <ol>
   <% if !logged_in? %>
-    <li><%= link_to 'Create an account', signup_path %></li>
+    <li><%= link_to 'Create an account', signup_path -%></li>
   <% end %>
-  <li>Change this page</li>
+  <li><%= link_to 'Create a home page', new_page_path -%></li>
 </ol>

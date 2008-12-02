@@ -12,10 +12,16 @@ module ApplicationHelper
   # TODO move navigation instance variables to controller
   def get_navigation
     @pages = []
-    @pages << (link_to('Home', root_path))
+    if @home = Page.home
+      @pages << link_to(@home.title, @home)
+    else
+      @pages << link_to('Home', root_path)
+    end
     @pages += Page.enabled.parentless.collect { |p| link_to(h(p.title), p) }
     @pages += Blog.enabled.collect { |p| link_to(h(p.title), p) }
-    @pages << link_to('Contact Us', contact_path)
+    if AppConfig.contact_enabled
+      @pages << link_to('Contact Us', contact_path)
+    end
     @pages << link_to_if(!logged_in?, 'Log In', new_session_path) do
       current_user.has_role?('administrator') ? @pages << link_to( 'Site Administration', admin_path ) : ""
       link_to('Log Out', logout_url)
