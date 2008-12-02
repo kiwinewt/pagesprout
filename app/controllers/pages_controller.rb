@@ -112,6 +112,7 @@ class PagesController < ApplicationController
   # Produce and display a google sitemap at http://site_root/sitemap.xml.
   # The URL can be passed to google so it will be dynamically updated.
   def sitemap
+    @home_page = Page.home || nil
     @pages = Page.enabled
     @blogs = Blog.enabled
     
