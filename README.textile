@@ -31,7 +31,7 @@ To generate documentation, run the command:
 
   rake doc:app
   
-For more information, visit: "http://doc.pagesprout.com":http://doc.pagesprout.com
+For more information, visit: "http://docs.pagesprout.com":http://docs.pagesprout.com
 
 h3. Installation Instructions
 
@@ -47,6 +47,7 @@ Extract all the folders and files to the root of your web directory. You should 
   public
   Rakefile
   README
+  README.textile
   script
   vendor
 

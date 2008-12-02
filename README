@@ -32,7 +32,7 @@ Documentation
 To generate documentation, run the command:
   rake doc:app
 For more information, visit:
-  http://doc.pagesprout.com/
+  http://docs.pagesprout.com/
 
 Installation Instructions
 -----------------------------------------------
