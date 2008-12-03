@@ -33,6 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resource :password
   map.admin '/admin', :controller => 'admin'
+  map.themes '/designs', :controller => 'admin', :action => 'theme'
   
   map.root :controller => 'pages'
 
