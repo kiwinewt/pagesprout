@@ -35,6 +35,7 @@ class PagesController < ApplicationController
   # Create a new page
   def new
     @page = Page.new
+    @page.enabled = true
     if Page.find_by_permalink(params[:id])
       @parent_id = Page.find_by_permalink(params[:id]).id
     else
@@ -55,6 +56,11 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     
+    # set the first page created as main home page
+    if @page.first_page?
+      @page.home_page = true
+      @page.enabled = true
+    end
     respond_to do |format|
       if @page.save
         flash[:notice] = 'Page was successfully created.'

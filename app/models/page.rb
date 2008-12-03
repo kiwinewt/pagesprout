@@ -40,6 +40,16 @@ class Page < ActiveRecord::Base
     self.class.find(:all, :conditions => { :parent_id => self.id })
   end
   
+  #check if the page is the first to be created
+  def first_page?
+    pages = Page.all.count
+    if pages == 0
+      true
+    else
+      false
+    end
+  end
+  
   # Return the permalink as the page ID
   def to_param
     permalink_was
