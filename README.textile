@@ -82,7 +82,7 @@ h3. Usage Overview
 # For information on how to create a custom theme, please visit: "http://style.pagesprout.com":http://style.pagesprout.com
 # To add a CAPTCHA to your contact page, please:
 * Sign up at "http://recaptcha.net":http://recaptcha.net
-* Add your Public and Private API keys to the settings page/config file.
+* Add your Public and Private API keys to the config/config.yml file.
 
 h3. Known issues
 

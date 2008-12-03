@@ -86,7 +86,7 @@ Usage Overview
 
 6. To add a CAPTCHA to your contact page, please:
   Sign up at http://recaptcha.net/
-  Add your Public and Private API keys to the settings page/config file.
+  Add your Public and Private API keys to the config/config.yml file.
 
 Known issues
 -----------------------------------------------
