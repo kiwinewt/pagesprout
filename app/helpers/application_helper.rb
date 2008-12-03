@@ -55,6 +55,10 @@ module ApplicationHelper
     @content_for_scripts.to_s
   end
   
+  def flashes
+    flash.collect { |k, v| content_tag(:div, v, :class => "flash_#{key}") }
+  end
+  
   # Add the page footer to the code
   def footer
     render :partial => 'layouts/footer'

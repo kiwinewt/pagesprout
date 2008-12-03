@@ -13,7 +13,7 @@
     </div>
     
     <div id="article">
-      <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
+      <%= flashes %>
       <%= yield %>
     </div>
     
