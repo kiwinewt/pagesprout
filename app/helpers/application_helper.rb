@@ -52,26 +52,12 @@ module ApplicationHelper
   
   # Add the links for the scripts to the code
   def scripts
-    render(:partial => 'layouts/scripts') + @content_for_scripts.to_s
+    @content_for_scripts.to_s
   end
   
   # Add the page footer to the code
   def footer
     render :partial => 'layouts/footer'
-  end
-  
-  # return the number of themes
-  # TODO should be part of a theme model
-  def count_themes
-    result = {}
-    files = Dir.entries("#{RAILS_ROOT}/public/themes/")
-    files.each do |file|
-      file.to_s
-      if !file.include? "."
-        result[file] = file
-      end
-    end
-    result.length
   end
 
 end

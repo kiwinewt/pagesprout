@@ -1,13 +1,24 @@
 class Theme
-  
   attr_accessor :name
   
   def initialize(nm)
     @name = nm
   end
   
+  def stylesheet
+    "/themes/#{name}/stylesheets/master"
+  end
+  
   def self.active
-    new(AppConfig.theme || "default")
+    AppConfig.theme ? new(AppConfig.theme) : default
+  end
+  
+  def self.admin
+    new('admin')
+  end
+  
+  def self.default
+    new('default')
   end
   
   def self.all
