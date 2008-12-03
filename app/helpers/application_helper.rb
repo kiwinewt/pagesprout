@@ -56,7 +56,7 @@ module ApplicationHelper
   end
   
   def flashes
-    flash.collect { |k, v| content_tag(:div, v, :class => "flash_#{key}") }
+    flash.collect { |k, v| content_tag(:div, v, :class => "flash #{k}") }
   end
   
   # Add the page footer to the code
