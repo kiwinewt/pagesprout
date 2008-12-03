@@ -13,9 +13,10 @@ ActionController::Routing::Routes.draw do |map|
   map.sitemap 'sitemap.xml', :controller => 'pages', :action => 'sitemap'
   map.contact '/contact', :controller => 'pages', :action => 'contact'
   
+  # Deprecated in favour of page_list_path
   map.page_list '/pages/list', :controller => "pages", :action => "list"
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
-  map.resources :pages
+  map.resources :pages, :collection => { :list => :get }, :member => { :versions => :get }
   
   map.resources :roles
 
