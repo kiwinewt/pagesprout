@@ -10,7 +10,6 @@ class AdminController < ApplicationController
   # Redirect to the settings page as there is nothing on this page.
   # Change this method to allow items to be placed specifically on the main admin page.
   def index
-    redirect_to page_list_path
   end
   
   # Theme changing page
