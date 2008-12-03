@@ -9,10 +9,18 @@
   <body>
   
     <div id="header">
-      <%= AppConfig.site_name %>
+      <%= link_to AppConfig.site_name, root_path %>
     </div>
     
-    <div id="article">
+    <div id="nav">
+      <ul>
+        <li><%= link_to 'Manage', admin_path %></li>
+        <li><%= link_to 'Pages', list_pages_path %></li>
+        <li><%= link_to 'People', users_path %></li>
+      </ul>
+    </div>
+    
+    <div id="page">
       <%= flashes %>
       <%= yield %>
     </div>
