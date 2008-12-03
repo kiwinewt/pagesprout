@@ -1,0 +1,43 @@
+body {
+  background-color: #f9f9f9;
+  color: #444;
+  margin: 1em 2em;
+}
+
+h1, h2, h3 { color: #000; }
+
+#header {}
+
+  #header .project_name {
+    float: left;
+    font-size: 1.4em;
+  }
+  
+  #header #nav { float: right; }
+
+ul#nav {
+  list-style-type: none;
+  margin: 0 2em 0;
+}
+  
+  #nav li { float: left; }
+  
+  #nav a {
+    background-color: #eef;
+    float: left;
+    padding: 0.5em 1em;
+  }
+  
+  #nav .selected {
+    background-color: #fff;
+  }
+
+#page {
+  clear: both;
+  background-color: #fff;
+  padding: 1em;
+}
+
+#footer {
+  font-size: 0.9em;
+}

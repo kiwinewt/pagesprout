@@ -47,7 +47,7 @@ module ApplicationHelper
   # You can choose to hide the title in the view by changing the <tt>&lt;%=</tt> prefix to <tt>&lt;%</tt>.
   def page_heading(text)
     content_for(:title){ text }
-    content_tag(:div, text, :class => 'heading')
+    content_tag(:h1, text, :class => 'heading')
   end
   
   # Add the links for the scripts to the code
@@ -55,9 +55,17 @@ module ApplicationHelper
     @content_for_scripts.to_s
   end
   
+  def flashes
+    flash.collect { |k, v| content_tag(:div, v, :class => "flash #{k}") }
+  end
+  
   # Add the page footer to the code
   def footer
     render :partial => 'layouts/footer'
+  end
+  
+  def link_with_selected(name, options = {}, html_options = {})
+    link_to(name, options, html_options.merge({ :class => ('selected' if current_page?(options)) }))
   end
 
 end

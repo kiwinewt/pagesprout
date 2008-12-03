@@ -40,6 +40,10 @@ class Page < ActiveRecord::Base
     self.class.find(:all, :conditions => { :parent_id => self.id })
   end
   
+  def children?
+    children.size > 0
+  end
+  
   #check if the page is the first to be created
   def first_page?
     pages = Page.all.length

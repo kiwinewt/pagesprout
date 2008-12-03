@@ -1,0 +1,93 @@
+/* General */
+
+body, input, textarea, select {
+  color: #222;
+  font: 10pt "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
+}
+
+/* Text */
+
+body {
+  line-height: 1.6em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+p {
+  margin: 0.5em 0 1em;
+}
+
+
+/* Headings */
+
+h1 {
+  font-size: 1.8em;
+}
+
+/* Lists */
+
+ul, ol {
+  margin: 1em 0 1em 2em;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Links */
+
+a {
+  text-decoration:none;
+}
+
+  a:link, a:visited {
+    color: #0086ff;
+  }
+  
+  a:hover {
+    color: #ff5c07;
+  }
+  
+  a:active {
+    color: #910;
+  }
+  
+  a img {
+    border-style: none;
+  }
+
+/* Flashes */
+
+.flash {
+  border-bottom: 1px solid;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+  .flash.error {
+    background: #ff7f31 url('../images/elements/flash_error.gif') repeat-x bottom;
+    border-color: #c00;
+  }
+
+  .flash.success {
+    background: #c2ff31 url('../images/elements/flash_success.gif') repeat-x bottom;
+    border-color: #81c609;
+  }
+
+/* Fixes */
+
+.clearfix {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}

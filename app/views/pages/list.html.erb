@@ -1,42 +1,11 @@
 <%= page_heading 'Administer Pages' %>
 
-<ul id="section" >
-  <% if !Page.home? %><li class="enabled_item">Home</li><% end %>
-  <%- if @all_top_level_pages %>
-    <%- for primary_page in @all_top_level_pages -%>
-	    <li id="<%= primary_page.id %>" class="<%= primary_page.enabled ? "enabled_item" : "disabled_item"%>">
-	      <% if Page.home == primary_page %>
-		      <%= "#{primary_page.title} <small>(Home Page)</small>" %>
-		    <% else %>
-		      <%= primary_page.title %>
-		    <% end %>
-		    <small>
-		      <%= link_to "(+)", :action => "new",  :id => primary_page %>
-          <%= link_to 'Edit', edit_page_path(primary_page) %>
-          <%= link_to 'View', primary_page %>
-          <%= link_to 'Delete', primary_page, :method => :delete %>
-		      <%= link_to (primary_page.enabled ? 'Disable' : 'Enable'), :id => primary_page, :action => :enable %>
-		      <%= link_to 'Versions', :id => primary_page, :action => :versions %>
-	      </small>
-		    <%- if primary_page.children.length > 0 -%>
-		    <ul class="edit_list">
-			    <%- for secondary_page in primary_page.children -%>
-			    <li id="<%= secondary_page.id %>" class="<%= secondary_page.enabled ? "enabled_item" : "disabled_item"%>">
-				    <%= secondary_page.title %>
-            <small>
-		          <%= link_to 'Edit', edit_page_path(secondary_page) %>
-		          <%= link_to 'View', secondary_page %>
-              <%= link_to 'Delete', secondary_page, :method => :delete %>
-		          <%= link_to (secondary_page.enabled ? 'Disable' : 'Enable'), :id => secondary_page, :action => :enable %>
-		          <%= link_to 'Versions', :id => secondary_page, :action => :versions %>
-	          </small>
-			    </li>
-			    <%- end -%>
-		    </ul>
-		    <%- end -%>
-	    </li>
-    <%- end -%>
-  <%- end -%>
-  <li class="<%= AppConfig.contact_enabled ? "enabled_item" : "disabled_item"%>">Contact Us</li>
-  <li><%= link_to '--New page--', new_page_path -%></li>
+<ul>
+  <% for page in @all_top_level_pages %>
+    <%= render :partial => 'page_list_item', :locals => { :page => page } %>
+  <% end %>
 </ul>
+
+<p>
+  <%= link_to 'Create Page', new_page_path -%>
+</p>
