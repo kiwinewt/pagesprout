@@ -9,14 +9,13 @@
   <body>
   
     <div id="header">
-      <%= link_to AppConfig.site_name, root_path %>
-    </div>
-    
-    <div id="nav">
-      <ul>
-        <li><%= link_to 'Manage', admin_path %></li>
-        <li><%= link_to 'Pages', list_pages_path %></li>
-        <li><%= link_to 'People', users_path %></li>
+      <%= link_to AppConfig.site_name, root_path, :class => 'project_name' %>      
+      <ul id="nav">
+        <li><%= link_with_selected 'Manage', admin_path %></li>
+        <li><%= link_with_selected 'Pages', list_pages_path %></li>
+        <li><%= link_with_selected 'Blogs', blogs_path %></li>
+        <li><%= link_with_selected 'Designs', themes_path %></li>
+        <li><%= link_with_selected 'People', users_path %></li>
       </ul>
     </div>
     
@@ -25,7 +24,9 @@
       <%= yield %>
     </div>
     
-    <%= footer %>
+    <div id="footer">
+      Powered by <%= link_to CMS_NAME, CMS_WEBSITE %>
+    </div>
     
   </body>
 </html>
