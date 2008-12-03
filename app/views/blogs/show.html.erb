@@ -1,6 +1,10 @@
 <%= page_heading @blog.title %>
 
 <div class="section">
+  <%= @blog.description %>
+</div>
+
+<div class="section">
   <% for post in @posts %>
     <div class="element">
       <h3 class="<%= post.enabled ? "enabled_post" : "disabled_post"%>"><%= link_to post.title, [@blog, post] %></h3>
