@@ -46,7 +46,7 @@ class Page < ActiveRecord::Base
   
   #check if the page is the first to be created
   def first_page?
-    pages = Page.all.count
+    pages = Page.all.length
     if pages == 0
       true
     else
