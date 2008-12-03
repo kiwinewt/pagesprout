@@ -2,6 +2,9 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
   fixtures :users
+  def setup
+    ActionMailer::Base.default_url_options[:host] = "example.com"
+  end
 
   def test_should_create_user
     assert_difference 'User.count' do

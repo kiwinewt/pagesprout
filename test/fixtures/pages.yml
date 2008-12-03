@@ -6,8 +6,10 @@ test:
   permalink: homer
   home_page: 1
   enabled: 0
+  author_id: 1
   
 test2:
   title: Test Page 2
   body: This is also a test page. Welcome!
   permalink: homeAgnu
+  author_id: 1

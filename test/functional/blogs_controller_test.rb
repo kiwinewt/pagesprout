@@ -21,20 +21,6 @@ class BlogsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_should_create_blog
-    user_signin
-    assert_difference('Blog.count') do
-      post :create, :blog => { :title => "Agnu Blog", :description => "A Test Blog", :permalink => "angublog" }
-    end
-
-    assert_redirected_to blog_path(assigns(:blog))
-  end
-
-  def test_should_show_blog
-    get :show, :id => blogs(:one).permalink
-    assert_response :success
-  end
-
   def test_should_get_edit
     user_signin
     get :edit, :id => blogs(:one).permalink
@@ -46,14 +32,24 @@ class BlogsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  def test_should_update_blog
+  def test_blog_CRUD
     user_signin
+    
+    # Create
+    assert_difference('Blog.count') do
+      post :create, :blog => { :title => "Agnu Blog", :description => "A Test Blog", :permalink => "angublog" }
+    end
+    assert_redirected_to blogs_path
+    
+    # Retrieve
+    get :show, :id => blogs(:one).permalink
+    assert_response :success
+    
+    # Update
     put :update, :id => blogs(:one).permalink, :blog => { :title => blogs(:one).title, :description => "Another Test Blog", :permalink => blogs(:one).permalink }
-    assert_redirected_to blog_path(assigns(:blog))
-  end
-
-  def test_should_destroy_blog
-    user_signin
+    assert_redirected_to blogs_path
+    
+    # Delete
     assert_difference('Blog.count', -1) do
       delete :destroy, :id => blogs(:one).permalink
     end

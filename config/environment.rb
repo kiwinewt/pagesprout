@@ -18,8 +18,6 @@ Rails::Initializer.run do |config|
   # Pull in the config.yml file and use it to generate the AppConfig details
   begin
     application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
-    env_config = application_config.send(RAILS_ENV)
-    application_config.common.update(env_config) unless env_config.nil?
   end
 
   # Merge config.yml into ::AppConfig

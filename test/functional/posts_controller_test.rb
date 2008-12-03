@@ -17,7 +17,7 @@ class PostsControllerTest < ActionController::TestCase
     @blog = Blog.find(1).permalink
     @post = Time.now.strftime('%Y-%m-%d-')+"new post".gsub(/[" "]/, '-')
 
-    assert_redirected_to blog_post_path(:blog_id => @blog, :id => @post)
+    assert_redirected_to blogs_path
   end
 
   def test_should_show_post
@@ -33,6 +33,6 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, {:blog_id => @blog, :id => posts(:one).permalink}
     end
 
-    assert_redirected_to blog_path(@blog)
+    assert_redirected_to blogs_path
   end
 end

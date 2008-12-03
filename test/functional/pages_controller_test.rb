@@ -13,7 +13,7 @@ class PagesControllerTest < ActionController::TestCase
   
   def test_create_page_no_user
     post :create, :page => { :title => "home", :body => "Tester", :permalink => "home", :home_page => false }  
-    assert_redirected_to( :action=>"new", :controller=>"sessions" )
+    assert_redirected_to new_session_path
   end 
   
   def test_page_version_increase

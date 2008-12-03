@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class BlogTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  
+  test "invalid fields" do
+    blog = Blog.new
+    assert !blog.valid?
+    assert blog.errors.invalid?(:title)
+    assert blog.errors.invalid?(:description)
+    assert blog.errors.invalid?(:permalink)
   end
+  
 end

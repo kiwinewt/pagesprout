@@ -18,6 +18,8 @@ class Test::Unit::TestCase
   def user_signin
     old_controller = @controller
     @controller = SessionsController.new
+    @request     = ActionController::TestRequest.new
+    @response    = ActionController::TestResponse.new
     post :create, :login => 'quentin', :password => 'test'
     @controller = old_controller
   end
