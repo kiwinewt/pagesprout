@@ -1,4 +1,4 @@
-<div class="blog<%= alternate_row %>">
+<div class="blog<%= alternate_row %> <%= blog.enabled? ? 'published' : 'unpublished' %>">
   <h3 class="name"><%= link_to h(blog.title), blog %></h3>
   <div class="actions">
     <%= link_to 'Edit', edit_blog_path(blog) %>
@@ -12,6 +12,5 @@
       You haven't made any posts yet.<br />
     <% end %>
   </div>
-  <%= blog.enabled? ? 'Enabled' : 'Disabled' %>
   <%= link_to 'New Post', new_blog_post_path(blog) %>
 </div>
