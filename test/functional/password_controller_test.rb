@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class PasswordControllerTest < ActionController::TestCase
-  def test_login_fail
-    post :create, :login => "home", :password => "Tester"  
-    assert @response.body.include?('<div class="flash_notice">Could not find a user with that email address.</div>')
-    assert_response :success
+  test "login failure" do
+    post :create, :login => "home", :password => "incorrect"
+    assert_response :success # incorrect would be redirect
   end
 end

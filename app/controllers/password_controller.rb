@@ -20,7 +20,7 @@ class PasswordController < ApplicationController
       @user.forgot_password
       @user.save      
       flash[:notice] = "A password reset link has been sent to your email address."
-    redirect_to login_path
+      redirect_to login_path
     else
       flash[:notice] = "Could not find a user with that email address."
       render :action => 'new'
