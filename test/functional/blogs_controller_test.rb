@@ -23,37 +23,39 @@ class BlogsControllerTest < ActionController::TestCase
 
   def test_should_get_edit
     user_signin
-    get :edit, :id => blogs(:one).permalink
+    get :edit, :id => blogs(:ala).to_param
     assert_response :success
   end
 
   def test_should_not_get_unauthorised_edit
-    get :edit, :id => blogs(:one).permalink
+    get :edit, :id => blogs(:ala).to_param
     assert_response :redirect
   end
 
-  def test_blog_CRUD
+  def test_creates_blog
     user_signin
-    
-    # Create
     assert_difference('Blog.count') do
       post :create, :blog => { :title => "Agnu Blog", :description => "A Test Blog", :permalink => "angublog" }
     end
     assert_redirected_to blogs_path
-    
-    # Retrieve
-    get :show, :id => blogs(:one).permalink
+  end
+  
+  def test_shows_blog
+    get :show, :id => blogs(:ala).to_param
     assert_response :success
-    
-    # Update
-    put :update, :id => blogs(:one).permalink, :blog => { :title => blogs(:one).title, :description => "Another Test Blog", :permalink => blogs(:one).permalink }
+  end
+  
+  def test_updates_blog
+    user_signin
+    put :update, :id => blogs(:ala).to_param, :blog => { :description => "Another Test Blog" }
     assert_redirected_to blogs_path
-    
-    # Delete
+  end
+  
+  def test_deletes_blog
+    user_signin
     assert_difference('Blog.count', -1) do
-      delete :destroy, :id => blogs(:one).permalink
+      delete :destroy, :id => blogs(:ala).to_param
     end
-
     assert_redirected_to blogs_path
   end
 end

@@ -35,6 +35,10 @@ ul#nav {
   
   #nav .selected { background-color: #fff; }
 
+.flash {
+  clear: both;
+}
+
 #page {
   clear: both;
   background-color: #fff;
@@ -61,6 +65,10 @@ ul#nav {
 }
 
 /* Blogs */
+
+#blogs {
+  border: 2px solid #eee;
+}
 
 .blog {
   padding: 1em;

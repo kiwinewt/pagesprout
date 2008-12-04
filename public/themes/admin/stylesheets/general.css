@@ -74,6 +74,49 @@ a {
     border-style: none;
   }
 
+/* Forms */
+
+form {
+  margin: 1em 0;
+}
+  
+  form label, form .label {
+    display: block;
+    font-weight: bold;
+  }
+  
+    form .checklist label {
+      display: inline;
+      font-weight: normal;
+    }
+  
+  form input.heading {
+    font-size: 1.2em;
+  }
+  
+  form .section {
+    padding: 1em 0;
+  }
+  
+  form textarea {
+    width: 100%;
+  }
+  
+  form .error {
+    color: #c00;
+  }
+  
+  form .note {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #999;
+  }
+  
+  form .actions {
+    padding-top: 1em;
+    text-align: right;
+  }
+  
 /* Flashes */
 
 .flash {
@@ -91,6 +134,25 @@ a {
     background: #c2ff31 url('../images/elements/flash_success.gif') repeat-x bottom;
     border-color: #81c609;
   }
+
+/* Errors */
+
+#errors {
+  border: 1px solid #c00;
+  color: #fff;
+  background: #ff7f31 url('../images/elements/flash_error.gif') repeat-x;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/* Empty */
+
+.empty {
+  border: 2px solid #eee;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+}
 
 /* Fixes */
 

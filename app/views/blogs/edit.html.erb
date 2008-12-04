@@ -1,16 +1,11 @@
 <%= page_heading 'Edit Blog' %>
 
-<div class="section">
-  <% form_for(@blog) do |f| %>
-    <%= render :partial => 'fields', :locals => { :f => f } %>
-
-    <div class="element">
-      <%= f.submit "Update" %>
-    </div>
+<% enhanced_form_for(@blog, :html => { :class => 'content' }) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Save" %>
+    or <%= link_to 'Cancel', @blog %>
   <% end %>
+<% end %>
 
-  <div class="element">
-    <%= link_to 'Show', @blog %> |
-    <%= link_to 'Back', blogs_path %>
-  </div>
-</div>
+<%= aside_help_for :blogs %>

@@ -6,4 +6,8 @@ module AdminHelper
   def alternate_row
     ' ' + cycle('odd', 'even')
   end
+  
+  def aside_help_for(subject)
+    content_tag :div, render(:partial => "help/#{subject}"), :class => 'aside'
+  end
 end
