@@ -95,7 +95,7 @@ form {
   }
   
   form .section {
-    padding: 0.5em 1em;
+    padding: 1em 0;
   }
   
   form textarea {
@@ -104,6 +104,17 @@ form {
   
   form .error {
     color: #c00;
+  }
+  
+  form .note {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #999;
+  }
+  
+  form .actions {
+    padding-top: 1em;
+    text-align: right;
   }
   
 /* Flashes */
