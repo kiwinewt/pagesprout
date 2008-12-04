@@ -10,4 +10,16 @@ class BlogTest < ActiveSupport::TestCase
     assert blog.errors.invalid?(:permalink)
   end
   
+  test "create blog" do
+    assert Blog.create( :title => "A Blog", :description => "A Test Blog", :permalink => "test_blog")
+  end
+  
+  test "enables blog" do
+    assert true
+  end
+  
+  test "disables blog" do
+    assert true
+  end
+  
 end
