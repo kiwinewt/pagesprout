@@ -9,24 +9,12 @@ class CreatePages < ActiveRecord::Migration
       t.boolean :home_page, :default => false
       t.boolean :locked, :default => false
       t.boolean :enabled, :default => true
-      t.integer :author_id
+      t.integer :user_id
       t.timestamps
     end
-    
-    create_table :page_versions do |t|
-      t.integer :page_id
-      t.integer :version
-      t.string  :title
-      t.text    :body
-      t.string  :permalink
-      t.integer :author_id
-      t.timestamps
-    end
-
   end
 
   def self.down
     drop_table :pages
-    drop_table :page_versions
   end
 end
