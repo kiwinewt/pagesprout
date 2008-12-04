@@ -101,7 +101,11 @@ form {
   form textarea {
     width: 100%;
   }
-
+  
+  form .error {
+    color: #c00;
+  }
+  
 /* Flashes */
 
 .flash {
@@ -119,6 +123,16 @@ form {
     background: #c2ff31 url('../images/elements/flash_success.gif') repeat-x bottom;
     border-color: #81c609;
   }
+
+/* Errors */
+
+#errors {
+  border: 1px solid #c00;
+  color: #fff;
+  background: #ff7f31 url('../images/elements/flash_error.gif') repeat-x;
+  padding: 1em;
+  margin-bottom: 1em;
+}
 
 /* Empty */
 

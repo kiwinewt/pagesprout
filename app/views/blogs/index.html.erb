@@ -1,32 +1,31 @@
 <%= page_heading 'Blogs' %>
 
 <div class="content">
-  <p>
-    <%= link_to 'New Blog', new_blog_path %>
-  </p>
-  
-  <div id="blogs">
-    <%= render :partial => @blogs %>
-  </div>
-  
-  <p>
-    <%= link_to 'New Blog', new_blog_path %>
-  </p>
+  <% if @blogs.present? %>
+    <p>
+      <%= link_to 'New Blog', new_blog_path %>
+    </p>
+    
+    <div id="blogs">
+      <%= render :partial => @blogs %>
+    </div>
+    
+    <p>
+      <%= link_to 'New Blog', new_blog_path %>
+    </p>
+  <% else %>
+    
+    <div class="empty">
+      <p>
+        You currently don't have any blogs.
+      </p>
+      
+      <p>
+        <%= link_to 'Create a Blog', new_blog_path %>
+      </p>
+    </div>
+    
+  <% end %>
 </div>
 
-<div class="aside">
-  <p>
-    Blogs are great for posting regular updates about a variety of topics.
-    Great examples of blog use are:
-  </p>
-  
-  <ul>
-    <li>News</li>
-    <li>A journal</li>
-    <li>Company updates</li>
-  </ul>
-  
-  <p>
-    You can have as many different blogs as you like, each which contains it's own posts.
-  </p>
-</div>
+<%= aside_help_for :blogs %>
