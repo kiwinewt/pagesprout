@@ -47,7 +47,7 @@ module ApplicationHelper
   # You can choose to hide the title in the view by changing the <tt>&lt;%=</tt> prefix to <tt>&lt;%</tt>.
   def page_heading(text)
     content_for(:title){ text }
-    content_tag(:h1, text, :class => 'heading')
+    content_tag(:h1, text)
   end
   
   # Add the links for the scripts to the code

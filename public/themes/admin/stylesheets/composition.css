@@ -1,10 +1,15 @@
+/* General */
+
 body {
   background-color: #f9f9f9;
   color: #444;
-  margin: 1em 2em;
+  margin: 1em auto;
+  width: 980px;
 }
 
 h1, h2, h3 { color: #000; }
+
+/* Core Layout */
 
 #header {}
 
@@ -28,16 +33,43 @@ ul#nav {
     padding: 0.5em 1em;
   }
   
-  #nav .selected {
-    background-color: #fff;
-  }
+  #nav .selected { background-color: #fff; }
 
 #page {
   clear: both;
   background-color: #fff;
+  overflow: hidden; /* No clearfix yet */
+  padding: 20px;
+}
+
+  #page .content {
+    float: left;
+    width: 700px;
+  }
+  
+  #page .aside {
+    background-color: #f9f9f9;
+    float: right;
+    font-size: 0.9em;
+    padding: 10px;
+    width: 200px;
+  }
+
+#footer {
+  color: #999;
+  font-size: 0.9em;
+}
+
+/* Blogs */
+
+.blog {
   padding: 1em;
 }
 
-#footer {
-  font-size: 0.9em;
-}
+  .blog.even { background-color: #eef; }
+  
+  .blog .name { float: left; }
+  
+  .blog .actions { float: right; }
+  
+  .blog .status { clear: both; }

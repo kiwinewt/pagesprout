@@ -4,6 +4,8 @@
 
 # This class takes care of Blogs and their details.
 class BlogsController < ApplicationController
+  layout 'admin'
+  
   before_filter :find_blog, :only => [:show, :edit, :update, :destroy, :enable]
   before_filter :login_required, :except => :show
   before_filter :blog_enabled, :only => :show
@@ -11,14 +13,14 @@ class BlogsController < ApplicationController
   # Get a list of all blogs. Only accessible to the admin user.
   def index
     @blogs = Blog.find(:all)
-    render :action => "index", :layout => "admin"
+    render :action => "index"
   end
 
   # Display the blog and all its enabled posts.
   def show
     @posts = get_posts
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @blog }
     end
   end

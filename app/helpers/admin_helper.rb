@@ -3,5 +3,7 @@
 # License::   BSD Licence, see application root.
 
 module AdminHelper
-  
+  def alternate_row
+    ' ' + cycle('odd', 'even')
+  end
 end

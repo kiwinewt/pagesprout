@@ -3,7 +3,9 @@
 # License::   BSD Licence, see application root.
 
 # This class takes care of forgotten passwords and resetting them.
-class PasswordController < ApplicationController
+class PasswordController < ApplicationController  
+  layout 'admin'
+  
   skip_before_filter :login_required
   before_filter :set_mail_url
   

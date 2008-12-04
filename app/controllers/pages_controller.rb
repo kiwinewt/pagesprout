@@ -4,6 +4,8 @@
 
 # This class takes care of the user-created Pages in the site
 class PagesController < ApplicationController
+  layout 'admin'
+  
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
   before_filter :login_required, :except => [:show, :index, :sitemap]
   before_filter :page_enabled, :only => :show
@@ -21,13 +23,13 @@ class PagesController < ApplicationController
   # List all pages. Requires Admin User
   def list
     @all_top_level_pages = Page.parentless
-    render :action => "list", :layout => "admin"
+    render :action => "list"
   end
 
   # Show the page and its details. Page must be enabled or user must be admin.
   def show
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @page }
     end
   end

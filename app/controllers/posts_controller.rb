@@ -4,6 +4,8 @@
 
 # This class takes care of the user-created Posts in the site, each of which is linked to a blog.
 class PostsController < ApplicationController
+  layout 'admin'
+  
   before_filter :find_post, :only => [:show, :edit, :update, :destroy, :enable]
   before_filter :get_blog
   before_filter :login_required, :except => :show
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
     @post_author = User.find(@post.author_id).login
     @post_time = @post.updated_at.strftime(AppConfig.date_string)
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @post }
     end
   end

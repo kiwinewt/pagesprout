@@ -4,12 +4,16 @@
 
 # This class takes care of the account activation and password changing
 class AccountsController < ApplicationController
+  layout 'admin'
+  
   before_filter :login_required, :except => :show
   before_filter :not_logged_in_required, :only => :show
- 
+  
   # Activate action
+  # TODO change action name
   def show
     User.find_and_activate!(params[:id])
+      # TODO create session rather than logging in
       flash[:notice] = "Your account has been activated! You can now login."
       redirect_to login_path
     rescue User::ArgumentError
