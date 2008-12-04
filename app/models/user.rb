@@ -3,6 +3,8 @@
 # License::   BSD Licence, see application root.
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  has_many :pages
+  has_many :posts
   has_many :permissions
   has_many :roles, :through => :permissions
 
@@ -41,12 +43,18 @@ class User < ActiveRecord::Base
     user
   end
 
-  # Activates the user in the database.
-  def activate
+  # Activates the user in the database
+  # TODO change this into state
+  def activate!
     @activated = true
     self.activated_at = Time.now.utc
     self.activation_code = nil
     save(false)
+  end
+  
+  def activate
+    warn "[DEPRECATION] use activate! method for convention"
+    activate!
   end
 
   # the existence of an activation code means they have not activated yet
@@ -57,6 +65,10 @@ class User < ActiveRecord::Base
   # Check if a use has been activated or not
   def pending?
     @activated
+  end
+  
+  def name
+    login
   end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.

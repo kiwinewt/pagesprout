@@ -18,7 +18,7 @@ class UserTest < Test::Unit::TestCase
       user = create_user(:login => 'fred', :email => 'fred@example.com')
       user = create_user(:login => 'bob', :email => 'bob@example.com')
       user = create_user(:login => 'dave', :email => 'dave@example.com')
-      assert User.count == 6 # 4 users + 2 fixtures
+      assert User.count == 7 # 4 users + 3 fixtures
   end
 
   def test_should_not_create_identical_users
