@@ -40,7 +40,7 @@ class BlogsControllerTest < ActionController::TestCase
     assert_redirected_to blogs_path
   end
   
-  def test_shows_blog
+  test "shows blog" do
     get :show, :id => blogs(:ala).to_param
     assert_response :success
   end

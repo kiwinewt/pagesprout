@@ -32,8 +32,4 @@ class Blog < ActiveRecord::Base
   def posts?
     posts.present?
   end
-  
-  def validate
-    
-  end
 end
