@@ -64,8 +64,9 @@ module ApplicationHelper
     render :partial => 'layouts/footer'
   end
   
-  def link_with_selected(name, options = {}, html_options = {})
-    link_to(name, options, html_options.merge({ :class => ('selected' if current_page?(options)) }))
+  def link_with_selected(name, options = {}, cont = nil)
+    selected = cont.to_s == controller.controller_name || current_page?(options)
+    link_to(name, options, :class => ('selected' if selected))
   end
 
 end
