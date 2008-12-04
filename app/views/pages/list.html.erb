@@ -1,7 +1,7 @@
 <%= page_heading 'Administer Pages' %>
 
 <ul>
-  <% for page in @all_top_level_pages %>
+  <% for page in @pages %>
     <%= render :partial => 'page_list_item', :locals => { :page => page } %>
   <% end %>
 </ul>

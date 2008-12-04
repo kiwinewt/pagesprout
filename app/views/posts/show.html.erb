@@ -5,6 +5,6 @@
     <%= @post.body %>
   </div>
   <div class="element">
-    <small><%= @post_time %> by <%= @post_author %></small>
+    <small><%= @post.created_at.strftime(AppConfig.date_string) %> by <%= @post.user.name %></small>
   </div>
 </div>

@@ -23,7 +23,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to blogs_path
   end
 
-  def test_should_show_post
+  test "should show post" do
     post = posts(:first)
     get :show, { :blog_id => post.blog.to_param, :id => post.to_param}
     assert_response :success

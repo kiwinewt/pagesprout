@@ -1,1 +1,19 @@
 <%= page_heading "#{h(@blog.title)} - Posts" %>
+
+<% if @posts.present? %>
+<table>
+  <tr>
+    
+  </tr>
+</table>
+<% else %>
+  <div class="empty">
+    <p>
+      You currently don't have any posts for <b><%=h @blog.title %></b>.
+    </p>
+    
+    <p>
+      <%= link_to 'Create a New Post', new_blog_post_path %>
+    </p>
+  </div>
+<% end %>

@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 
   # List all pages. Requires Admin User
   def list
-    @all_top_level_pages = Page.parentless
+    @pages = Page.parentless
     render :action => "list"
   end
 
@@ -38,16 +38,11 @@ class PagesController < ApplicationController
   # Create a new page
   def new
     @page = Page.new
-    @page.enabled = true
+    
     if Page.find_by_permalink(params[:id])
       @parent_id = Page.find_by_permalink(params[:id]).id
     else
       @parent_id = "0"
-    end
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @page }
     end
   end
 
@@ -58,12 +53,14 @@ class PagesController < ApplicationController
   # Save the new page. Second half of the new method.
   def create
     @page = Page.new(params[:page])
+    @page.user = current_user
     
     # set the first page created as main home page
     if @page.first_page?
       @page.home_page = true
-      @page.enabled = true
+      @page.enabled = true # TODO reflect view with this
     end
+    
     respond_to do |format|
       if @page.save
         flash[:notice] = 'Page was successfully created.'

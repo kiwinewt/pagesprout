@@ -3,6 +3,8 @@
 # License::   BSD Licence, see application root.
 
 class Page < ActiveRecord::Base
+  belongs_to :user
+  
   named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true, :home_page => false }, :limit => limit.flatten.first } }
   named_scope :parentless, :conditions => { :parent_id => 0 }
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }

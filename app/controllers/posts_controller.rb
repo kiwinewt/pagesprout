@@ -13,12 +13,15 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post_author = User.find(@post.author_id).login
-    @post_time = @post.updated_at.strftime(AppConfig.date_string)
     respond_to do |format|
       format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @post }
     end
+    rescue ActionView::TemplateError
+      r = "\n\n"
+      r = @post.inspect
+      r << "\n\n" + @post.user_id.to_s
+      raise r
   end
   
   # GET /posts
@@ -48,7 +51,10 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
-    @post.blog_id = Blog.find_by_permalink(params[:blog_id]).id || Blog.find_by_permalink(@blog.id).id
+    @post.blog = @blog
+    @post.user = current_user
+    
+    # TODO move this into model
     @post.permalink = Time.now.strftime('%Y-%m-%d-')+@post.title.gsub(/[" "]/, '-')
 
     respond_to do |format|
@@ -92,8 +98,7 @@ class PostsController < ApplicationController
   
   # Toggle the enabled state of the post
   def enable
-    @post.enabled = !@post.enabled
-    @post.save
+    @post.toggle_enabled!
     redirect_to_blogs
   end
   
