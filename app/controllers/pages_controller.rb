@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       flash.keep
       redirect_to(@page)
     end
+    render :layout => 'master'
   end
 
   # List all pages. Requires Admin User
