@@ -1,7 +1,7 @@
 first:
   title: First
-  blog_id: 1
+  blog_id: blogs(:ala).id
   body: OMG FIRST!!!11!
   enabled: true
-  author_id: 1 # TODO change to user and then use YML configurations
+  author_id: users(:quentin).id
   permalink: 2008-10-12-First

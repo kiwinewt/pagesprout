@@ -1,7 +1,7 @@
 ala:
   title: A List Apart
   description: A blog about the web
-  permalink: ala
+  permalink: a_l_a
   enabled: true
   
 hidden:
