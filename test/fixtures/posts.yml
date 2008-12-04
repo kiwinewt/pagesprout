@@ -1,10 +1,7 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  id: 1
-  title: A Post
+first:
+  title: First
   blog_id: 1
-  body: A test post. Hello.
-  enabled: 1
-  author_id: 1
-  permalink: 2008-10-12-A-Post
+  body: OMG FIRST!!!11!
+  enabled: true
+  author_id: 1 # TODO change to user and then use YML configurations
+  permalink: 2008-10-12-First

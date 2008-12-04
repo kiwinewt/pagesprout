@@ -1,11 +1,11 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  id: 1
-  title: A Blog
-  description: A Test Blog
-  permalink: test_blog
-  enabled: 1
-#
-# two:
-#   column: value
+ala:
+  title: A List Apart
+  description: A blog about the web
+  permalink: ala
+  enabled: true
+  
+hidden:
+  title: A Hidden Blog
+  description: Super secret - you can't see it!
+  permalink: hidden
+  enabled: false

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   layout 'admin'
   
   before_filter :find_post, :only => [:show, :edit, :update, :destroy, :enable]
-  before_filter :get_blog
+  before_filter :find_blog
   before_filter :login_required, :except => :show
   before_filter :post_enabled, :only => :show
   # GET /posts/1
@@ -20,6 +20,17 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @post }
     end
   end
+  
+  # GET /posts
+  # GET /posts
+  def index
+    @posts = @blog.posts
+    respond_to do |format|
+      format.html { render :layout => 'master' } # show.html.erb
+      format.xml  { render :xml => @post }
+    end
+  end
+
 
   # GET /posts/new
   # GET /posts/new.xml
@@ -99,7 +110,7 @@ class PostsController < ApplicationController
     end
     
     # Find the current post's blog
-    def get_blog
+    def find_blog
       @blog = Blog.find_by_permalink(params[:blog_id])
     end
     
