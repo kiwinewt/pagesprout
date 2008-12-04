@@ -5,10 +5,10 @@ class CreatePages < ActiveRecord::Migration
       t.string  :title
       t.text    :body
       t.string  :permalink
-      t.integer :version, :default=>1
-      t.boolean :home_page, :default=>false
-      t.boolean :locked, :default=>false
-      t.boolean :enabled, :default=>false
+      t.integer :version, :default => 1
+      t.boolean :home_page, :default => false
+      t.boolean :locked, :default => false
+      t.boolean :enabled, :default => true
       t.integer :author_id
       t.timestamps
     end
