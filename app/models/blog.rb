@@ -28,4 +28,8 @@ class Blog < ActiveRecord::Base
   def enabled_posts_shortlist
     self.posts.enabled(10).reverse
   end
+  
+  def posts?
+    posts.present?
+  end
 end
