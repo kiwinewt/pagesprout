@@ -25,10 +25,6 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = @blog.posts
-    respond_to do |format|
-      format.html { render :layout => 'master' } # show.html.erb
-      format.xml  { render :xml => @post }
-    end
   end
 
 

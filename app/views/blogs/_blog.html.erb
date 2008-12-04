@@ -1,5 +1,5 @@
 <div class="blog<%= alternate_row %> <%= blog.enabled? ? 'published' : 'unpublished' %>">
-  <h3 class="name"><%= link_to h(blog.title), blog %></h3>
+  <h3 class="name"><%= link_to h(blog.title), blog_posts_path(blog) %></h3>
   <div class="actions">
     <%= link_to 'Edit', edit_blog_path(blog) %>
     <%= link_to 'Delete', blog, :method => :delete, :confirm => 'Are you sure?' %>
