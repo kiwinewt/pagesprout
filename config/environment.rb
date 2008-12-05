@@ -11,7 +11,6 @@ require 'ostruct'
 require 'ferret'
 require 'yaml'
 require 'action_mailer'
-require 'rails_generator/secret_key_generator'
 
 Rails::Initializer.run do |config|
   
