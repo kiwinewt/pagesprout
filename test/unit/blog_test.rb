@@ -48,7 +48,7 @@ class BlogTest < ActiveSupport::TestCase
     assert blog.permalink_with_spaces.include? " "
   end
   
-  test "pages" do
+  test "has posts" do
     blog = blogs(:ala)
     assert blog.posts?
     assert blog.enabled_posts_shortlist.count >= 1

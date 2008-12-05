@@ -3,13 +3,16 @@
 test:
   title: Test Page
   body: This is a test page. Welcome!
-  permalink: homer
+  permalink: homer_pager_zorz
   home_page: true
   enabled: false
   user: john
+  parent_id: 0
   
 test2:
   title: Test Page 2
   body: This is also a test page. Welcome!
   permalink: homeAgnu
+  enabled: true
   user: john
+  parent: test

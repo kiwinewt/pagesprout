@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
   end
   
   def toggle_enabled!
-    enabled = !enabled
+    self.enabled = !self.enabled
     save
   end
   

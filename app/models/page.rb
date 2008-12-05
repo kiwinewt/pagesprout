@@ -5,8 +5,8 @@
 class Page < ActiveRecord::Base
   belongs_to :user
   
-  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true, :home_page => false }, :limit => limit.flatten.first } }
-  named_scope :parentless, :conditions => { :parent_id => 0 }
+  named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :parentless, :conditions => { :parent_id => 0, :home_page => false }
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   
   acts_as_tree :order => "title"
@@ -20,7 +20,7 @@ class Page < ActiveRecord::Base
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
     
   def self.home
-    parentless.find(:first, :conditions => { :home_page => true, :enabled => true })
+    enabled.find(:first, :conditions => { :home_page => true })
   end
   
   def self.home?
@@ -34,7 +34,7 @@ class Page < ActiveRecord::Base
   
   # Check if a page is at the top of the tree
   def root?
-    self.parent_id == 0 ? true : false
+    self.parent_id == 0
   end
   
   # find all pages that have this page as a parent.

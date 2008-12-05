@@ -5,3 +5,11 @@ first:
   enabled: true
   user: john
   permalink: 2008-10-12-First
+  
+nuva:
+  title: nuva
+  blog: ala
+  body: A Nuva Post! Ooh Wow!
+  enabled: false
+  user: john
+  permalink: 2008-10-3-nuva
