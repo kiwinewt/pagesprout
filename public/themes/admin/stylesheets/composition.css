@@ -11,18 +11,28 @@ h1, h2, h3 { color: #000; }
 
 /* Core Layout */
 
-#header {}
+#header { padding: 0 2em; }
 
   #header .project_name {
     float: left;
     font-size: 1.4em;
+    margin-top: 2em;
   }
   
-  #header #nav { float: right; }
+  #header #nav { 
+    clear: right;
+    float: right;
+  }
+  
+  #header #user {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    float: right;
+  }
 
 ul#nav {
   list-style-type: none;
-  margin: 0 2em 0;
+  margin: 0;
 }
   
   #nav li { float: left; }
