@@ -8,16 +8,16 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 require 'plugins/app_config/lib/configuration'
 require 'ostruct'
-require 'ferret'
 require 'yaml'
-require 'action_mailer'
 
 Rails::Initializer.run do |config|
+
+  config.gem "ferret"
+  
+  # TODO move to intializer
   
   # Pull in the config.yml file and use it to generate the AppConfig details
-  begin
-    application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
-  end
+  application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
 
   # Merge config.yml into ::AppConfig
   unless application_config.common.nil?
@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   end
   
   #create new session key for each site, so that there arent a million sites all with the same key
+  # TODO deprecate in favour of new Rails methodology to do this
   session_key = "#{config.app_config['site_name'].downcase.gsub!(/\ +/, '_')}_session"
   secret_file = File.join(RAILS_ROOT, "secret")  
   if File.exist?(secret_file)  
