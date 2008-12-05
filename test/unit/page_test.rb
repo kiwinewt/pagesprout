@@ -16,18 +16,18 @@ class PageTest < ActiveSupport::TestCase
   
   test "enables page" do
     page = pages(:test)
-    assert !Page.enabled.include? (page)
+    assert !Page.enabled.include?(page)
     page.enabled = true
     page.save!
-    assert Page.enabled.include? (page)
+    assert Page.enabled.include?(page)
   end
   
   test "disables page" do
     page = pages(:test2)
-    assert Page.enabled.include? (page)
+    assert Page.enabled.include?(page)
     page.enabled = false
     page.save!
-    assert !Page.enabled.include? (page)
+    assert !Page.enabled.include?(page)
   end
   
   test "update page" do
