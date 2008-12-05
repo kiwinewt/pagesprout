@@ -16,19 +16,19 @@ h1, h2, h3 { color: #000; }
   #header .project_name {
     float: left;
     font-size: 1.4em;
-    margin-top: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
   }
   
-  #header #nav { 
+  #header #nav, #header #user { 
     clear: right;
     float: right;
   }
-  
-  #header #user {
-    font-size: 0.9em;
-    margin-bottom: 1em;
-    float: right;
-  }
+
+#user {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
 
 ul#nav {
   list-style-type: none;
