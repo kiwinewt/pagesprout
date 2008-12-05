@@ -1,6 +1,11 @@
+<% breadcrumbs do %>
+  <%= link_to 'Blogs &raquo;', blogs_path %>
+<% end %>
+  
 <%= page_heading "#{h(@blog.title)}'s Posts" %>
 
 <div class="content">
+
   <% if @blog.posts? %>
   
   <div class="sort">

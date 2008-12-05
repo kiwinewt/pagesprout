@@ -175,7 +175,12 @@ form {
   margin-bottom: 1em;
 }
 
-/* Empty */
+/* Special */
+
+.breadcrumbs {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
 
 div.empty {
   border: 2px solid #eee;
