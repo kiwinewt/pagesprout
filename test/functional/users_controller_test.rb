@@ -61,5 +61,10 @@ class UsersControllerTest < Test::Unit::TestCase
     assigns(:user).reload
     assert_not_nil assigns(:user).activation_code
   end
+  
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
 
 end
