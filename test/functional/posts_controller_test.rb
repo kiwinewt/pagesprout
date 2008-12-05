@@ -20,7 +20,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, {:blog_id => blogs(:ala).to_param, :post => { :title => "New Post", :body => "A Post", :enabled => 1 }}
     end
 
-    assert_redirected_to blogs_path
+    assert_response :redirect
   end
 
   test "should show post" do
@@ -33,9 +33,9 @@ class PostsControllerTest < ActionController::TestCase
     user_signin
     blog = posts(:first).blog
     assert_difference('Post.count', -1) do
-      delete :destroy, {:blog_id => @blog, :id => posts(:first).to_param}
+      delete :destroy, {:blog_id => blog, :id => posts(:first).to_param}
     end
 
-    assert_redirected_to blogs_path
+    assert_response :redirect
   end
 end
