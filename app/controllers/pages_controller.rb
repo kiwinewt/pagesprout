@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   before_filter :check_administrator_role, :only => [:list, :destroy, :enable]
 
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
-  def index
+  def index # todo: not redirect?
     if @page = Page.home
       # included for places that redirect here with a flash
       flash.keep

@@ -1,8 +1,6 @@
 require 'test_helper'
-require 'sessions_controller'
 
 class PagesControllerTest < ActionController::TestCase
-  fixtures :users
   
   def test_create_page
     user_signin
@@ -27,7 +25,6 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :redirect
     #assert_redirected_to( :action=>"index", :controller=>"about" )
   end
-
   
   protected
     def create_page(options = {})

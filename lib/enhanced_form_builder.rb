@@ -1,3 +1,7 @@
+# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
+# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# License::   BSD Licence, see application root.
+
 class EnhancedFormBuilder < ActionView::Helpers::FormBuilder
   helpers = field_helpers +
             %w{date_select datetime_select time_select} +
