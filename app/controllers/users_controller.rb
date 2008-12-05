@@ -6,6 +6,7 @@
 class UsersController < ApplicationController
   layout 'admin'
   
+  # OPTIMIZE drowning in filters
   before_filter :not_logged_in_required, :only => [:new, :create] 
   before_filter :set_mail_url, :only => [:new, :create] 
   before_filter :public_profile, :only => :show
@@ -13,16 +14,17 @@ class UsersController < ApplicationController
   before_filter :check_administrator_role, :only => [:index, :destroy, :enable]
   filter_parameter_logging :password
   
-  # This show action only allows users to view their own profile unless they have a public profile
+  # GET /users/1
   def show
     @user = User.find(params[:id])
   end
   
+  # GET /users
   def index
     @users = User.all
   end
     
-  # render new.rhtml
+  # GET /users/new
   def new
     @user = User.new
   end
@@ -33,10 +35,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.public_profile = false
     @user.save!
-    if @user.id > 1
-      flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
+    if @user.activated?
+      flash[:notice] = "Thanks for signing up! Please log in." # TODO create session rather than force the user yet another step to log in
     else
-      flash[:notice] = "Thanks for signing up! Please log in"
+      flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
     end
     redirect_to login_path    
   rescue ActiveRecord::RecordInvalid
