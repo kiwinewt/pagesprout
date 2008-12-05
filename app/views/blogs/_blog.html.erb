@@ -7,7 +7,7 @@
   <div class="status">
     <% if blog.posts? %>
       Last updated: <%= time_ago_in_words(blog.posts.last.updated_at) %> ago<br />
-      <%= link_to pluralize(blog.posts.size, 'Post'), blog %>
+      <%= link_to pluralize(blog.posts.size, 'Post'), blog_posts_path(blog) %>
     <% else %>
       You haven't made any posts yet.<br />
     <% end %>

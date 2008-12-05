@@ -3,9 +3,10 @@
 <% enhanced_form_for(@blog, :html => { :class => 'content' }) do |f| %>
   <%= f.standard_fields %>
   <% f.actions do %>
-    <%= f.submit "Save" %>
-    or <%= link_to 'Cancel', @blog %>
+    <%= f.submit "Create" %>
+    or <%= link_to 'Delete', @blog, :method => :delete, :confirm => 'Are you sure?' %>
+    or <%= link_to 'Cancel', blogs_path %>
   <% end %>
 <% end %>
 
-<%= aside_help_for :blogs %>
+<%= aside_help_for :posts %>
