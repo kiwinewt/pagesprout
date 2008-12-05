@@ -17,17 +17,24 @@ class PostsController < ApplicationController
       format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @post }
     end
-    rescue ActionView::TemplateError
-      r = "\n\n"
-      r = @post.inspect
-      r << "\n\n" + @post.user_id.to_s
-      raise r
   end
   
   # GET /posts
   # GET /posts
   def index
     @posts = @blog.posts
+  end
+  
+  # GET /posts/published
+  # GET /posts/published
+  def published
+    @posts = @blog.posts.published
+    render :action => 'index'
+  end
+  
+  def draft
+    @posts = @blog.posts.draft
+    render :action => 'index'
   end
 
 
@@ -59,8 +66,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to_blogs }
+        flash[:success] = 'Post was successfully created.'
+        format.html { redirect_to blog_posts_path(@blog) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -74,8 +81,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to_blogs }
+        flash[:success] = 'Post was successfully updated.'
+        format.html { redirect_to blog_posts_path(@blog) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -88,10 +95,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1.xml
   def destroy
     @post.destroy
-    flash[:notice] = 'Post was successfully deleted.'
+    
+    flash[:success] = 'Post was successfully deleted.'
 
     respond_to do |format|
-      format.html { redirect_to_blogs }
+      format.html { redirect_to blog_posts_path(@blog) }
       format.xml  { head :ok }
     end
   end
@@ -99,7 +107,10 @@ class PostsController < ApplicationController
   # Toggle the enabled state of the post
   def enable
     @post.toggle_enabled!
-    redirect_to_blogs
+    
+    flash[:success] = "Post #{@post.enabled? ? 'enabled' : 'disabled'} successfully."
+    
+    redirect_to blog_posts_path(@blog)
   end
   
   private
@@ -120,13 +131,5 @@ class PostsController < ApplicationController
       # if the page is active then let it through
       # if not then the user has to be an admin to access it
       @post.enabled? || check_administrator_role
-    end
-    
-    # Go to the blogs list page
-    def redirect_to_blogs
-      respond_to do |format|
-        format.html { redirect_to(blogs_url) }
-        format.xml { head :ok }
-      end
     end
 end

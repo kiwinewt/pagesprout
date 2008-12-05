@@ -1,14 +1,12 @@
-<%= page_heading 'Editing Post' %>
+<%= page_heading 'Edit Post' %>
 
-<div class="section">
-  <% form_for([@blog,@post]) do |f| %>
-    <%= render :partial => 'fields', :locals => { :f => f } %>
-    
-    <div class="element">
-      <%= f.submit "Update" %>
-    </div>
+<% enhanced_form_for([@blog, @post], :html => { :class => 'content' }) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Create" %>
+    or <%= link_to 'Delete', [@blog, @post], :method => :delete, :confirm => 'Are you sure?' %>
+    or <%= link_to 'Cancel', blog_posts_path %>
   <% end %>
-  <div class="element">
-    <%= link_to 'Show', [@blog,@post] %> | <%= link_to 'Back', blog_posts_path(@blog) %>
-  </div>
-</div>
+<% end %>
+
+<%= aside_help_for :posts %>

@@ -26,6 +26,10 @@ p {
 
 /* Headings */
 
+h1, h2, h3 {
+  margin-bottom: 0.5em;
+}
+
 h1 {
   font-size: 1.8em;
 }
@@ -73,6 +77,32 @@ a {
   a img {
     border-style: none;
   }
+
+/* Tables */
+
+table {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+}
+
+  th, td {
+    padding: 0.5em;
+  }
+  
+  tr.even {
+    background-color: #eef;
+  }
+  
+  td.empty {
+    font-style: italic;
+    text-align: center;
+  }
+  
+.sort {
+  float: right;
+}
 
 /* Forms */
 
@@ -147,7 +177,7 @@ form {
 
 /* Empty */
 
-.empty {
+div.empty {
   border: 2px solid #eee;
   margin: 1em 0;
   padding: 1em;

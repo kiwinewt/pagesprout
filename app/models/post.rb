@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   belongs_to :blog
   
   named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :published,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :draft,  lambda { |*limit| { :conditions => { :enabled => false }, :limit => limit.flatten.first } }
   
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :permalink_with_spaces => {} },
                  :remote => true,
@@ -23,6 +25,10 @@ class Post < ActiveRecord::Base
   def toggle_enabled!
     enabled = !enabled
     save
+  end
+  
+  def published?
+    enabled
   end
   
   # Return the permalink as the post ID
