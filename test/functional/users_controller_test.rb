@@ -1,15 +1,9 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'users_controller'
+require 'test_helper'
 
 # Re-raise errors caught by the controller.
 class UsersController; def rescue_action(e) raise e end; end
 
-class UsersControllerTest < Test::Unit::TestCase
-  # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
-  # Then, you can remove it from this and the units test.
-  include AuthenticatedTestHelper
-
-  fixtures :users
+class UsersControllerTest < ActionController::TestCase
 
   def setup
     @controller = UsersController.new
@@ -62,7 +56,7 @@ class UsersControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:user).activation_code
   end
   
-  test "should get index" do
+  def test_should_get_index
     get :index
     assert_response :success
   end
