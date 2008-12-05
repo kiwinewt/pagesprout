@@ -1,15 +1,11 @@
 <%= page_heading 'New Post' %>
 
-<div class="section">
-  <% form_for([@blog,@post]) do |f| %>
-    <%= render :partial => 'fields', :locals => { :f => f } %>
-
-    <div class="element">
-      <%= f.submit "Create" %>
-    </div>
+<% enhanced_form_for([@blog, @post], :html => { :class => 'content' }) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Create" %>
+    or <%= link_to 'Cancel', blog_posts_path %>
   <% end %>
+<% end %>
 
-  <div class="element">
-    <%= link_to 'Back', blog_path(@blog) %>
-  </div>
-</div>
+<%= aside_help_for :posts %>

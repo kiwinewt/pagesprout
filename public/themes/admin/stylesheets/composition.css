@@ -15,8 +15,8 @@ h1, h2, h3 { color: #000; }
 
   #header .project_name {
     float: left;
-    font-size: 1.4em;
-    margin-top: 1em;
+    font-size: 1.6em;
+    margin-top: 1.6em;
     margin-bottom: 0.5em;
   }
   
@@ -38,12 +38,14 @@ ul#nav {
   #nav li { float: left; }
   
   #nav a {
-    background-color: #eef;
+    background-color: #ddf;
     float: left;
     padding: 0.5em 1em;
   }
   
-  #nav .selected { background-color: #fff; }
+  #nav a:hover { background-color: #eef; }
+  
+  #nav .selected, #nav .selected:hover { background-color: #fff; }
 
 .flash {
   clear: both;

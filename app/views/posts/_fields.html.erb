@@ -1,19 +1,5 @@
-<div class="element">
-  <%= f.error_messages %>
-</div>
-  
-<div class="element">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-
-<div class="element">
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-</div>
-
-<div class="element">
-  <%= f.label :enabled %>
-  <%= check_box('post', 'enabled') %>
-</div>
-
+<%= f.text_field :title %>
+<%= f.text_area :body %>
+<% f.checklist do %>
+  <%= f.check_box :enabled, :label => 'Published' %>
+<% end %>

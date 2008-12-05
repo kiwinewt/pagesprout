@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         flash[:success] = 'Blog was successfully created.'
-        format.html { redirect_to_blogs }
+        format.html { redirect_to blogs_path }
         format.xml  { render :xml => @blog, :status => :created, :location => @blog }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
         flash[:success] = 'Blog was successfully updated.'
-        format.html { redirect_to_blogs }
+        format.html { redirect_to blogs_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,9 +72,11 @@ class BlogsController < ApplicationController
   # Delete the blog from the site. Does not delete posts.
   def destroy
     @blog.destroy
-
+    
+    flash[:success] = "Successfully deleted blog."
+    
     respond_to do |format|
-      format.html { redirect_to(blogs_url) }
+      format.html { redirect_to blogs_path }
       format.xml  { head :ok }
     end
   end

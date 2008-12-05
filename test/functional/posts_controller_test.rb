@@ -17,10 +17,10 @@ class PostsControllerTest < ActionController::TestCase
   def test_should_create_post
     user_signin
     assert_difference('Post.count') do
-      post :create, {:blog_id => blogs(:ala).to_param, :post => { :title => "New Post", :body => "A Post", :enabled => 1 }}
+      post :create, {:blog_id => blogs(:ala).to_param, :post => { :title => "New Post", :body => "A Post", :enabled => true }}
     end
 
-    assert_redirected_to blogs_path
+    assert_response :redirect
   end
 
   test "should show post" do
@@ -33,9 +33,9 @@ class PostsControllerTest < ActionController::TestCase
     user_signin
     blog = posts(:first).blog
     assert_difference('Post.count', -1) do
-      delete :destroy, {:blog_id => @blog, :id => posts(:first).to_param}
+      delete :destroy, {:blog_id => blog, :id => posts(:first).to_param}
     end
 
-    assert_redirected_to blogs_path
+    assert_response :redirect
   end
 end
