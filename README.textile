@@ -14,7 +14,7 @@ Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
 h3. Requirements
 
 This CMS requires:
-* Ruby on Rails 2.2 (Included)
+* Ruby on Rails 2.2.2
 * The ferret gem
 * OpenSSL (libopenssl-ruby1.8)
 
