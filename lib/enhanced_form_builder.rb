@@ -3,11 +3,18 @@
 # License::   BSD Licence, see application root.
 
 class EnhancedFormBuilder < ActionView::Helpers::FormBuilder
+  # EnhancedFormBuilder overwrites most form helpers.
+  # Rather than <tt><%= f.label :name %><%= f.text_field :name %></tt>,
+  # you can just use <tt><%= f.text_field :name %></tt> and it will be 
+  # wrapped into the necessary chunks.
+  # Useful options are :label, :note
+  # You can drop into regular fields at any point with a fields_for block
+  
   helpers = field_helpers +
             %w{date_select datetime_select time_select} +
             %w{collection_select select country_select time_zone_select} -
             %w{hidden_field label fields_for check_box} # Don't decorate these
-
+  
   helpers.each do |name|
     define_method(name) do |field, *args|
       options = args.last.is_a?(Hash) ? args.pop : {}
