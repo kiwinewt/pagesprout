@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.public_profile = false
     @user.save!
-    if @user.activated?
+    if @user.pending?
       flash[:notice] = "Thanks for signing up! Please log in." # TODO create session rather than force the user yet another step to log in
     else
       flash[:notice] = "Thanks for signing up! Please check your email to activate your account before logging in."
