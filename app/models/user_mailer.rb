@@ -12,21 +12,21 @@ class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
     @subject    += 'Please activate your new account'
-    @body[:url]  = activation_path(user.activation_code)
+    @body[:url]  = activation_url(user.activation_code)
   end
   
   # Send post-activation email
   def activation(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
-    @body[:url]  = root_path
+    @body[:url]  = root_url
   end
   
   # Send reset password link
   def forgot_password(user)
     setup_email(user)
     @subject    += 'You have requested to change your password'
-    @body[:url]  = reset_password_path(user.password_reset_code)
+    @body[:url]  = reset_password_url(user.password_reset_code)
   end
   
   # Send post-password-change email
