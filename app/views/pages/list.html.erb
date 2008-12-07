@@ -1,11 +1,32 @@
 <%= page_heading 'Administer Pages' %>
 
-<ul>
-  <% for page in @pages %>
-    <%= render :partial => 'page_list_item', :locals => { :page => page } %>
+<div class="content">
+  <% if @pages.present? %>
+    <div id="blogs">
+      <p>
+        <%= link_to 'New Page', new_page_path -%>
+      </p>
+      <ul>
+        <% for page in @pages %>
+          <%= render :partial => 'page_list_item', :locals => { :page => page } %>
+        <% end %>
+      </ul>
+      <p>
+        <%= link_to 'New Page', new_page_path -%>
+      </p>
+    </div>
+    
+  <% else %>
+    <div class="empty">
+      <p>
+        You currently don't have any blogs.
+      </p>
+      
+      <p>
+        <%= link_to 'Create a Page', new_page_path %>
+      </p>
+    </div>
   <% end %>
-</ul>
 
-<p>
-  <%= link_to 'Create Page', new_page_path -%>
-</p>
+</div>
+<%= aside_help_for :pages %>

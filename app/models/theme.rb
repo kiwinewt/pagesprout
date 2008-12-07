@@ -31,7 +31,7 @@ class Theme
     files = Dir.entries("#{RAILS_ROOT}/public/themes/")
     files.each do |file|
       file.to_s
-      if !file.include? "."
+      if !file.include?(".") && !file.include?("admin")
         result[file] = file
       end
     end

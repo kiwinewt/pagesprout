@@ -17,13 +17,16 @@ class PagesController < ApplicationController
       # included for places that redirect here with a flash
       flash.keep
       redirect_to(@page)
+    else
+      render :layout => 'master'
     end
-    render :layout => 'master'
   end
 
   # List all pages. Requires Admin User
   def list
     @pages = Page.parentless
+    @pages << Page.home
+    @pages.sort {|a,b| a.title <=> b.title}
     render :action => "list"
   end
 
