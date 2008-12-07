@@ -160,6 +160,11 @@ form {
     border-color: #c00;
   }
 
+  .flash.notice {
+    background: #c27fff url('../images/elements/flash_success.gif') repeat-x bottom;
+    border-color: #81c609;
+  }
+
   .flash.success {
     background: #c2ff31 url('../images/elements/flash_success.gif') repeat-x bottom;
     border-color: #81c609;
