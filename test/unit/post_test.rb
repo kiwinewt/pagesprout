@@ -10,14 +10,10 @@ class PostTest < ActiveSupport::TestCase
     assert post.errors.invalid?(:permalink)
   end
   
-  test "invalid permalink" do
-    post = Post.new( :title => "A Post", :body => "A Test Post", :permalink => "2008-10-12-First")
-    assert !post.valid?
-    assert post.errors.invalid?(:permalink)
-  end
-  
-  test "create post" do
-    assert Post.create( :title => "Test Post", :body => "A Test Post", :permalink => "2008-10-13-test_post")
+  test "creates post" do
+    post = Post.new(:title => "Test Post", :body => "A Test Post", :user => users(:john), :blog => blogs(:ala))
+    assert post.valid?
+    assert post.save!
   end
   
   test "enables post" do
