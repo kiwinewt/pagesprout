@@ -8,7 +8,11 @@ class PostTest < ActiveSupport::TestCase
     assert post.errors.invalid?(:title)
     assert post.errors.invalid?(:body)
     assert post.errors.invalid?(:permalink)
-    post = Post.create( :title => "A Post", :body => "A Test Post", :permalink => "2008-10-12-First")
+  end
+  
+  test "invalid permalink" do
+    post = Post.new( :title => "A Post", :body => "A Test Post", :permalink => "2008-10-12-First")
+    assert !post.valid?
     assert post.errors.invalid?(:permalink)
   end
   

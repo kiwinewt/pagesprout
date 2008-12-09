@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   named_scope :published,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   named_scope :draft,  lambda { |*limit| { :conditions => { :enabled => false }, :limit => limit.flatten.first } }
   
-  before_validation :generate_permalink
+  before_create :generate_permalink
   
   acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :permalink_with_spaces => {} },
                  :remote => true,
