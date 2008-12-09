@@ -60,9 +60,6 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.blog = @blog
     @post.user = current_user
-    
-    # TODO move this into model
-    @post.permalink = Time.now.strftime('%Y-%m-%d-')+@post.title.gsub(/[" "]/, '-')
 
     respond_to do |format|
       if @post.save

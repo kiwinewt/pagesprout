@@ -23,9 +23,11 @@
         <tr class="<%= alternate_row %>">
           <td><%= link_to h(post.title), edit_blog_post_path(@blog, post) %></td>
           <td><%= post.published? ? 'Published' : 'Unpublished' %></td>
-          <td><%= link_to 'Visit', [@blog, post] %></td>
-          <td><%= link_to 'Edit', edit_blog_post_path(@blog, post) %></td>
-          <td><%= link_to 'Delete', edit_blog_post_path(@blog, post) %></td>
+          <td>
+            <%= link_to 'Visit', [@blog, post] %>
+            <%= link_to 'Edit', edit_blog_post_path(@blog, post) %>
+            <%= link_to 'Delete', edit_blog_post_path(@blog, post) %>
+          </td>
         </tr>
       <% end %>
     <% else %>
