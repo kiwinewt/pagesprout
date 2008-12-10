@@ -13,15 +13,15 @@ class Theme
   end
   
   def stylesheet_path
-    file 'stylesheets/master.css'
+    pubilc_file 'stylesheets/master.css'
   end
   
   def screenshot_path
-     file 'screenshot.jpg'
+     pubilc_file 'screenshot.jpg'
   end
   
-  # Returns a filename relative to the theme
-  def file(filename)
+  # Returns a filename relative to the theme directory
+  def pubilc_file(filename)
     File.join(PUBLIC_THEME_DIRECTORY, name, filename)
   end
   
