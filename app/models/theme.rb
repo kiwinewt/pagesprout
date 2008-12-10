@@ -3,7 +3,8 @@
 # License::   BSD Licence, see application root.
 
 class Theme
-  THEME_DIRECTORY = "#{RAILS_ROOT}/public/themes/"
+  PUBLIC_THEME_DIRECTORY = '/themes/'
+  THEME_DIRECTORY = File.join('public', PUBLIC_THEME_DIRECTORY)
   
   attr_accessor :name
   
@@ -11,20 +12,30 @@ class Theme
     @name = nm
   end
   
-  def stylesheet
-    "/themes/#{name}/stylesheets/master"
+  def stylesheet_path
+    file 'stylesheets/master.css'
   end
   
+  def screenshot_path
+     file 'screenshot.jpg'
+  end
+  
+  # Returns a filename relative to the theme
+  def file(filename)
+    File.join(PUBLIC_THEME_DIRECTORY, name, filename)
+  end
+  
+  # Returns the active theme
   def self.active
     AppConfig.theme ? new(AppConfig.theme) : default
   end
   
   def self.admin
-    new('admin')
+    new 'admin'
   end
   
   def self.default
-    new('default')
+    new 'default'
   end
   
   def self.all
@@ -33,7 +44,7 @@ class Theme
     files.delete_if do |file|
       excludes.include?(file) || !File.directory?(THEME_DIRECTORY + file)
     end
-    files.collect { |t| self.new(t) }
+    files.collect { |t| new(t) }
   end
   
 end

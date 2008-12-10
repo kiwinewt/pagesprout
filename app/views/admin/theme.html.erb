@@ -2,7 +2,9 @@
 
 <div id="themes">
   <% for theme in @themes %>
-      <%= image_tag "/themes/#{theme.name}/screenshot.jpg", :alt => theme.name %>
-      <%= theme.name %>
+    <div class="theme">
+      <%= image_tag theme.screenshot_path, :alt => theme.name.humanize %>
+      <%= theme.name.humanize %>
+    </div>
   <% end %>
 <div>
