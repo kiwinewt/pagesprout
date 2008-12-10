@@ -3,6 +3,8 @@
 # License::   BSD Licence, see application root.
 
 class Theme
+  THEME_DIRECTORY = "#{RAILS_ROOT}/public/themes/"
+  
   attr_accessor :name
   
   def initialize(nm)
@@ -26,12 +28,12 @@ class Theme
   end
   
   def self.all
-    # TODO pick up directories only
-    files = Dir.entries("#{RAILS_ROOT}/public/themes/")
-    files = files.delete_if do |file|
-      %w{ . .. admin }.include?(file)
+    files = Dir.entries(THEME_DIRECTORY)
+    excludes = %w{ . .. admin }
+    files.delete_if do |file|
+      excludes.include?(file) || !File.directory?(THEME_DIRECTORY + file)
     end
-    files.sort.collect { |t| self.new(t) }
+    files.collect { |t| self.new(t) }
   end
   
 end
