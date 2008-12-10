@@ -77,6 +77,10 @@ module AppConfig
     def self.set_param(name, value=nil)
         Base.parameters[name] = value
     end
+    
+    def self.parameters
+      Base.parameters
+    end
 
     # Returns true if a given parameter name exists internal parameters storage.
     # Note: parameter can has nil value
