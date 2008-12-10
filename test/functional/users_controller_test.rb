@@ -10,6 +10,12 @@ class UsersControllerTest < ActionController::TestCase
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
+  
+  def test_should_get_index
+    user_signin
+    get :index
+    assert_response :success
+  end
 
   def test_should_allow_signup
     assert_difference 'User.count' do
@@ -54,11 +60,6 @@ class UsersControllerTest < ActionController::TestCase
     create_user
     assigns(:user).reload
     assert_not_nil assigns(:user).activation_code
-  end
-  
-  def test_should_get_index
-    get :index
-    assert_response :success
   end
 
 end
