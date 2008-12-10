@@ -2,7 +2,7 @@
 
 <div id="themes">
   <% for theme in @themes %>
-    <div class="theme">
+    <div class="theme<%= ' selected' if theme.active? %>">
       <%= image_tag theme.screenshot_path, :alt => theme.name.humanize %>
       <%= theme.name.humanize %>
     </div>

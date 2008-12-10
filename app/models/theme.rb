@@ -12,6 +12,10 @@ class Theme
     @name = nm
   end
   
+  def active?
+    self.name == self.class.active.name
+  end
+  
   def stylesheet_path
     pubilc_file 'stylesheets/master.css'
   end
