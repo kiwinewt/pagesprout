@@ -1,11 +1,6 @@
 <%= page_heading 'Select Theme' %>
 
 <div id="themes">
-  <% for theme in @themes %>
-    <% link_to(themes_path, :class => 'theme' + (' selected' if theme.active?).to_s) do %>
-      <%= image_tag theme.screenshot_path, :alt => theme.name.humanize %>
-      <%= theme.name.humanize %>
-    <% end %>
-  <% end %>
+  <%= render :partial => 'theme', :collection => @themes %>
   <div class="clearfix"></div>
 </div>
