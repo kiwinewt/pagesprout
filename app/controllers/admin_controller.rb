@@ -28,12 +28,12 @@ class AdminController < ApplicationController
     @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
     theValue = 
     settings_dump = @application_config.marshal_dump
-    settings_dump[:common].merge!({ "theme" => params['theme'] })
+    settings_dump[:common].merge!({ "theme" => params['name'] })
     if settings_dump
       @application_config = OpenStruct.new(settings_dump)
     end
     save_config
-    flash[:notice] = "Theme changed"
+    flash[:notice] = "Theme changed."
     redirect_to :action => 'theme'
   end
   
