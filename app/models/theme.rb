@@ -26,16 +26,12 @@ class Theme
   end
   
   def self.all
-    # TODO simplify
-    result = {}
+    # TODO pick up directories only
     files = Dir.entries("#{RAILS_ROOT}/public/themes/")
-    files.each do |file|
-      file.to_s
-      if !file.include?(".") && !file.include?("admin")
-        result[file] = file
-      end
+    files = files.delete_if do |file|
+      %w{ . .. admin }.include?(file)
     end
-    result.sort
+    files.sort.collect { |t| self.new(t) }
   end
   
 end
