@@ -23,11 +23,12 @@ class AdminController < ApplicationController
   end
   
   # Save theme action. Updates the theme in the app_config settings and yaml file.
+  # TODO move to themes controller, make RESTful
   def save_theme
-    get_config
-    theValue = params['theme']
+    @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
+    theValue = 
     settings_dump = @application_config.marshal_dump
-    settings_dump[:common].merge!({"theme" => theValue})
+    settings_dump[:common].merge!({ "theme" => params['theme'] })
     if settings_dump
       @application_config = OpenStruct.new(settings_dump)
     end
@@ -37,22 +38,20 @@ class AdminController < ApplicationController
   end
   
   private
-    # Load the config file into an openstruct
-    def get_config
-      @application_config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/config.yml"))
-    end
+  
+  # Save the app_config settings into the yaml file.
+  # TODO move to model
+  def save_config
+    output = "# Settings are accessed with AppConfig.setting_name\n" + @application_config.marshal_dump.to_yaml
+    config_file = File.join(RAILS_ROOT, "config/config.yml")
+    File.open(config_file, 'w') { |f| f.write(output) }  
     
-    # Save the app_config settings into the yaml file.
-    def save_config
-      output = "# Settings are accessed with AppConfig.setting_name\n" + @application_config.marshal_dump.to_yaml
-      config_file = File.join(RAILS_ROOT, "config/config.yml")
-      File.open(config_file, 'w') { |f| f.write(output) }  
-      
-      # for this to work without having to restart the RoR server the AppConfig
-      # plugin had to be modified to be able to save the variables
-      new_application_config = @application_config
-      new_application_config.common.keys.each do |key|
-        AppConfig.set_param(key,new_application_config.common[key])
-      end
+    # for this to work without having to restart the RoR server the AppConfig
+    # plugin had to be modified to be able to save the variables
+    new_application_config = @application_config
+    new_application_config.common.keys.each do |key|
+      AppConfig.set_param(key,new_application_config.common[key])
     end
+  end
+  
 end
