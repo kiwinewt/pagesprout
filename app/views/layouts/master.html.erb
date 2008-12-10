@@ -7,35 +7,11 @@
   <%= scripts %>
 </head>
 <body>
+  
   <div id="header">
-    <h1><%= AppConfig.site_name %></h1>
-    <h2><%= AppConfig.site_slogan %></h2>
+    <%= AppConfig.site_name %>
+    <%= AppConfig.site_slogan %>
   </div>
-  <ul id="nav">
-    <%- get_navigation -%>
-    <%- for page in @pages -%>
-      <li<%= ' class="first"' if page == @pages.first %>>
-        <%= page -%>
-      </li>
-    <%- end -%>
-    <%- if AppConfig.search_enabled -%>
-      <li class="search">
-        <%- form_tag( "/search", :method => :get ) do -%>
-          <%= text_field_tag "query", "Search" %>
-          <%= submit_tag("Go") %>
-        <%- end -%>
-      </li>
-    <%- end -%>
-  </ul>
-  <%- if @subnav -%>
-    <ul id="subnav">
-      <%- for page in @sub_pages -%>
-        <li <%= page == @sub_pages[0] ? ' class="first"' : '' %>>
-          <%= page -%>
-        </li>
-      <%- end -%>
-    </ul>
-  <%- end -%>
 
   <div class="article">
     <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
