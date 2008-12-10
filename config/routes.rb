@@ -34,8 +34,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :password
   map.admin '/admin', :controller => 'admin'
   # TODO turn into a RESTful controller
-  map.themes '/designs', :controller => 'admin', :action => 'theme'
-  map.activate_theme '/designs/:name', :controller => 'admin', :action => 'save_theme'
+  map.themes '/design', :controller => 'admin', :action => 'theme'
+  map.activate_theme '/design/:name/activate', :controller => 'admin', :action => 'save_theme'
   
   map.root :controller => 'pages'
 
