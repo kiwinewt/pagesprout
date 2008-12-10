@@ -4,41 +4,6 @@
 
 module ApplicationHelper
   
-  # Retrieve navigation and subnav list:
-  # * Home page
-  # * Pages
-  # * Blogs
-  # * Admin Link
-  # * Login/out
-  # TODO move navigation instance variables to controller
-  def get_navigation
-    @pages = []
-    if @home = Page.home
-      @pages << link_to(@home.title, @home)
-    else
-      @pages << link_to('Home', root_path)
-    end
-    @pages += Page.enabled.parentless.collect { |p| link_to(h(p.title), p) }
-    @pages += Blog.enabled.collect { |p| link_to(h(p.title), p) }
-    if AppConfig.contact_enabled
-      @pages << link_to('Contact Us', contact_path)
-    end
-    @pages << link_to_if(!logged_in?, 'Log In', new_session_path) do
-      current_user.has_role?('administrator') ? @pages << link_to( 'Site Administration', admin_path ) : ""
-      link_to('Log Out', logout_url)
-    end
-    # Collect subnav
-    if @page
-      if @page.children.length != 0
-        @subnav = true
-        @sub_pages = Page.enabled.sub_page(@page.id).collect { |p| link_to(h(p.title), p) }
-      elsif !@page.root?
-        @subnav = true
-        @sub_pages = Page.enabled.sub_page(@page.parent_id).collect { |p| link_to(h(p.title), p) }
-      end
-    end
-  end
-  
   # Returns the complete title of the page, to be used inside the title tags.
   def page_title
     (@content_for_title + " &mdash; " if @content_for_title).to_s + AppConfig.site_name

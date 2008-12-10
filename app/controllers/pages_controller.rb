@@ -25,8 +25,6 @@ class PagesController < ApplicationController
   # List all pages. Requires Admin User
   def list
     @pages = Page.parentless
-    @pages << Page.home
-    @pages.sort {|a,b| a.title <=> b.title}
     render :action => "list"
   end
 

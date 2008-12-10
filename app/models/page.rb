@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
   belongs_to :user
   
   named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
-  named_scope :parentless, :conditions => { :parent_id => 0, :home_page => false }
+  named_scope :parentless, :conditions => { :parent_id => nil }
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   
   acts_as_tree :order => "title"
