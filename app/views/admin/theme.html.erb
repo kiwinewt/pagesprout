@@ -2,9 +2,10 @@
 
 <div id="themes">
   <% for theme in @themes %>
-    <div class="theme<%= ' selected' if theme.active? %>">
+    <% link_to(themes_path, :class => 'theme' + (' selected' if theme.active?).to_s) do %>
       <%= image_tag theme.screenshot_path, :alt => theme.name.humanize %>
       <%= theme.name.humanize %>
-    </div>
+    <% end %>
   <% end %>
-<div>
+  <div class="clearfix"></div>
+</div>

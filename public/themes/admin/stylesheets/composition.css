@@ -78,13 +78,9 @@ ul#nav {
 
 /* Blogs */
 
-#blogs {
-  border: 2px solid #eee;
-}
+#blogs { border: 2px solid #eee; }
 
-.blog {
-  padding: 1em;
-}
+.blog { padding: 1em; }
 
   .blog.even { background-color: #eef; }
   
@@ -93,3 +89,22 @@ ul#nav {
   .blog .actions { float: right; }
   
   .blog .status { clear: both; }
+
+/* Themes */
+#themes { border: 2px solid #eee; }
+
+.theme {
+  float: left;
+  padding: 1em;
+  text-align: center;
+  width: 150px;
+}
+
+  .theme img {
+    height: 100px;
+    width: 150px;
+  }
+  
+  .theme.selected {
+    border: 2px solid #f00;
+  }
