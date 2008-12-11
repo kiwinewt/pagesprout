@@ -1,20 +1,22 @@
-<%= page_heading 'Administer Pages' %>
+<%= page_heading 'Pages' %>
 
 <div class="content">
   <% if @pages.present? %>
-    <div id="blogs">
-      <p>
-        <%= link_to 'New Page', new_page_path -%>
-      </p>
+    <p>
+      <%= link_to 'New Page', new_page_path -%>
+    </p>
+
+    <div id="pages">
       <ul>
         <% for page in @pages %>
           <%= render :partial => 'page_list_item', :locals => { :page => page } %>
         <% end %>
       </ul>
-      <p>
-        <%= link_to 'New Page', new_page_path -%>
-      </p>
     </div>
+    
+    <p>
+      <%= link_to 'New Page', new_page_path -%>
+    </p>
     
   <% else %>
     <div class="empty">

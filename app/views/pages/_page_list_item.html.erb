@@ -1,4 +1,4 @@
-<li>
+<li class="<%= alternate_row %>">
   <%= link_to h(page.title), edit_page_path(page) %>
   <em>(<%= page.enabled? ? 'Enabled' : 'Disabled' %>)</em>
   <%= link_to 'Edit', edit_page_path(page) %>

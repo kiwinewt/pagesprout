@@ -76,4 +76,11 @@ class PageTest < ActiveSupport::TestCase
     page = pages(:test2)
     assert page.destroy
   end
+  
+  test "author" do 
+    page = pages(:test)
+    assert page.user
+    assert page.author
+    assert page.user == page.author
+  end
 end

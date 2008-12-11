@@ -108,3 +108,13 @@ ul#nav {
   .theme.selected {
     border: 2px solid #f00;
   }
+
+/* Pages */
+
+#pages { border: 2px solid #eee; }
+
+  #pages ul {
+    list-style-type: none;
+    line-height: 2em;
+    margin: 0;
+  }

@@ -15,6 +15,8 @@ ActionController::Routing::Routes.draw do |map|
   
   # Deprecated in favour of page_list_path
   map.page_list '/pages/list', :controller => "pages", :action => "list"
+  
+  # TODO make versions RESTful
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
   map.resources :pages, :collection => { :list => :get }, :member => { :versions => :get }
   
@@ -33,7 +35,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resource :password
   map.admin '/admin', :controller => 'admin'
-  # TODO turn into a RESTful controller
+  
+  # TODO turn themes into a RESTful controller
   map.themes '/design', :controller => 'admin', :action => 'theme'
   map.activate_theme '/design/:name/activate', :controller => 'admin', :action => 'save_theme'
   
