@@ -1,0 +1,6 @@
+<%= f.text_field :login, :label => 'Username' %>
+<%= f.text_field :email, :size => 40 %>
+<% if @user.new_record? %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation, :label => 'Re-Type Password' %>
+<% end %>

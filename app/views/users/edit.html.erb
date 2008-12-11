@@ -1,28 +1,10 @@
 <%= page_heading 'Edit Profile' %>
 
-<div class="section">
-  <div class="element">
-    <%= link_to 'Show Profile', user_path(@user) %> | <%= link_to 'Change Password', change_password_path %>
-  </div>
-    
-  <% form_for @user, :url => user_url(@user), :html => { :method => :put } do |f| %>
-    <div class="element">
-      <%= f.error_messages %>
-    </div>
-      
-    <div class="element">
-      <%= f.label :email %>
-      <%= f.text_field :email, :size => 60 %>
-    </div>
-
-    <div class="element">
-      <%= f.label :public_profile %>
-      <%= check_box('user', 'public_profile') %>
-    </div>
-
-    <div class="element">
-      <%= f.submit "Update" %>
-    </div>
+<% enhanced_form_for @user do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Save" %>
+    or <%= link_to 'Cancel', users_path %>
   <% end %>
-</div>
+<% end %>
 
