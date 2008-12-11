@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :roles
 
-  map.resources :users, :member => { :enable => :put } do |users|
+  map.resources :users, :as => 'people', :member => { :enable => :put } do |users|
     users.resource :accounts
     users.resources :roles
   end

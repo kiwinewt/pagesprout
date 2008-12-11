@@ -1,1 +1,17 @@
 <%= page_heading 'People' %>
+
+<table>
+  <% for user in @users %>
+    <tr class="<%= alternate_row %>">
+      <td><%= link_to h(user.name), user %></td>
+      <td><%= user.roles.map { |r| r.name.humanize }.to_sentence %></td>
+      <td>
+        <%= link_to 'View Profile', user %>
+        <% if current_user.admin? %>
+          <%= link_to 'Edit', edit_user_path(user) %>
+          <%= link_to 'Delete', user, :method => :delete, :confirm => 'Are you sure?' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

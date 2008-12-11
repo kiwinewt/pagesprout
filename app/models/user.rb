@@ -162,6 +162,10 @@ class User < ActiveRecord::Base
     end
     result
   end
+  
+  def admin?
+    has_role?('administrator')
+  end
 
   protected
     # before filter 
