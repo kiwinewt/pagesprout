@@ -72,7 +72,7 @@ class Page < ActiveRecord::Base
   end
   
   private
-  
+  
   # TODO write test, check that this works
   def pop_descendents
     children.each do |child|
