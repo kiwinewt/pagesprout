@@ -1,18 +1,30 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-test:
-  title: Test Page
-  body: This is a test page. Welcome!
-  permalink: homer_pager_zorz
+home:
+  title: Home
+  body: Welcome to the Waffle Hut! We make delicious waffles.
+  permalink: home_page # Underscore for space-checking test
   home_page: true
   enabled: false
   user: john
   parent_id: 0
   
-test2:
-  title: Test Page 2
-  body: This is also a test page. Welcome!
-  permalink: homeAgnu
+sub_page:
+  title: More About Us
+  body: Our waffles are made from 100% organic material.
+  permalink: about_us
   enabled: true
   user: john
-  parent: test
+  parent: home
+
+sub_sub_page:
+  title: Even More About Us
+  body: Our waffles are made from children.
+  enabled: true
+  user: john
+  parent: sub_page
+  
+draft:
+  title: Cooking Process
+  body: First, take one delicious child...
+  enabled: false
+  user: john
+  parent_id: 0

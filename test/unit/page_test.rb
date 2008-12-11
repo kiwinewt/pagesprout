@@ -15,7 +15,7 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "enables page" do
-    page = pages(:test)
+    page = pages(:home)
     assert !Page.enabled.include?(page)
     page.enabled = true
     page.save!
@@ -23,7 +23,7 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "disables page" do
-    page = pages(:test2)
+    page = pages(:sub_page)
     assert Page.enabled.include?(page)
     page.enabled = false
     page.save!
@@ -31,7 +31,7 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "update page" do
-    page = pages(:test)
+    page = pages(:home)
     old_title = page.title
     page.title = "Not a test page"
     assert_not_equal( old_title, page.title )
@@ -41,18 +41,18 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "param is permalink" do
-    page = pages(:test)
+    page = pages(:home)
     assert_equal( page.to_param, page.permalink )
   end
   
   test "permalink with spaces has spaces" do
-    page = pages(:test)
+    page = pages(:home)
     assert page.permalink_with_spaces.include? " "
   end
   
   test "is home page" do
     assert !Page.home?
-    page = pages(:test)
+    page = pages(:home)
     page.enabled = true
     page.save!
     assert Page.home?
@@ -60,27 +60,35 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "is root page" do
-    page = pages(:test)
+    page = pages(:home)
     assert page.root?
-    page = pages(:test2)
+    page = pages(:sub_page)
     assert !page.root?
   end
   
   test "has children" do
-    page = pages(:test)
+    page = pages(:home)
     assert page.children?
-    assert page.children.include? pages(:test2)
+    assert page.children.include? pages(:sub_page)
   end
   
   test "delete page" do
-    page = pages(:test2)
+    page = pages(:sub_page)
     assert page.destroy
   end
   
   test "author" do 
-    page = pages(:test)
+    page = pages(:home)
     assert page.user
     assert page.author
     assert page.user == page.author
+  end
+  
+  test "deleting a page pops its descendents" do
+    # TODO write test
+  end
+  
+  test "publishes draft" do
+    # TODO write test
   end
 end

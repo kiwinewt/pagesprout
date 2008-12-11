@@ -9,7 +9,7 @@ class PagesControllerTest < ActionController::TestCase
     end
   end
   
-  def test_create_page_no_user
+  def test_requires_login_to_create_page
     post :create, :page => { :title => "home", :body => "Tester", :permalink => "home", :home_page => false }  
     assert_redirected_to new_session_path
   end 
