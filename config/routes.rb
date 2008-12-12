@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # TODO make versions RESTful
   map.revert_to_version '/pages/revert_to_version/:id/:version', :controller => "pages", :action => "revert_to_version"
-  map.resources :pages, :collection => { :list => :get }, :member => { :versions => :get }
+  map.resources :pages, :collection => { :list => :get, :published => :get, :draft => :get }, :member => { :versions => :get }
   
   map.resources :roles
 
