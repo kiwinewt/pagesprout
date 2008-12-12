@@ -103,7 +103,7 @@ class PagesController < ApplicationController
   
   # Return a list of all the versions of a page.
   def versions
-    @versions = @page.versions
+    @versions = @page.versions.reverse # TODO set versions to order by revisions descending by default
   end
   
   # Change the page back to a previous version.
