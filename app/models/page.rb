@@ -8,6 +8,8 @@ class Page < ActiveRecord::Base
   before_destroy :pop_descendents
   
   named_scope :enabled,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :published,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
+  named_scope :draft,  lambda { |*limit| { :conditions => { :enabled => false }, :limit => limit.flatten.first } }
   named_scope :parentless, :conditions => { :parent_id => 0 }
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   

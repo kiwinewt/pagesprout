@@ -9,7 +9,6 @@ class PagesController < ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
   before_filter :login_required, :except => [:show, :index, :sitemap]
   before_filter :page_enabled, :only => :show
-  before_filter :check_administrator_role, :only => [:list, :destroy, :enable]
 
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
   def index # todo: not redirect?
@@ -22,10 +21,24 @@ class PagesController < ApplicationController
     end
   end
 
-  # List all pages. Requires Admin User
+  # GET /pages/list
   def list
     @pages = Page.parentless
     render :action => "list"
+  end
+  
+  # GET /pages/published
+  def published
+    @pages = Page.published
+    @sort = :published
+    render :action => 'list'
+  end
+  
+  # GET /pages/draft
+  def draft
+    @pages = Page.draft
+    @sort = :draft
+    render :action => 'list'
   end
 
   # Show the page and its details. Page must be enabled or user must be admin.

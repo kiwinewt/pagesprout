@@ -1,22 +1,36 @@
 <%= page_heading 'Pages' %>
 
 <div class="content">
-  <% if @pages.present? %>
+  
+  <% if Page.count > 0 %>
+    
+    <div class="sort">
+      Show: 
+      <%= link_to_unless_current 'All', list_pages_path %> |
+      <%= link_to_unless_current 'Published', published_pages_path %> |
+      <%= link_to_unless_current 'Draft', draft_pages_path %>
+    </div>
+  
     <p>
       <%= link_to 'New Page', new_page_path -%>
     </p>
-
+  
     <table id="pages">
-      <% for page in @pages %>
-        <%= render :partial => 'page_row', :locals => { :page => page } %>
+      <% if @pages.present? %>
+        <% for page in @pages %>
+          <%= render :partial => 'page_row', :locals => { :page => page, :hide_nesting => (true if @sort) } %>
+        <% end %>
+      <% else %>
+        <td class="empty">There are no <%= controller.action_name %> pages.</td>
       <% end %>
     </table>
-    
-    <p>
-      <%= link_to 'New Page', new_page_path -%>
-    </p>
-    
+      
+      <p>
+        <%= link_to 'New Page', new_page_path -%>
+      </p>
+
   <% else %>
+
     <div class="empty">
       <p>
         You currently don't have any pages.
@@ -29,4 +43,5 @@
   <% end %>
 
 </div>
+
 <%= aside_help_for :pages %>
