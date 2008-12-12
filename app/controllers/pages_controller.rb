@@ -52,9 +52,10 @@ class PagesController < ApplicationController
   # Create a new page
   def new
     @page = Page.new
+    @page.home_page = true if @page.first_page?
     
     if Page.find_by_permalink(params[:id])
-      @parent_id = Page.find_by_permalink(params[:id]).id
+      @parent_id = params[:id]
     else
       @parent_id = "0"
     end

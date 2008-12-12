@@ -1,29 +1,13 @@
-<div class="element">
-  <%= f.error_messages %>
-</div>
+<%= f.text_field :title %>
+<%= f.text_area :body %>
+<%= f.text_field :permalink, :note => 'Only letters, numbers, underscores and hypens are allowed.' %>
 
-<div class="element">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
+<% f.checklist do %>
+  <%= f.check_box :home_page, :label => 'Set as home page' %>
+<% end %>
 
-<div class="element">
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-</div>
+<% f.checklist do %>
+  <%= f.check_box :enabled, :label => 'Published' %>
+<% end %>
 
-<div class="element">
-  <%= f.label "Link" %>
-  <%= request.host_with_port %>/pages/<%= f.text_field :permalink %>
-</div>
-
-<div class="element">
-  <%= f.label :home_page %>
-  <%= check_box('page', 'home_page') %>
-</div>
-
-<div class="element">
-  <%= f.label :enabled %>
-  <%= check_box('page', 'enabled') %>
-</div>
-<%= f.hidden_field('user_id', {:value => @current_user.id}) %>
+<%= f.hidden_field('parent_id', { :value => @parent_id }) %>

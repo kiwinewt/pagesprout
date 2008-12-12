@@ -1,12 +1,9 @@
 <%= page_heading 'New Page' %>
 
-<div class="section">
-  <% form_for(@page) do |f| %>
-    <%= render :partial => 'fields', :locals => { :f => f } %>
-    
-    <div class="element">
-      <%= f.hidden_field('parent_id', {:value => @parent_id}) %>
-      <%= submit_tag 'Create' %>
-    </div>
+<% enhanced_form_for(@page) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= submit_tag 'Create' %>
+    or <%= link_to 'Cancel', list_pages_path %>
   <% end %>
-</div>
+<% end %>
