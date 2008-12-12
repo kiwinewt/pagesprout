@@ -85,7 +85,18 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "deleting a page pops its descendents" do
-    # TODO write test
+    page = pages(:home)
+    original_parent = page.parent
+    assert page.children?
+    sub_page = page.children.first
+    assert sub_page.children?
+    sub_sub_page = sub_page.children.first
+    # Delete the page
+    assert page.destroy
+    # Check that the sub page's new parent is the original parent of the page that got deleted
+    assert sub_page.parent == original_parent
+    # Assert that the sub sub page still has the sub page as its parent
+    assert sub_sub_page.parent == sub_page
   end
   
   test "publishes draft" do
