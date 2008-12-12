@@ -101,8 +101,15 @@ class PageTest < ActiveSupport::TestCase
   
   test "publishes draft" do
     page = pages(:draft)
-    assert page.unpublished?
+    assert page.draft?
     assert page.publish!
     assert page.published?
+  end
+  
+  test "unpublishes draft" do
+    page = pages(:about)
+    assert page.published?
+    assert page.unpublish!
+    assert page.draft?
   end
 end

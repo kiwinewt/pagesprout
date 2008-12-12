@@ -71,6 +71,22 @@ class Page < ActiveRecord::Base
     permalink_was
   end
   
+  def draft?
+    !published?
+  end
+  
+  def published?
+    enabled
+  end
+  
+  def publish!
+    update_attribute(:enabled, true)
+  end
+  
+  def unpublish!
+    update_attribute(:enabled, false)
+  end
+  
   private
   
   # TODO write test
