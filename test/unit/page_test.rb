@@ -100,6 +100,9 @@ class PageTest < ActiveSupport::TestCase
   end
   
   test "publishes draft" do
-    # TODO write test
+    page = pages(:draft)
+    assert page.unpublished?
+    assert page.publish!
+    assert page.published?
   end
 end
