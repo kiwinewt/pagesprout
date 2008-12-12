@@ -3,7 +3,7 @@
   <em>(<%= page.enabled? ? 'Enabled' : 'Disabled' %>)</em>
   <%= link_to 'Edit', edit_page_path(page) %>
   <%= link_to 'Visit', page %>
-  <%= link_to 'History', versions_page_path(page) %>
+  <%= link_to "History (#{page.versions.size})", versions_page_path(page) %>
   <%= link_to 'Delete', page, :method => :delete, :confirm => 'Are you sure?' %>
   <%= link_to 'New Child', :action => 'new', :id => page %>
   <% if page.children? %>

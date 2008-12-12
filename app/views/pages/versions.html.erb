@@ -6,10 +6,12 @@
 <% end %>
 
 <table>
-  <% for version in @versions %>
+  <% for version in @versions 
+    # TODO set omission to have a 'more' link, add in # of words
+  %>
     <tr class="<%= alternate_row %>">
       <td>#<%=h version.version %></td>
-      <td><%= truncate h(version.body), :limit => 60, :delimeter => '&hellip;' %></td>
+      <td><%= truncate h(version.body), :length => 60, :omission => '&hellip;' %></td>
       <td>
         Made <%= time_ago_in_words(version.updated_at).capitalize %> ago by 
         <%= link_to(h(version.user.name), version.user) if version.user %></td>
