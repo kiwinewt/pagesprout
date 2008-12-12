@@ -6,13 +6,11 @@
       <%= link_to 'New Page', new_page_path -%>
     </p>
 
-    <div id="pages">
-      <ul>
-        <% for page in @pages %>
-          <%= render :partial => 'page_list_item', :locals => { :page => page } %>
-        <% end %>
-      </ul>
-    </div>
+    <table id="pages">
+      <% for page in @pages %>
+        <%= render :partial => 'page_row', :locals => { :page => page } %>
+      <% end %>
+    </table>
     
     <p>
       <%= link_to 'New Page', new_page_path -%>

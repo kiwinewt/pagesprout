@@ -1,0 +1,16 @@
+<tr class="<%= alternate_row %>">
+  <td>
+    <%= (level ||= 0).times.collect { "-" } %>
+    <%= link_to h(page.title), edit_page_path(page) %>
+  </td>
+  <td><em>(<%= page.enabled? ? 'Enabled' : 'Disabled' %>)</em>
+  <td>
+    <%= link_to 'Edit', edit_page_path(page) %>
+    <%= link_to 'Visit', page %>
+    <%= link_to "History (#{page.versions.size})", versions_page_path(page) %>
+    <%= link_to 'Delete', page, :method => :delete, :confirm => 'Are you sure?' %>
+    <%= link_to 'New Child', :action => 'new', :id => page %>
+  <td>
+</tr>
+
+<%= page.children.map { |child| render(:partial => 'page_row', :locals => { :page => child, :level => level + 1 }) } %>
