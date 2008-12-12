@@ -22,7 +22,7 @@
       <% for post in @posts %>
         <tr class="<%= alternate_row %>">
           <td><%= link_to h(post.title), edit_blog_post_path(@blog, post) %></td>
-          <td><%= post.published? ? 'Published' : 'Unpublished' %></td>
+          <td><%= post.published? ? 'Published' : 'Draft' %></td>
           <td>
             <%= link_to 'Visit', [@blog, post] %>
             <%= link_to 'Edit', edit_blog_post_path(@blog, post) %>

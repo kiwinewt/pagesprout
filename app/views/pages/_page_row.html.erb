@@ -12,5 +12,4 @@
     <%= link_to 'New Child', :action => 'new', :id => page %>
   <td>
 </tr>
-
 <%= page.children.map { |child| render(:partial => 'page_row', :locals => { :page => child, :level => level + 1 }) } %>
