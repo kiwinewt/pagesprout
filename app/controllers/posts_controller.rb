@@ -20,18 +20,17 @@ class PostsController < ApplicationController
   end
   
   # GET /posts
-  # GET /posts
   def index
     @posts = @blog.posts
   end
   
-  # GET /posts/published
   # GET /posts/published
   def published
     @posts = @blog.posts.published
     render :action => 'index'
   end
   
+  # GET /posts/draft
   def draft
     @posts = @blog.posts.draft
     render :action => 'index'
