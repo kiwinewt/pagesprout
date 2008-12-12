@@ -3,7 +3,7 @@
     <%= (level ||= 0).times.collect { "-" } %>
     <%= link_to h(page.title), edit_page_path(page) %>
   </td>
-  <td><em><%= page.published? ? 'Published' : 'Draft' %></em>
+  <td><%= page.published? ? 'Published' : 'Draft' %></td>
   <td>
     <%= link_to 'Edit', edit_page_path(page) %>
     <%= link_to 'Visit', page %>
