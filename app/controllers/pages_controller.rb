@@ -78,7 +78,7 @@ class PagesController < ApplicationController
     
     respond_to do |format|
       if @page.save
-        flash[:notice] = 'Page was successfully created.'
+        flash[:success] = 'Page was successfully created.'
         format.html { redirect_to_pages }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
@@ -92,7 +92,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update_attributes(params[:page])
-        flash[:notice] = 'Page was successfully updated.'
+        flash[:success] = 'Page was successfully updated.'
         format.html { redirect_to_pages }
         format.xml  { head :ok }
       else
@@ -105,6 +105,7 @@ class PagesController < ApplicationController
   # Delete the page. Does not delete children.
   def destroy
     @page.destroy
+    flash[:success] = 'Page was successfully deleted.'
     redirect_to_pages
   end
   

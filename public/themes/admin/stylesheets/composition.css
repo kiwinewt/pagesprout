@@ -80,6 +80,21 @@ ul#nav {
 
 #blogs { border: 2px solid #eee; }
 
+  ul#blogs {
+    margin: 0 0 1em;
+    list-style-type: none;
+  }
+  
+    ul#blogs li {
+      padding: 0.5em;
+    }
+    
+    ul#blogs .age {
+      float: right;
+      color: #999;
+      font-style: italic;
+    }
+
 .blog { padding: 1em; }
 
   .blog.even { background-color: #eef; }
@@ -91,6 +106,7 @@ ul#nav {
   .blog .status { clear: both; }
 
 /* Themes */
+
 #themes { border: 2px solid #eee; }
 
 .theme {
@@ -113,7 +129,21 @@ ul#nav {
 
 #pages { border: 2px solid #eee; }
 
-  #pages ul {
+  ul#pages {
+    margin: 0 0 1em;
     list-style-type: none;
-    line-height: 2em;
   }
+  
+    ul#pages li {
+      padding: 0.5em 1em;
+      text-align: right;
+    }
+    
+    ul#pages .age {
+      color: #999;
+      font-style: italic;
+    }
+    
+    ul#pages a {
+      float: left;
+    }

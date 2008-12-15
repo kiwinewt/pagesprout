@@ -2,21 +2,36 @@
 
 <div class="content">
   
-  <div>
-    Pages
-  </div>
+  <% if @pages.present? || @blogs.present? %>
   
-  <div>
-    Blogs
-  </div>
+    <% if @pages.present? %>
+    <h2>Last Updated Pages</h2>
+    
+    <%= link_to 'See All &raquo;', list_pages_path, :class => 'candle' %>
+    
+    <ul id="pages">
+      <%= @pages.map { |page| render :partial => 'pages/short', :locals => { :page => page } } %>
+    </ul>
+    
+    <% end %>
+    
+    <% if @blogs.present? %>
+      <h2>Blogs</h2>
+      
+      <%= link_to 'See All &raquo;', list_pages_path, :class => 'candle' %>
+      
+      <ul id="blogs">
+        <%= @blogs.map { |blog| render :partial => 'blogs/short', :locals => { :blog => blog } } %>
+      </ul>
+    <% end %>
+    
+  <% else %>
+    
+    <p>
+      <%= link_to 'Create your first page', new_page_path %>.
+    <p>
   
-  <div>
-    Design
-  </div>
-  
-  <div>
-    People
-  </div>
+  <% end %>
   
 </div>
 

@@ -10,6 +10,8 @@ class AdminController < ApplicationController
   # Redirect to the settings page as there is nothing on this page.
   # Change this method to allow items to be placed specifically on the main admin page.
   def index
+    @pages = Page.find(:all, :order => 'updated_at DESC', :limit => 5)
+    @blogs = Blog.all
   end
   
   # Theme changing page
