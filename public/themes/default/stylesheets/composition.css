@@ -6,9 +6,9 @@ body {
 }
 
 #header, #nav, #article, #footer {
-  border: 1px solid #ccc;
+  border: 1px dotted #ccc;
   padding: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 #header {
@@ -16,8 +16,12 @@ body {
 }
 
   #header .site_name {
+    font-weight: bold;
+    font-size: 1.4em;
     float: left;
   }
+  
+  #header .site_slogan { font-style: italic; }
 
 #nav {}
 
@@ -28,12 +32,11 @@ body {
   
   #nav li {
     display: inline;
-    margin-right: 1em;
   }
   
-  #nav a {
-    padding: 0.5em 1em;
-  }
+  #nav a { padding: 0.5em 1em; }
+  
+    #nav a:hover { background-color: #f2fafe; }
   
 #footer {
   font-size: 0.9em;

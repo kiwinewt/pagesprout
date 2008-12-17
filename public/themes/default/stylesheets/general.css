@@ -1,6 +1,9 @@
 /* General */
 
-body, input, select, textarea { font: 9pt "Lucida Grande", Verdana, Arial, sans-serif; }
+body, input, select, textarea {
+  color: #4a4a4a;
+  font: 10pt Georgia, Times, serif;
+}
 
 body {
   line-height: 1.6em;
@@ -15,9 +18,20 @@ strong { font-weight: bold; }
 
 p { margin: 0.5em 0 1em; }
 
+/* Links */
+
+a { text-decoration: none; }
+
+  a:link, a:visited { color: #0086ff; }
+
+  a:hover { color: #0d49e6; }
+
+  a:active { color: #e64808; }
+
 /* Headings */
 
 h1, h2, h3 {
+  color: #000;
   font-weight: bold;
   margin: 0.2em 0 0.5em;
 }
