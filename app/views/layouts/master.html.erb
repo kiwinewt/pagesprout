@@ -9,16 +9,29 @@
 <body>
   
   <div id="header">
-    <%= AppConfig.site_name %>
-    <%= AppConfig.site_slogan %>
+    <div class="site_name"><%= link_to AppConfig.site_name, root_path %></div>
+    <div class="site_slogan"><%= AppConfig.site_slogan %></div>
+  </div>
+  
+  <div id="nav">
+    <ul>
+    <% for page in Page.published.parentless %>
+      <li><%= link_to h(page.title), page %></li>
+    <% end %>
+    <% for blog in Blog.enabled %>
+      <li><%= link_to h(blog.title), blog %></li>
+    <% end %>
+    </ul>
   </div>
 
-  <div class="article">
+  <div id="article">
     <%= flash.collect { |k, v| content_tag(:div, v, :class => "flash_"+k.to_s) } %>
     <%= yield  %>
   </div>
   
-  <%= footer %>
+  <div id="footer">
+    <%= footer %>
+  </div>
 
 </body>
 </html>
