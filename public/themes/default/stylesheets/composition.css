@@ -1,76 +1,31 @@
-.article {
-  padding-top: 10px;
-  border-left: 1px solid #CCCCCC;
-  border-right: 1px solid #CCCCCC;
-  width: 848px;
-  min-height: 300px;
-}
-    
-.heading {
-  font-size: 1.5em;
-  padding: 5px 5px 5px 10px;
+/* Layout */
+
+body {
+  margin: 1em auto;
+  width: 980px;
 }
 
-.section {
-  padding: 0 25px 20px 25px;
-  float: left;
+#header, #nav, #article, #footer {
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
-  .section .element {
-    padding-top: 5px;
-    clear: both;
-  }
-    .element label {
-    	display: block;
-	    width: 300px;
-      vertical-align: top;
-    }
-    .element textarea {
-      width: 350px;
-      height: 10em;
-      border: 2px solid #cccccc;
-    }
-    .element input[type=text], .element input[type=password] {
-      width: 350px;
-      border: 2px solid #cccccc;
-    }
-  
-    .section .element .column {
-      float: left;
-      padding-left: 10px;
-      width: 9em;
-      border: 1px solid #cccccc;
-    }
+#header {
+  text-align: right;
+}
 
-  .disabled_item {
-    color: #FF0000;
+  #header .site_name {
+    float: left;
   }
 
-  .enabled_item {
-    color: #00CC00;
-  }
-  
-  td {
-    width: 150px;
-    border: 1px dotted #cccccc;
-    padding: 2px 5px;
-  }
-  
-  tr.element_odd {
-    background: #EEEEEE;
-  }
-  
-  tr.element_even {
-    background: #FFFFFF;
-  }
+#nav {
+  border: 1px solid #ccc;
+}
 
-  .section#themes tr td {
-    padding: 1em 2em 1em 1em;
-    border-top: 1px solid #cccccc;
-    text-align: left;
-  }
+#footer {
+  font-size: 0.9em;
+  text-align: right;
+}
 
-  .section#themes tr th {
-    text-align: left;
-    padding-left: 1em;
-  }
+  #footer .site_footer { float: left; }

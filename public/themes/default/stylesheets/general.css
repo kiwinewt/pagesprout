@@ -1,168 +1,37 @@
+/* General */
+
+body, input, select, textarea { font: 9pt "Lucida Grande", Verdana, Arial, sans-serif; }
+
 body {
-  color: #333;
-  padding: 0;
-  margin: 15px 0;
-  text-align: center;
-  background: #EEEEEE;
-  font-family: verdana,arial,helvetica,sans-serif;
-  font-size:13px;
-  line-height:18px;
+  line-height: 1.6em;
+  margin: 1em;
 }
 
-a {
-  color: #666666;
-  text-decoration: none;
+/* Formatting */
+
+em { font-style: italic; }
+
+strong { font-weight: bold; }
+
+p { margin: 0.5em 0 1em; }
+
+/* Headings */
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin: 0.2em 0 0.5em;
 }
 
-  .flash_error, .flash_notice {
-    padding: 5px;
-    color: #FFFFFF;
-    margin: 0;
-  }
+h1 { font-size: 1.6em; }
 
-  .flash_error {
-    background-color: #CC0000;
-  }
+h2 { font-size: 1.4em; }
 
-  .flash_notice {
-    background-color: #009900;
-  }
+h3 { font-size: 1.2em; }
 
-#header, #nav, #subnav, .article, #footer {
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
-  width: 850px;
-  text-align: left;
-  background-color: #FFFFFF;
-}
+/* Lists */
 
-#nav, #subnav {
-  list-style-type: none;
-  line-height: 35px;
-  width: 848px;
-  border-left: 1px solid #AAAAAA;
-  border-right: 1px solid #AAAAAA;
-}
-  
-#header {
-  height: 100px;
-  background-image: url("../images/header.jpg");
-  font-family: arial,helvetica,sans-serif;
-  width: 848px;
-  border: 1px solid #AAAAAA;
-  border-bottom: none;
-}
-  #header h1, #header h2 {
-    color: #FFFFFF;
-    padding: 5px 0 10px 10px;
-    margin: 10px 0 5px 10px;
-    float: left;
-    overflow: hidden;
-  }
-  
-  #header h1 {
-    font-size: 2.5em;
-  }
-  
-  #header h2 {
-    font-size: 1.1em;
-    clear: both;
-  }
+ul, ol { margin: 1em 0 1em 3em; }
 
-#nav {
-  background-image: url("../images/menbar.jpg");
-}
+ul { list-style-type: disc; }
 
-  #nav li {
-    display: inline;
-    float: left;
-    padding: 0 5px;
-    margin: 0;
-    border-left: 1px dotted #AAAAAA;
-  }
-  
-    #nav li.first {
-      border-left: none;
-    }
-    
-    #nav li.search {
-      float: right;
-      padding-right: 5px;
-      border-left: none;
-      display: inline; 
-    }
-      
-      #nav li.search form {
-        height: 1px;
-      }
-    
-      #nav li.search input[type=text] {
-        width: 125px;
-        border: 1px solid #cccccc;
-      }
-    
-      #nav li.search input[type=submit] {
-        width: 30px;
-        border: 1px solid #cccccc;
-      }
-    
-    #nav li a {
-      color: #000000;
-      text-decoration: none;
-      padding: 2px 5px;
-    }
-    
-    #nav li a:hover {
-      color: #333333;
-      text-decoration: none;
-      background: #CCCCCC;
-    }
-
-#subnav {
-  background-image: url("../images/menbar2.jpg");
-}
-
-  #subnav li {
-    display: inline;
-    float: left;
-    padding: 0 5px;
-    margin: 0;
-    border-left: 1px dotted #AAAAAA;
-  }
-    #subnav li.first {
-      border-left: none;
-    }
-    
-    #subnav li a {
-      color: #000000;
-      text-decoration: none;
-      padding: 2px 5px;
-    }
-    
-    #subnav li a:hover {
-      color: #333333;
-      text-decoration: none;
-      background: #CCCCCC;
-    }
-    
-#footer {
-  text-align: center;
-  font-size: 0.8em;
-  border-left: 1px solid #CCCCCC;
-  border-right: 1px solid #CCCCCC;
-  border-bottom: 1px solid #CCCCCC;
-  width: 848px;
-}
-
-h3.disabled_post {
-  font-style: italic;
-}
-
-h3 {
-  font-weight: normal;
-}
-
-li {
-  list-style-type: disc;
-}
+ol { list-style-type: decimal; }
