@@ -19,10 +19,22 @@ body {
     float: left;
   }
 
-#nav {
-  border: 1px solid #ccc;
-}
+#nav {}
 
+  #nav ul {
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  #nav li {
+    display: inline;
+    margin-right: 1em;
+  }
+  
+  #nav a {
+    padding: 0.5em 1em;
+  }
+  
 #footer {
   font-size: 0.9em;
   text-align: right;
