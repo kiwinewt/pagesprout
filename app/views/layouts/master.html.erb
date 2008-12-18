@@ -25,7 +25,7 @@
   </div>
 
   <div id="article">
-    <%= subnavigation_for(@page) %>
+    <%= subnavigation_for(@page) if @page && @page.children? %>
     <%= flashes %>
     <%= yield  %>
   </div>

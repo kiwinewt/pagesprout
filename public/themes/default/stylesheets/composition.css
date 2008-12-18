@@ -31,9 +31,21 @@ body {
     #nav a:hover { background-color: #f2fafe; }
 
 #article {
-  border: 1px dotted #ccc;
+  border: 1px solid #ccc;
   padding: 1em;
+  overflow: hidden;
 }
+
+  #article .nav {
+    border: 1px dotted #ccc;
+    float: right;
+    padding: 1em 0;
+    margin: 0 0 1em 1em;
+  }
+  
+    #article .nav ul {
+      margin: 0 2em;
+    }
   
 #footer {
   color: #a4a4a4;
