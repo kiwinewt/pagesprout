@@ -1,4 +1,4 @@
-h2. PageSprout
+h1. PageSprout
 
 18 December 2008
 
@@ -6,12 +6,12 @@ This is the official beta of PageSprout, a simple-to-use Ruby on Rails Content M
 
 This has been created by "Rocket Boys Ltd":http://www.rocketboys.co.nz.
 
-h3. Maintainer Contact
+h2. Maintainer Contact
 
 Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
 < nate (at) rocketboys (dot) co (dot) nz >
 
-h3. Requirements
+h2. Requirements
 
 This CMS requires:
 * Ruby on Rails 2.2.2
@@ -26,7 +26,7 @@ To automatically install the *required* gems, run:
 
   rake gems:install
 
-h3. Documentation
+h2. Documentation
 
 To generate documentation, run the command:
 
@@ -34,7 +34,7 @@ To generate documentation, run the command:
   
 For more information, visit: "http://docs.pagesprout.com":http://docs.pagesprout.com
 
-h3. Initial Set Up
+h2. Initial Set Up
 
 Set up your preferences by modifying the contents and removing the ".sample" extension from the following files:
 
@@ -48,7 +48,7 @@ Start your server by issuing:
   
 From the CMS directory and visiting "http://localhost:3000":http://localhost:3000.
 
-h3. Quick Start for Developers
+h2. Quick Start for Developers
 
 # Create a new user. The first user will be the site admin.
 # Create new pages and blogs via the menus.
@@ -59,7 +59,7 @@ h3. Quick Start for Developers
 * Add your Public and Private API keys to the config/config.yml file.
 
 
-h3. Deployment
+h2. Deployment
 
 Uncomment the first line in config/environment.rb:
 
