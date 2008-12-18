@@ -39,13 +39,13 @@ module ApplicationHelper
   end
   
   def subnavigation_for(page)
-    content_tag(:div, content_tag(:ul, list_items_for_page(page), :class => 'pages'), :class => 'nav')
+    content_tag(:div, list_for_page(page, :class => 'pages'), :class => 'nav')
   end
   
-  def list_items_for_page(page)
-    html = content_tag :li, link_to(h(page.name), page)
-    return html unless page.children?
-    html + content_tag(:ul, page.children.map { |child| content_tag(:li, list_items_for_page(child)) })
+  def list_for_page(page, options = {})
+    content_tag(:ul, page.children.map { |child|
+      content_tag(:li, link_to(h(child.title), child) + list_for_page(child))
+    }, options)
   end
 
 end
