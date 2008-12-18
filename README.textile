@@ -2,9 +2,9 @@ h1. PageSprout
 
 18 December 2008
 
-This is the official beta of PageSprout, a simple-to-use Ruby on Rails Content Management System.
+This is the official beta of "PageSprout":http://pagesprout.com, a simple-to-use Ruby on Rails Content Management System.
 
-This has been created by "Rocket Boys Ltd":http://www.rocketboys.co.nz.
+This has been created by "Rocket Boys Ltd":http://rocketboys.co.nz.
 
 h2. Initial Set Up
 
@@ -24,7 +24,7 @@ h2. Quick Start for Developers
 
 # Create a new user. The first user will be the site admin.
 # Create new pages and blogs via the menus.
-# For new themes, please visit: "http://www.pagesprout.com":http://www.pagesprout.com
+# For new themes, please visit: "http://www.pagesprout.com":http://pagesprout.com
 # For information on how to create a custom theme, please visit: "http://style.pagesprout.com":http://style.pagesprout.com
 # To add a CAPTCHA to your contact page, please:
 * Sign up at "http://recaptcha.net":http://recaptcha.net
@@ -72,4 +72,4 @@ h2. Maintainer Contact
 Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
 < nate (at) rocketboys (dot) co (dot) nz >
 
-Please raise issues, bugs, contributions by email - see "http://www.pagesprout.com":http://www.pagesprout.com
+Please raise issues, bugs, contributions by email - see "http://pagesprout.com":http://pagesprout.com for more information.
