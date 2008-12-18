@@ -5,7 +5,6 @@ home:
   home_page: true
   enabled: false
   user: john
-  parent_id: 0
   
 sub_page:
   title: More About Us
@@ -27,12 +26,10 @@ draft:
   body: First, take one delicious child...
   enabled: false
   user: john
-  parent_id: 0
 
 about:
   title: About Us
   body: HELP ME I'M STUCK IN A FACTORY ABOUT TO BE TURNED INTO WAFFLES!!!
   enabled: true
   user: john
-  parent_id: 0
   

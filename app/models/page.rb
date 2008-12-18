@@ -36,12 +36,12 @@ class Page < ActiveRecord::Base
   
   # Return the permalink with underscores and dashes split to spaces to allow better search.
   def permalink_with_spaces
-    return self.permalink.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
+    permalink.gsub(/["-"]/, ' ').gsub(/["_"]/, ' ')
   end
   
   # Check if a page is at the top of the tree
   def root?
-    self.parent_id == 0
+    parent.nil?
   end
   
   # find all pages that have this page as a parent.
@@ -60,12 +60,7 @@ class Page < ActiveRecord::Base
   
   #check if the page is the first to be created
   def first_page?
-    pages = Page.all.length
-    if pages == 0
-      true
-    else
-      false
-    end
+    self.class.count == 0
   end
   
   # Return the permalink as the page ID

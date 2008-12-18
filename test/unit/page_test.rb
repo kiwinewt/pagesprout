@@ -50,7 +50,7 @@ class PageTest < ActiveSupport::TestCase
     assert page.permalink_with_spaces.include? " "
   end
   
-  test "is home page" do
+  test "home page" do
     assert !Page.home?
     page = pages(:home)
     page.enabled = true
@@ -59,7 +59,7 @@ class PageTest < ActiveSupport::TestCase
     assert_equal( Page.home, page )
   end
   
-  test "is root page" do
+  test "root page" do
     page = pages(:home)
     assert page.root?
     page = pages(:sub_page)
