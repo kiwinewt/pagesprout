@@ -53,12 +53,7 @@ class PagesController < ApplicationController
   def new
     @page = Page.new
     @page.home_page = true if @page.first_page?
-    
-    if Page.find_by_permalink(params[:id])
-      @parent_id = params[:id]
-    else
-      @parent_id = "0"
-    end
+    @page.parent = Page.find_by_permalink(params[:id]) if params[:id]
   end
 
   # GET /pages/1/edit
