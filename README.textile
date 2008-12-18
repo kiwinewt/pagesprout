@@ -38,9 +38,9 @@ h3. Initial Set Up
 
 Set up your preferences by modifying the contents and removing the ".sample" extension from the following files:
 
-  config/config.yml.sample                (config/config.yml)
-  config/database.yml.sample              (config/database.yml)
-  config/initializers/mail.rb.sample      (config/initializers/mail.rb)
+  config/config.yml.sample            ->  config/config.yml
+  config/database.yml.sample          ->  config/database.yml
+  config/initializers/mail.rb.sample  ->  config/initializers/mail.rb
   
 Start your server by issuing:
 
