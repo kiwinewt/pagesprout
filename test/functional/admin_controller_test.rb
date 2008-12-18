@@ -2,13 +2,13 @@ require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
 
-  def test_require_admin
+  test "requires admin" do
     user_signin
-    get :index  
+    get :index
     assert_response :success
   end
   
-  def test_no_admin_new_session
+  test "no admin new session" do
     get :index
     assert_redirected_to new_session_path
   end

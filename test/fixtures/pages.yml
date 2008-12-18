@@ -9,7 +9,7 @@ home:
 sub_page:
   title: More About Us
   body: Our waffles are made from 100% organic material.
-  permalink: about_us
+  permalink: more_about_us
   enabled: true
   user: john
   parent: home
@@ -17,6 +17,7 @@ sub_page:
 sub_sub_page:
   title: Even More About Us
   body: Our waffles are made from children.
+  permalink: even_more_about_us
   enabled: true
   user: john
   parent: sub_page
@@ -24,12 +25,14 @@ sub_sub_page:
 draft:
   title: Cooking Process
   body: First, take one delicious child...
+  permalink: cooking_process
   enabled: false
   user: john
 
 about:
   title: About Us
   body: HELP ME I'M STUCK IN A FACTORY ABOUT TO BE TURNED INTO WAFFLES!!!
+  permalink: about_us
   enabled: true
   user: john
   
