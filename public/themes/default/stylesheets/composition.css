@@ -17,11 +17,6 @@ body {
   
   #header .site_slogan { font-style: italic; }
 
-#article {
-  border: 1px dotted #ccc;
-  padding: 1em;
-}
-
 #nav { text-align: center; }
 
   #nav ul {
@@ -34,6 +29,11 @@ body {
   #nav a { padding: 0.5em 1em; }
   
     #nav a:hover { background-color: #f2fafe; }
+
+#article {
+  border: 1px dotted #ccc;
+  padding: 1em;
+}
   
 #footer {
   color: #a4a4a4;
