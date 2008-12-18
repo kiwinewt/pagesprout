@@ -1,8 +1,8 @@
 h2. PageSprout
 
-2 December 2008
+18 December 2008
 
-This is the official beta of PageSprout 1.0 which is an awesome Ruby on Rails Content Management System.
+This is the official beta of PageSprout, a simple-to-use Ruby on Rails Content Management System.
 
 This has been created by "Rocket Boys Ltd":http://www.rocketboys.co.nz.
 
@@ -34,31 +34,32 @@ To generate documentation, run the command:
   
 For more information, visit: "http://docs.pagesprout.com":http://docs.pagesprout.com
 
-h3. Installation Instructions
+h3. Initial Set Up
 
-Extract all the folders and files to the root of your web directory. You should then have this directory structure:
+Set up your preferences by modifying the contents and removing the ".sample" extension from the following files:
 
-  app
-  config
-  db
-  doc
-  lib
-  LICENCE
-  log
-  public
-  Rakefile
-  README
-  README.textile
-  script
-  vendor
+  config/config.yml.sample                (config/config.yml)
+  config/database.yml.sample              (config/database.yml)
+  config/initializers/mail.rb.sample      (config/initializers/mail.rb)
+  
+Start your server by issuing:
 
-Please read the LICENCE file
+  $ script/server
+  
+From the CMS directory and visiting "http://localhost:3000":http://localhost:3000.
 
-Configure the CMS for your preferences by copying these files to these locations then modifying them as required:
+h3. Quick Start for Developers
 
-  config/config.yml.sample                config/config.yml
-  config/database.yml.sample              config/database.yml
-  config/initializers/mail.rb.sample      config/initializers/mail.rb
+# Create a new user. The first user will be the site admin.
+# Create new pages and blogs via the menus.
+# For new themes, please visit: "http://www.pagesprout.com":http://www.pagesprout.com
+# For information on how to create a custom theme, please visit: "http://style.pagesprout.com":http://style.pagesprout.com
+# To add a CAPTCHA to your contact page, please:
+* Sign up at "http://recaptcha.net":http://recaptcha.net
+* Add your Public and Private API keys to the config/config.yml file.
+
+
+h3. Deployment
 
 Uncomment the first line in config/environment.rb:
 
@@ -69,21 +70,8 @@ Create the database by running these from the command line:
   rake db:create RAILS_ENV=production
   rake db:migrate RAILS_ENV=production
 
-Run the CMS from whatever Rails server setup you use. On a development machine, Mongrel is a good starting server.
+Run the CMS using your production Rails server set up.
+
+<hr />
 
 Please raise issues, bugs, contributions by email - see "http://www.pagesprout.com":http://www.pagesprout.com
-
-h3. Usage Overview
-
-# Open a web browser and access the site from whatever location the server is set to run from (e.g.: http://localhost:3000)
-# Create a new user. The first user will be the site admin.
-# Create new pages and blogs via the menus.
-# For new themes, please visit: "http://www.pagesprout.com":http://www.pagesprout.com
-# For information on how to create a custom theme, please visit: "http://style.pagesprout.com":http://style.pagesprout.com
-# To add a CAPTCHA to your contact page, please:
-* Sign up at "http://recaptcha.net":http://recaptcha.net
-* Add your Public and Private API keys to the config/config.yml file.
-
-h3. Known issues
-
-* Currently none
