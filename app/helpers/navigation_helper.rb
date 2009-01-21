@@ -14,8 +14,10 @@ module NavigationHelper
     for blog in Blog.enabled
       pages << link_to( h(blog.title), blog )
     end
-    # Example of how easy it is to add a new item to the navigation
+    # Example of how easy it is to add a new item to the navigation:
     pages << link_to( "Contact", contact_path )
+    # Want a custom, funky external link? Simple:
+    # pages << '<a href="http://www.pagesprout.com">PageSprout</a>'
     pages
   end
   
