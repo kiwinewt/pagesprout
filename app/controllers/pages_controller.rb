@@ -64,6 +64,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     @page.user = current_user
+    @page.parent_id = nil if @page.parent_id == 0
     
     # set the first page created as main home page
     if @page.first_page?
