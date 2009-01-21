@@ -15,12 +15,7 @@
   
   <div id="nav">
     <ul>
-    <% for page in Page.published.parentless %>
-      <li><%= link_to h(page.title), page %></li>
-    <% end %>
-    <% for blog in Blog.enabled %>
-      <li><%= link_to h(blog.title), blog %></li>
-    <% end %>
+      <%= navigation_list.each {|page| "<li>#{page}</li>" } %>
     </ul>
   </div>
 

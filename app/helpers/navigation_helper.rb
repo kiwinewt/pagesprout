@@ -6,4 +6,17 @@ module NavigationHelper
     concat content_tag(:div, content, :class => 'breadcrumbs')
   end
   
+  def navigation_list
+    pages = []
+    for page in Page.published.parentless
+      pages << link_to( h(page.title), page )
+    end
+    for blog in Blog.enabled
+      pages << link_to( h(blog.title), blog )
+    end
+    # Example of how easy it is to add a new item to the navigation
+    pages << link_to( "Contact", contact_path )
+    pages
+  end
+  
 end
