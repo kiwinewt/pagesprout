@@ -1,10 +1,10 @@
 h1. PageSprout
 
-18 December 2008
+26 October 2009
 
 This is the official beta of "PageSprout":http://pagesprout.com, a simple-to-use Ruby on Rails Content Management System.
 
-This has been created by "Rocket Boys Ltd":http://rocketboys.co.nz.
+This has been created by Nate Walker of "Kiwinewt.Geek Enterprises Ltd":http://kiwinewt.geek.nz.
 
 h2. Initial Set Up
 
@@ -33,8 +33,7 @@ h2. Quick Start for Developers
 h2. Requirements
 
 This CMS requires:
-* Ruby on Rails 2.2.2
-* The ferret gem
+* Ruby on Rails 2.3.4
 * OpenSSL (libopenssl-ruby1.8)
 
 Depending on your setup:
@@ -69,7 +68,7 @@ Run the CMS using your production Rails server set up.
 
 h2. Maintainer Contact
 
-Nate Walker (Nickname: kiwinewt) - Rocket Boys Ltd
-< nate (at) rocketboys (dot) co (dot) nz >
+Nate Walker (Nickname: kiwinewt) - Kiwinewt.Geek Enterprises Ltd
+< nate (at) kiwinewt (dot) geek (dot) nz >
 
 Please raise issues, bugs, contributions by email - see "http://pagesprout.com":http://pagesprout.com for more information.
