@@ -14,9 +14,6 @@ class Page < ActiveRecord::Base
   named_scope :sub_page, lambda { |parent_id| { :conditions => { :parent_id => parent_id } } }
   
   acts_as_tree :order => "title"
-  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :permalink_with_spaces => {} },
-                 :remote => true,
-                 :store_class_name => true
   
   version_fu do
     belongs_to :user

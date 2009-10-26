@@ -6,10 +6,6 @@ class Blog < ActiveRecord::Base
   
   named_scope :enabled, lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   
-  acts_as_ferret :fields => { :title => { :boost => 2 }, :description => {}, :permalink_with_spaces => {} },
-                 :remote => true,
-                 :store_class_name => true
-  
   validates_presence_of :title, :description
   validates_uniqueness_of :title, :permalink
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i

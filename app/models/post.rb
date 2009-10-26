@@ -9,10 +9,6 @@ class Post < ActiveRecord::Base
   named_scope :published,  lambda { |*limit| { :conditions => { :enabled => true }, :limit => limit.flatten.first } }
   named_scope :draft,  lambda { |*limit| { :conditions => { :enabled => false }, :limit => limit.flatten.first } }
   
-  acts_as_ferret :fields => { :title => { :boost => 2 }, :body => {}, :permalink_with_spaces => {} },
-                 :remote => true,
-                 :store_class_name => true
-  
   validates_presence_of :title, :body, :permalink, :user, :blog
   validates_uniqueness_of :permalink
   validates_format_of :permalink, :with => /^[a-z0-9\-_]+$/i
