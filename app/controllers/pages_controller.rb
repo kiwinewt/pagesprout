@@ -138,6 +138,10 @@ class PagesController < ApplicationController
       format.xml { render :layout => false }
     end
   end
+
+  def contact
+    render :layout => 'master'
+  end
     
   # Take the details from the contact form and pass them to the Emailer so that they can be sent.
   # On error it will send the user back to the home page with an error message

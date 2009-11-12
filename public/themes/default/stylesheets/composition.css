@@ -46,6 +46,26 @@ body {
     #article .nav ul {
       margin: 0 2em;
     }
+
+  #contact .element {
+		text-align: left;
+		margin: 10px 0;
+	}
+
+	#contact .element label {
+		display: inline-block;
+		width: 100px;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	#contact .element input, #contact .element textarea {
+		width: 300px;
+	}
+
+	#contact .element input.submit {
+	width: 100px;
+	}
   
 #footer {
   color: #a4a4a4;
