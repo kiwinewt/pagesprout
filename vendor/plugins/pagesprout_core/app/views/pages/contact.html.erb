@@ -1,0 +1,32 @@
+<%= page_heading 'Contact Us' %>
+
+<div id="contact" class="section">
+  <% form_tag(:action => :send_contact_form) do |f| %>
+
+    <div class="element">
+      <%= label_tag "name" %>
+      <%= text_field_tag "name" %>
+    </div>
+
+    <div class="element">
+      <%= label_tag "email" %>
+      <%= text_field_tag "email" %>
+    </div>
+    
+    <div class="element">
+      <%= label_tag "subject" %>
+      <%= text_field_tag "subject" %>
+    </div>
+
+    <div class="element">
+      <%= label_tag "message" %>
+      <%= text_area_tag "message" %>
+    </div>
+    
+    <%= add_recaptcha_tags %>
+    
+    <div class="element">
+      <%= submit_tag 'Send' %>
+    </div>
+  <% end %>
+</div>

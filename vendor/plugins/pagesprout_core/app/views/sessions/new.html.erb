@@ -1,0 +1,25 @@
+<%= page_heading 'Log In' %>
+
+<% form_tag session_path do %>
+    
+  <div class="element">
+    <%= label_tag :login, 'Username' %>
+    <%= text_field_tag :login %>
+  </div>
+    
+  <div class="element">
+    <%= label_tag :password, 'Password' %>
+    <%= password_field_tag :password %>
+    <%= link_to "Forgot password?", forgot_password_path %>
+  </div>
+    
+  <div class="checklist">
+    <%= check_box_tag :remember_me %>
+    <%= label_tag :remember_me, 'Remember me' %>
+  </div>
+    
+  <div class="actions">
+    <%= submit_tag 'Log in' %>
+    or <%= link_to "Sign Up", new_user_path %>
+  </div>
+<% end %>

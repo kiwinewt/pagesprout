@@ -1,0 +1,7 @@
+<%= page_heading h(@user.login) %>
+
+<p>Joined on: <%= @user.created_at.to_s(:long) %></p>
+
+<% if current_user.admin? || current_user == @user %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
+<% end %>

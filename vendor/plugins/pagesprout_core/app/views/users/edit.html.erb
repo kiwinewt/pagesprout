@@ -1,0 +1,10 @@
+<%= page_heading 'Edit Profile' %>
+
+<% enhanced_form_for @user do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Save" %>
+    or <%= link_to 'Cancel', users_path %>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,16 @@
+<%= page_heading "Welcome to #{CMS_NAME}" %>
+
+<p>
+  Welcome to your new site!
+</p>
+
+<p>
+  To get started:
+</p>
+
+<ol>
+  <% if !logged_in? %>
+    <li><%= link_to 'Create an account', signup_path -%></li>
+  <% end %>
+  <li><%= link_to 'Create a home page', new_page_path -%></li>
+</ol>

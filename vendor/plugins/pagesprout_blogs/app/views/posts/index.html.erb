@@ -1,0 +1,55 @@
+<% breadcrumbs do %>
+  <%= link_to 'Blogs &raquo;', blogs_path %>
+<% end %>
+  
+<%= page_heading "#{h(@blog.title)}'s Posts" %>
+
+<div class="content">
+
+  <% if @blog.posts? %>
+  
+  <div class="sort">
+    Show: 
+    <%= link_to_unless_current 'All', blog_posts_path %> |
+    <%= link_to_unless_current 'Published', published_blog_posts_path %> |
+    <%= link_to_unless_current 'Draft', draft_blog_posts_path %>
+  </div>
+  
+  <%= link_to 'New Post', new_blog_post_path %>
+  
+  <table>
+    <% if @posts.present? %>
+      <% for post in @posts %>
+        <tr class="<%= alternate_row %>">
+          <td><%= link_to h(post.title), edit_blog_post_path(@blog, post) %></td>
+          <td><%= post.published? ? 'Published' : 'Draft' %></td>
+          <td>
+            <%= link_to 'Visit', [@blog, post] %>
+            <%= link_to 'Edit', edit_blog_post_path(@blog, post) %>
+            <%= link_to 'Delete', [@blog, post], :method => :delete, :confirm => 'Are you sure?' %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td class="empty">There are no <%= controller.action_name %> posts.</td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= link_to 'New Post', new_blog_post_path %>
+  
+  <% else %>
+    <div class="empty">
+      <p>
+        You currently don't have any posts for <b><%=h @blog.title %></b>.
+      </p>
+      
+      <p>
+        <%= link_to 'Create a New Post', new_blog_post_path %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= aside_help_for :posts %>

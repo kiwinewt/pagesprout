@@ -1,0 +1,85 @@
+/* Layout */
+
+body {
+  margin: 2em auto;
+  width: 980px;
+}
+
+#header, #nav, #article, #footer { margin-bottom: 1em; }
+
+#header { text-align: right; }
+
+  #header .site_name {
+    font-weight: bold;
+    font-size: 1.4em;
+    float: left;
+  }
+  
+  #header .site_slogan { font-style: italic; }
+
+#nav { text-align: center; }
+
+  #nav ul {
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  #nav li { display: inline; }
+  
+  #nav a { padding: 0.5em 1em; }
+  
+    #nav a:hover { background-color: #f2fafe; }
+
+#article {
+  border: 1px solid #ccc;
+  padding: 1em;
+  overflow: hidden;
+}
+
+  #article .nav {
+    border: 1px dotted #ccc;
+    float: right;
+    padding: 1em 0;
+    margin: 0 0 1em 1em;
+  }
+  
+    #article .nav ul {
+      margin: 0 2em;
+    }
+
+  #contact .element {
+		text-align: left;
+		margin: 10px 0;
+	}
+
+	#contact .element label {
+		display: inline-block;
+		width: 100px;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	#contact .element input, #contact .element textarea {
+		width: 300px;
+	}
+
+	#contact .element input.submit {
+	width: 100px;
+	}
+  
+#footer {
+  color: #a4a4a4;
+  font-size: 0.9em;
+  text-align: right;
+}
+
+  #footer .site_footer { float: left; }
+  
+  #footer a:link, #footer a:visited { color: #7a7a7a; }
+  
+  #footer a:hover {
+    color: #4a4a4a;
+    text-decoration: underline;
+  }
+  
+  #footer a:active { color: #000; }

@@ -1,0 +1,9 @@
+<%= page_heading 'New Page' %>
+
+<% enhanced_form_for(@page) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= submit_tag 'Create' %>
+    or <%= link_to 'Cancel', list_pages_path %>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= page_heading 'Sign Up' %>
+
+<% enhanced_form_for @user do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Sign Up" %>
+    or <%= link_to 'Log In', login_path %>
+  <% end %>
+<% end %>

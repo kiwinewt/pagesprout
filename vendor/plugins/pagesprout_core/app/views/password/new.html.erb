@@ -1,0 +1,13 @@
+<%= page_heading = 'Forgot Password' %>
+
+<div class="section">
+  <% form_tag url_for(:action => 'create') do %>
+    <div class="element">
+      What is the email address used to create your account?<br />
+      <%= text_field_tag :email, "" %>
+    </div>
+    <div class="element">
+      <%= submit_tag 'Reset Password' %>
+    </div>
+  <% end %>
+</div>

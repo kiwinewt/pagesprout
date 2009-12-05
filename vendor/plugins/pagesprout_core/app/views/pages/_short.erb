@@ -1,0 +1,4 @@
+<li>  
+  <%= link_to h(page.title), edit_page_path(page) %>
+  <span class="age">Last updated <%= time_ago_in_words page.updated_at %> ago.</span>
+</li>

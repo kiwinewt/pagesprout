@@ -1,0 +1,149 @@
+/* General */
+
+body {
+  background-color: #f9f9f9;
+  color: #444;
+  margin: 1em auto;
+  width: 980px;
+}
+
+h1, h2, h3 { color: #000; }
+
+/* Core Layout */
+
+#header { padding: 0 2em; }
+
+  #header .project_name {
+    float: left;
+    font-size: 1.6em;
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+  }
+  
+  #header #nav, #header #user { 
+    clear: right;
+    float: right;
+  }
+
+#user {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+ul#nav {
+  list-style-type: none;
+  margin: 0;
+}
+  
+  #nav li { float: left; }
+  
+  #nav a {
+    background-color: #ddf;
+    float: left;
+    padding: 0.5em 1em;
+  }
+  
+  #nav a:hover { background-color: #eef; }
+  
+  #nav .selected, #nav .selected:hover { background-color: #fff; }
+
+.flash {
+  clear: both;
+}
+
+#page {
+  clear: both;
+  background-color: #fff;
+  overflow: hidden; /* No clearfix yet */
+  padding: 20px;
+}
+
+  #page .content {
+    float: left;
+    width: 700px;
+  }
+  
+  #page .aside {
+    background-color: #f9f9f9;
+    float: right;
+    font-size: 0.9em;
+    padding: 10px;
+    width: 200px;
+  }
+
+#footer {
+  color: #999;
+  font-size: 0.9em;
+}
+
+/* Blogs */
+
+#blogs { border: 2px solid #eee; }
+
+  ul#blogs {
+    margin: 0 0 1em;
+    list-style-type: none;
+  }
+  
+    ul#blogs li {
+      padding: 0.5em;
+    }
+    
+    ul#blogs .age {
+      float: right;
+      color: #999;
+      font-style: italic;
+    }
+
+.blog { padding: 1em; }
+
+  .blog.even { background-color: #eef; }
+  
+  .blog .name { float: left; }
+  
+  .blog .actions { float: right; }
+  
+  .blog .status { clear: both; }
+
+/* Themes */
+
+#themes { border: 2px solid #eee; }
+
+.theme {
+  float: left;
+  padding: 1em;
+  text-align: center;
+  width: 150px;
+}
+
+  .theme img {
+    height: 100px;
+    width: 150px;
+  }
+  
+  .theme.selected {
+    border: 2px solid #f00;
+  }
+
+/* Pages */
+
+#pages { border: 2px solid #eee; }
+
+  ul#pages {
+    margin: 0 0 1em;
+    list-style-type: none;
+  }
+  
+    ul#pages li {
+      padding: 0.5em 1em;
+      text-align: right;
+    }
+    
+    ul#pages .age {
+      color: #999;
+      font-style: italic;
+    }
+    
+    ul#pages a {
+      float: left;
+    }

@@ -1,0 +1,23 @@
+<%= page_heading "#{h(@page.title)}'s History" %>
+
+<% breadcrumbs do %>
+  <%= link_to "Pages &raquo;", list_pages_path %>
+  <%= link_to "#{h(@page.title)} &raquo;", edit_page_path(@page) %>
+<% end %>
+
+<table>
+  <% for version in @versions 
+    # TODO set omission to have a 'more' link, add in # of words
+  %>
+    <tr class="<%= alternate_row %>">
+      <td>#<%=h version.version %></td>
+      <td><%= truncate h(version.body), :length => 60, :omission => '&hellip;' %></td>
+      <td>
+        Made <%= time_ago_in_words(version.updated_at).capitalize %> ago by 
+        <%= link_to(h(version.user.name), version.user) if version.user %></td>
+      <td>
+        <%= link_to 'Revert', :controller => "pages", :action => "revert_to_version", :id => @page, :version => version.version %>
+      </td>
+    </tr>
+  <% end %>
+</table>

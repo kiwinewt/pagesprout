@@ -1,0 +1,31 @@
+<%= page_heading 'Blogs' %>
+
+<div class="content">
+  <% if @blogs.present? %>
+    <p>
+      <%= link_to 'New Blog', new_blog_path %>
+    </p>
+    
+    <div id="blogs">
+      <%= render :partial => @blogs %>
+    </div>
+    
+    <p>
+      <%= link_to 'New Blog', new_blog_path %>
+    </p>
+  <% else %>
+    
+    <div class="empty">
+      <p>
+        You currently don't have any blogs.
+      </p>
+      
+      <p>
+        <%= link_to 'Create a Blog', new_blog_path %>
+      </p>
+    </div>
+    
+  <% end %>
+</div>
+
+<%= aside_help_for :blogs %>

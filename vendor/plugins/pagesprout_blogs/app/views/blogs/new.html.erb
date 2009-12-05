@@ -1,0 +1,11 @@
+<%= page_heading 'New Blog' %>
+
+<% enhanced_form_for(@blog, :html => { :class => 'content' }) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit "Create" %>
+    or <%= link_to 'Cancel', blogs_path %>
+  <% end %>
+<% end %>
+
+<%= aside_help_for :blogs %>

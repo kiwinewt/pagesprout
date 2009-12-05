@@ -1,0 +1,21 @@
+<%= page_heading 'New Role' %>
+
+<div class="section">
+  <% form_for([@user, @role]) do |f| %>   
+    <div class="element">
+      <%= f.error_messages %>
+    </div>
+    
+    <div class="element">
+      <%= f.label :rolename %><br />
+      <%= f.text_field :rolename %>
+    </div>
+    
+    <div class="element">
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+  <div class="element">
+    <%= link_to 'Back', user_roles_path %>
+  </div>
+</div>

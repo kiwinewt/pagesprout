@@ -1,0 +1,51 @@
+/* General */
+
+body, input, select, textarea {
+  color: #4a4a4a;
+  font: 10pt Georgia, Times, serif;
+}
+
+body {
+  line-height: 1.6em;
+  margin: 1em;
+}
+
+/* Formatting */
+
+em { font-style: italic; }
+
+strong { font-weight: bold; }
+
+p { margin: 0.5em 0 1em; }
+
+/* Links */
+
+a { text-decoration: none; }
+
+  a:link, a:visited { color: #0086ff; }
+
+  a:hover { color: #0d49e6; }
+
+  a:active { color: #e64808; }
+
+/* Headings */
+
+h1, h2, h3 {
+  color: #000;
+  font-weight: bold;
+  margin: 0.2em 0 0.5em;
+}
+
+h1 { font-size: 1.6em; }
+
+h2 { font-size: 1.4em; }
+
+h3 { font-size: 1.2em; }
+
+/* Lists */
+
+ul, ol { margin: 0.5em 0 0.5em 2em; }
+
+ul { list-style-type: disc; }
+
+ol { list-style-type: decimal; }

@@ -1,0 +1,10 @@
+<%= page_heading 'Edit Page' %>
+
+<% enhanced_form_for(@page) do |f| %>
+  <%= f.standard_fields %>
+  <% f.actions do %>
+    <%= f.submit 'Update' %>
+    or <%= link_to 'Delete', @page, :method => :delete, :confirm => 'Are you sure?' %>
+    or <%= link_to 'Cancel', list_pages_path %>
+  <% end %>
+<% end %>

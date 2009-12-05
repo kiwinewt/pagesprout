@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= page_title %></title>
+  <%= stylesheet_link_tag Theme.active.stylesheet_path %>
+  <%= scripts %>
+</head>
+<body>
+  
+  <div id="header">
+    <div class="site_name"><%= link_to AppConfig.site_name, root_path %></div>
+    <div class="site_slogan"><%= AppConfig.site_slogan %></div>
+  </div>
+  
+  <div id="nav">
+    <ul>
+      <%= navigation_list.each {|page| "<li>#{page}</li>" } %>
+    </ul>
+  </div>
+
+  <div id="article">
+    <%= subnavigation_for(@page) if @page && @page.children? %>
+    <%= flashes %>
+    <%= yield  %>
+  </div>
+  
+  <div id="footer">
+    <%= footer %>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+<%= f.text_field :title %>
+<%= f.text_area :body %>
+<% f.checklist do %>
+  <%= f.check_box :enabled, :label => 'Published' %>
+<% end %>

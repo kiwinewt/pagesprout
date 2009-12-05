@@ -1,0 +1,18 @@
+<%= page_heading "Roles for #{h(@user.login.capitalize)}" %>
+
+<div class="section">
+  <h3>Roles assigned:</h3>
+  <ul class="element">
+    <%= render :partial => 'role', :collection => @user.roles %>
+  </ul>
+</div>
+
+<div class="section">
+  <h3>Roles available:</h3>
+  <ul class="element">
+    <%= render :partial => 'role', :collection => (@roles - @user.roles) %>
+  </ul>
+  <!-- <div class="element">
+    <%= link_to 'New Role', new_user_role_path() %>
+  </div> -->
+</div>

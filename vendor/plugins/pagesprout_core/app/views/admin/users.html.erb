@@ -1,0 +1,11 @@
+<%= page_heading 'Administer Users' %>
+<table class="section" >
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Enabled?</th>
+    <th>Roles</th>
+  </tr>
+    <%= render :partial => 'user', :collection => @users -%>
+</table>
+

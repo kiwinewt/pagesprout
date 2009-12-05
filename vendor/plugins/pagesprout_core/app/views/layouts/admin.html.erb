@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%= page_title %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%= stylesheet_link_tag Theme.admin.stylesheet_path %>
+    <%= scripts %>
+  </head>
+  <body>
+  
+    <div id="header">
+      <%= link_to AppConfig.site_name, root_path, :class => 'project_name' %> 
+      <% if logged_in? %>
+        <div id="user">
+          <%=h current_user.name %> &bull;
+          <%= link_to 'My Account', current_user %> &bull;
+          <%= link_to 'Log Out', logout_path %>
+        </div>
+        <ul id="nav">
+          <li><%= link_with_selected 'Manage', admin_path %></li>
+          <li><%= link_with_selected 'Pages', list_pages_path, :pages %></li>
+          <li><%= link_with_selected 'Blogs', blogs_path, :blogs, :posts %></li>
+          <li><%= link_with_selected 'Design', themes_path %></li>
+          <li><%= link_with_selected 'People', users_path, :users %></li>
+        </ul>
+      <% end %>
+    </div>
+    <%= flashes %>
+    
+    <div id="page">
+      <%= yield %>
+    </div>
+    
+    <div id="footer">
+      Powered by <%= link_to CMS_NAME, CMS_WEBSITE %>
+    </div>
+    
+  </body>
+</html>

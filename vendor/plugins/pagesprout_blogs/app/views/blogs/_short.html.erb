@@ -1,0 +1,7 @@
+<li>
+  <% if blog.posts.present? %>
+    <span class="age">Last post made <%= time_ago_in_words(blog.posts.last.updated_at) %> ago.</span>
+  <% end %>
+  <%= link_to h(blog.title), blog_posts_path(blog) %>
+  <%= link_to 'New Post', new_blog_post_path(blog) %>
+</li>

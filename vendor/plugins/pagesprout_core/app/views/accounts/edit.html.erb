@@ -1,0 +1,25 @@
+<%= page_heading 'Change Password' %>
+
+<div class="section">
+  <% form_tag url_for(:action => "update") do %>
+    <div class="element">
+      <label for="old_password" class="block">Old Password</label>
+      <%= password_field_tag 'old_password', @old_password, :size => 45 %>
+    </div>
+
+    <div class="element">
+      <label for="password" class="block">New Password</label>
+      <%= password_field_tag 'password', {}, :size => 45 %>
+      <small>Between 4 and 40 characters</small>
+    </div>
+
+    <div class="element">
+      <label for="password_confirmation"  class="block">Confirm new password</label>
+      <%= password_field_tag 'password_confirmation', {}, :size => 45 %>
+    </div>
+
+    <div class="element">
+      <%= submit_tag 'Change password' %>
+    </div>
+  <% end %>
+</div>

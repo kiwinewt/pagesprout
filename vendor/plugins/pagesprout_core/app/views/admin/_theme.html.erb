@@ -1,0 +1,4 @@
+<% link_to(activate_theme_path(theme.name), :class => 'theme' + (' selected' if theme.active?).to_s) do %>
+  <%= image_tag theme.screenshot_path, :alt => theme.name.humanize %>
+  <%= theme.name.humanize %>
+<% end %>

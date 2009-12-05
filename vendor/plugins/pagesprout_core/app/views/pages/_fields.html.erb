@@ -1,0 +1,13 @@
+<%= f.text_field :title %>
+<%= f.text_area :body %>
+<%= f.text_field :permalink, :note => 'Only letters, numbers, underscores and hypens are allowed.' %>
+
+<% f.checklist do %>
+  <%= f.check_box :home_page, :label => 'Set as home page' %>
+<% end %>
+
+<% f.checklist do %>
+  <%= f.check_box :enabled, :label => 'Published' %>
+<% end %>
+
+<%= f.hidden_field :parent_id %>
