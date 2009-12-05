@@ -1,6 +1,6 @@
 h1. PageSprout
 
-26 October 2009
+05 December 2009
 
 This is the official beta of "PageSprout":http://pagesprout.com, a simple-to-use Ruby on Rails Content Management System.
 
@@ -33,7 +33,7 @@ h2. Quick Start for Developers
 h2. Requirements
 
 This CMS requires:
-* Ruby on Rails 2.3.4
+* Ruby on Rails 2.3.5
 * OpenSSL (libopenssl-ruby1.8)
 
 Depending on your setup:
