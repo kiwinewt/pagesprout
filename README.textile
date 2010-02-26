@@ -33,7 +33,7 @@ h2. Quick Start for Developers
 h2. Requirements
 
 This CMS requires:
-* Ruby on Rails 2.3.4
+* Ruby on Rails 2.3.5
 * OpenSSL (libopenssl-ruby1.8)
 
 Depending on your setup:

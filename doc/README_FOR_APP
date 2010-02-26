@@ -12,8 +12,7 @@ Nate Walker (Nickname: kiwinewt) - Kiwinewt.Geek Ltd
 
 == Requirements
 This CMS requires:
-* Ruby on Rails 2.3.4
-* The ferret gem
+* Ruby on Rails 2.3.5
 * OpenSSL (libopenssl-ruby1.8)
 Depending on your setup:
 * The mysql gem
