@@ -1,5 +1,5 @@
-# Author::    Rocket Boys  (mailto: rocketboys at rocketboys dot co dot nz)
-# Copyright:: Copyright (c) 2008 Rocket Boys Ltd
+# Author::    Kiwinewt.Geek  (mailto: kiwinewt at kiwinewt dot geek dot nz)
+# Copyright:: Copyright (c) 2010 Kiwinewt.Geek Ltd
 # License::   BSD Licence, see application root.
 
 class EnhancedFormBuilder < ActionView::Helpers::FormBuilder

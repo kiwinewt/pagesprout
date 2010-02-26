@@ -4,7 +4,7 @@ first:
   body: OMG FIRST!!!11!
   enabled: true
   user: john
-  permalink: 2008-10-12-First
+  permalink: 2010-10-12-First
   
 nuva:
   title: nuva
@@ -12,4 +12,4 @@ nuva:
   body: A Nuva Post! Ooh Wow!
   enabled: false
   user: john
-  permalink: 2008-10-3-nuva
+  permalink: 2010-10-3-nuva

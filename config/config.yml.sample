@@ -6,7 +6,7 @@ common:
   contact_email: admin@example.com
   site_name: Example Site
   site_slogan: Example slogan.
-  site_footer: Copyright John Smith 2008
+  site_footer: Copyright John Smith 2010
   search_enabled: true
   page_not_found: "It seems that the page you were looking for does not exist, so you have been redirected here."
   recaptcha_public_key: ""
