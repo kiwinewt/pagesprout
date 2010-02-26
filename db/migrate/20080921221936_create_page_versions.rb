@@ -6,6 +6,7 @@ class CreatePageVersions < ActiveRecord::Migration
       t.string  :title
       t.text    :body
       t.string  :permalink
+      t.string  :keywords
       t.integer :user_id
       t.timestamps
     end

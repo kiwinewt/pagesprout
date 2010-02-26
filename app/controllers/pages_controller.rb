@@ -43,6 +43,7 @@ class PagesController < ApplicationController
 
   # Show the page and its details. Page must be enabled or user must be admin.
   def show
+    @keywords = @page.keywords unless @page.keywords.blank?
     respond_to do |format|
       format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @page }

@@ -4,6 +4,7 @@ class CreateBlogs < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :permalink
+      t.string  :keywords
       t.boolean :enabled, :default => true
       t.timestamps
     end

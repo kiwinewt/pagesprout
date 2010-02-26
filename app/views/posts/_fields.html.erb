@@ -1,5 +1,9 @@
 <%= f.text_field :title %>
+
 <%= f.text_area :body %>
+
+<%= f.text_field :keywords, :note => 'Comma-seperated keywords for the page. These are used by Search Engines' %>
+
 <% f.checklist do %>
   <%= f.check_box :enabled, :label => 'Published' %>
 <% end %>

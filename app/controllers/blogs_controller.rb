@@ -18,7 +18,13 @@ class BlogsController < ApplicationController
 
   # Display the blog and all its enabled posts.
   def show
-    @posts = get_posts
+    unless @blog.keywords.blank?
+      @keywords = @blog.keywords 
+      @posts = get_posts
+      @posts.each do |post|
+        @keywords += ("," + post.keywords unless post.keywords.blank?)
+      end
+    end
     respond_to do |format|
       format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @blog }

@@ -1,6 +1,11 @@
 <%= f.text_field :title, :class => 'heading' %>
+
 <%= f.text_area :description, :rows => 5, :note => "This will be shown at the top of your blog." %>
+
 <%= f.text_field :permalink %>
+
+<%= f.text_field :keywords, :note => 'Comma-seperated keywords for the page. These are used by Search Engines' %>
+
 <% f.checklist do %>
   <%= f.check_box :enabled, :label => 'Published' %>
 <% end %>

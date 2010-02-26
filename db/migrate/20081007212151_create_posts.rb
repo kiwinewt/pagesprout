@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.string :permalink
+      t.string  :keywords
       t.boolean :enabled, :default => true
       t.integer :blog_id, :null => false
       t.integer :user_id

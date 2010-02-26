@@ -5,6 +5,9 @@
   <title><%= page_title %></title>
   <%= stylesheet_link_tag Theme.active.stylesheet_path %>
   <%= scripts %>
+  <% if @keywords %>
+    <meta name="keywords" content="<%= @keywords %>" />
+  <% end %>
 </head>
 <body>
   

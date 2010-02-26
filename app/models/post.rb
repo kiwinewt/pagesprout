@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
   end
   
   def title=(name)
-    self[:title] = name
-    self[:permalink] = (Time.now.strftime('%Y-%m-%d-') + title.gsub(/\s/, '-').gsub(/[^a-z0-9\-_]+/i, ''))[0..50].downcase!
+    write_attribute(:title, name)
+    write_attribute(:permalink, (Time.now.strftime('%Y-%m-%d-') + name.gsub(/\s/, '-').gsub(/[^a-z0-9\-_]+/i, '')))
   end
 end

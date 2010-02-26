@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    @keywords = @post.keywords unless @post.keywords.blank?
     respond_to do |format|
       format.html { render :layout => 'master' } # show.html.erb
       format.xml  { render :xml => @post }
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
         format.html { redirect_to blog_posts_path(@blog) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
+        puts @post.errors
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end

@@ -5,6 +5,7 @@ class CreatePages < ActiveRecord::Migration
       t.string  :title
       t.text    :body
       t.string  :permalink
+      t.string  :keywords
       t.integer :version, :default => 1
       t.boolean :home_page, :default => false
       t.boolean :locked, :default => false
