@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   layout 'admin'
   
   before_filter :find_page, :only => [:show, :edit, :update, :destroy, :versions, :enable, :revert_to_version]
-  before_filter :login_required, :except => [:show, :index, :sitemap]
+  before_filter :login_required, :except => [:show, :index, :sitemap, :contact]
   before_filter :page_enabled, :only => :show
 
   # If there is a homepage set, redirect to it, otherwise display the uber-basic welcome page.
@@ -20,6 +20,10 @@ class PagesController < ApplicationController
       render :layout => 'master'
     end
   end
+
+  def contact
+    render :layout => 'master'
+  end 
 
   # GET /pages/list
   def list
